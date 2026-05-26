@@ -24,7 +24,7 @@ function About() {
                             memories.
                         </p>
                         <p>
-                            From honeymoon getaways to family vacations, group tours to
+                            From family vacations to honeymoon getaways, group tours to
                             corporate outings - we handle every detail with care and
                             professionalism.
                         </p>
