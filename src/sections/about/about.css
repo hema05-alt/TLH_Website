@@ -1,1 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about-section {
+    padding: 50px 20px;
+    background: white;
+    font-family: Arial, sans-serif;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Top Section */
+
+.about-top {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
 
