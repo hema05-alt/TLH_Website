@@ -1,1 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+.about-section {
+    padding: 50px 20px;
+    background: #f9f7f5;
+    font-family: Arial, sans-serif;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Top Section */
+
+.about-top {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1; /* seperate the flex evenly  between the image and the content */
+}
+
+.about-content h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #050606;
+}
+
+.about-content p {
+    color: #868F93;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+/* Features */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-item span {
+    color: #E4A541;
+    font-size: 24px;
+}
+
+
+.feature-item p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Bottom Cards */
+
+.about-bottom {
+    display: flex;
+    gap: 20px;
+    border: 1px solid #34311e;
+    border-radius: 20px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    flex: 1;
+    display: flex;
+    align-items: space-between;
+    gap: 20px;
+    min-width: 300px;
+    border-right: 1px solid #34311e;
+}
+
+.info-card h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #868F93;
+    line-height: 1.6;
+}
+
+.info-card .icon {
+    font-size: 40px;
+    color: #E4A541;
+}
+
+
+.info-card1 {
+    flex: 1;
+    display: flex;
+    align-items: space-between;
+    gap: 20px;
+    min-width: 300px;
+}
+
+.info-card1 h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.info-card1 p {
+    color: #868F93;
+    line-height: 1.6;
+}
+
+.info-card .icon {
+    font-size: 40px;
+    color: #E4A541;
+}
+
+.info-card1 .icon1 {
+    font-size: 40px;
+    color: #E4A541;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .about-top {
+        flex-direction: column;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .about-bottom {
+        flex-direction: column;
+    }
+
+    .about-content h2 {
+        font-size: 34px;
+    }
+
+    .info-card h3 {
+        font-size: 24px;
+    }
+}
