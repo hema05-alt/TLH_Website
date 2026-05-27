@@ -1,5 +1,18 @@
 import React from "react";
 import "./about.css";
+import aboutImage from "../../assets/images/about.jpg";
+import {
+  FaMapMarkedAlt,
+  FaUserTie,
+  FaBus,
+  FaPhoneAlt,
+  FaHotel,
+  FaGlobe,
+  FaEye,
+  FaBullseye
+} 
+
+from "react-icons/fa";
 
 function About() {
     return (
@@ -11,7 +24,7 @@ function About() {
 
                     {/* Left image */}
                     <div className="about-image">
-                        <img src="" alt="About Us" />
+                        <img src={aboutImage} alt="About Us" />
                     </div>
 
                     {/* Right content */}
@@ -32,59 +45,78 @@ function About() {
                         {/* Features */}
                         <div className="features">
                             <div className="feature-item">
+                                <span><FaMapMarkedAlt /></span>
                                 <p>Personalized Tour Planning</p>
                             </div>
 
                             <div className="feature-item">
+                                <span><FaUserTie /></span>
                                 <p>Experienced Tour Guides</p>
                             </div>
 
                             <div className="feature-item">
+                                <span><FaBus /></span>
                                 <p>Comfortable Transportation</p>
                             </div>
 
                             <div className="feature-item">
+                                <span><FaPhoneAlt /></span>
                                 <p>24/7 Customer Support</p>
                             </div>
 
                             <div className="feature-item">
+                                <span><FaHotel /></span>
                                 <p>Trusted Hotel Arrangements</p>
                             </div>
 
                             <div className="feature-item">
+                                <span><FaGlobe /></span>
                                 <p>Hassle-free Journey</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* vision */}
-                <div className="info-card">
-                    <div className="icon">
 
+                {/* Bottom Cards */}
+                <div className="about-bottom">
+
+                    {/* Vision */}
+                    <div className="info-card">
+                        <div className="icon">
+                            <span><FaEye /></span>
+                        </div>
+
+                        <div>
+                            <h3>Our Vision</h3>
+                            <p>
+                                To become the most trusted travel partner for exploring the
+                                beauty of South India.
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Our Vision</h3>
-                        <p>
-                            To become the most trusted travel partner for exploring the
-                            beauty of South India.
-                        </p>
+
+                    {/* Mission */}
+                    <div className="info-card1">
+                        <div className="icon1">
+                            <span><FaBullseye /></span>
+                        </div>
+
+                        <div>
+                            <h3>Our Mission</h3>
+                            <p>
+                                To deliver safe, affordable, and joyful travel experiences for
+                                every customer.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* mission */}
-                <div classsName="info-card">
-                    <div className="icon">
+                {/* Banner */}
+                <div className="about-banner">
 
-                    </div>
-                    <div>
-                        <h3>Our Mission</h3>
-                        <p>
-                            To deliver safe, affordable, and joyful travel experiences for
-                            every customer.
-                        </p>
-                    </div>
                 </div>
+
             </div>
         </section>
     );
