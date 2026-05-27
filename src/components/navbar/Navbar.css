@@ -34,6 +34,13 @@
   color: #E4A541;
 }
 
+.hamburger{
+  display: none;
+  font-size: 2rem;
+  color: #F9F7F5;
+  cursor: pointer;
+}
+
 /* Mobile Responsive */
 
 @media (max-width: 768px) {
@@ -49,6 +56,14 @@
     align-items: center;
     gap: 15px;
     padding: 0;
+  }
+
+  .nav-links.active{
+    display: flex;
+  }
+
+  .hamburger{
+    display: block;
   }
 
 }
