@@ -1,15 +1,42 @@
+/* ===== COMMON BUTTON ===== */
+
 .custom-btn {
-  background-color: #D4AF37;
-  color: #050606;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
+  outline: none;
+
+  padding: 10px 22px;
+  border-radius: 25px;
+
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+
+  transition: 0.3s ease;
 }
 
-.custom-btn:hover {
-  background-color: #B8860B;
-  color: white;
+/* ===== PRIMARY BUTTON ===== */
+
+.primary {
+  background-color: #D4AF37;
+  color: black;
+}
+
+.primary:hover {
+  background-color: #f1c94b;
+  transform: translateY(-2px);
+}
+
+/* ===== SECONDARY BUTTON ===== */
+
+.secondary {
+  background-color: transparent;
+  color: #D4AF37;
+
+  border: 1px solid #D4AF37;
+}
+
+.secondary:hover {
+  background-color: #D4AF37;
+  color: black;
+
+  transform: translateY(-2px);
 }
