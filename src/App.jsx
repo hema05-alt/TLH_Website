@@ -12,11 +12,9 @@ function App() {
     <>
     <Navbar/>
     <Herosection/>
-     
-      <Navbar/> 
-      <About />
-      <Packages />
-      <Footer />
+    <About />
+    <Packages />
+    <Footer />
     </>
   )
 }
