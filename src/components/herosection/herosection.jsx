@@ -1,10 +1,32 @@
-import React from "react";
+import React,{ useState,useEffect } from "react";
 import "./Herosection.css";
 import Button from "../common/Button/Button";
+import hero1 from "../../assets/images/hero-image1.webp"
+import hero2 from "../../assets/images/hero-image2.webp"
+import hero3 from "../../assets/images/hero-image3.webp"
+import hero4 from "../../assets/images/hero-image4.webp"
+
+const heroImages = [hero1, hero2, hero3, hero4];
 
 const HeroSection = () => {
+
+  const [currentImage, setCurrentImage] = useState(0);
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+
+      setCurrentImage((prevImage) => 
+        prevImage === heroImages.length - 1
+          ? 0 
+          : prevImage + 1
+      );
+    },4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="hero-section">
+    <section className="hero-section" style={{backgroundImage: `url(${heroImages[currentImage]})`}}>
 
       {/* Overlay */}
       <div className="overlay"></div>
