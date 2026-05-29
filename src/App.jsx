@@ -4,11 +4,15 @@ import Footer from "./components/footer/footer";
 import About from "./sections/about/about";
 import Navbar from './components/Navbar/Navbar';
 import Packages from './sections/packages/packages';
+import Herosection from './components/Herosection/Herosection';
 
 function App() {
   
   return (
     <>
+    <Navbar/>
+    <Herosection/>
+     
       <Navbar/> 
       <About />
       <Packages />
