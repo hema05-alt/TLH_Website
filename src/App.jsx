@@ -7,11 +7,9 @@ function App() {
   
   return (
     <>
-      <div>
-        <About />
-        <Footer />
-      </div>
-    <Navbar/>  
+      <Navbar/> 
+      <About />
+      <Footer />
     </>
   )
 }
