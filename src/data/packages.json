@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "title": "Vagamon",
+        "subtitile": "Explore Adventures Places",
+        "image": "/src/assets/images/vagamon.jpg",
+        "day1": [
+            "Visit to Pine Forest",
+            "Visit to Vaga Waterfalls",
+            "Visit to Vaga Lake"
+        ],
+        "day2": [
+            "Visit to Vaga View Point",
+            "Visit to Vaga Garden",
+            "CampFire Night"
+        ],
+        "Expenses":"$3000"
+    },
+    {
+        "id": 2,
+        "title": "Munnar",
+        "subtitile": "Explore Adventures Places",
+        "image": "/src/assets/images/munnar.jpg",
+        "day1": [
+            "Visit to Tea Plantations",
+            "Visit to Eravikulam National Park",
+            "Visit to Mattupetty Dam"
+        ],
+        "day2": [
+            "Visit to Anamudi Peak",
+            "Visit to Attukal Waterfalls",
+            "Visit to Echo Point"
+        ],
+        "Expenses":"$3500"
+    }
+]

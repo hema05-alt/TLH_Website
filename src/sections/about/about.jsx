@@ -90,8 +90,8 @@ function About() {
                         <div>
                             <h3>Our Vision</h3>
                             <p>
-                                To become the most trusted travel partner for exploring the
-                                beauty of South India.
+                                To become the most trusted travel partner 
+                                for exploring the beauty of South India.
                             </p>
                         </div>
                     </div>
@@ -105,8 +105,8 @@ function About() {
                         <div>
                             <h3>Our Mission</h3>
                             <p>
-                                To deliver safe, affordable, and joyful travel experiences for
-                                every customer.
+                                To deliver safe, affordable, and joyful 
+                                travel experiences forevery customer.
                             </p>
                         </div>
                     </div>

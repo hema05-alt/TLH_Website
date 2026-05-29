@@ -7,7 +7,8 @@
 .about-section {
     padding: 50px 20px;
     background: #f9f7f5;
-    font-family: Arial, sans-serif;
+    font-family: poppins, sans-serif;
+    border-bottom: 1px solid #34311e;
 }
 
 .about-container {
@@ -86,27 +87,32 @@
     gap: 20px;
     border: 1px solid #34311e;
     border-radius: 20px;
-    padding: 30px;
+    padding: 20px;
     flex-wrap: wrap;
 }
 
 .info-card {
     flex: 1;
     display: flex;
-    align-items: space-between;
+    align-items: space-around;
     gap: 20px;
-    min-width: 300px;
+    min-width: 250px;
     border-right: 1px solid #34311e;
+    padding-left: 50px;
 }
 
 .info-card h3 {
     font-size: 30px;
     margin-bottom: 10px;
+    width: 90%;
+    margin :0 0 10px 0;
 }
 
 .info-card p {
     color: #868F93;
     line-height: 1.6;
+    width: 90%;
+    margin :0 0 10px 0;
 }
 
 .info-card .icon {
@@ -126,11 +132,15 @@
 .info-card1 h3 {
     font-size: 30px;
     margin-bottom: 10px;
+    width: 90%;
+    margin :0 0 10px 0;
 }
 
 .info-card1 p {
     color: #868F93;
     line-height: 1.6;
+    width: 90%;
+    margin :0 0 10px 0;
 }
 
 .info-card .icon {
