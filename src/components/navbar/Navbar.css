@@ -1,4 +1,4 @@
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 
 .custom-navbar {
   background-color: #050606;
@@ -8,47 +8,49 @@
   z-index: 1000;
 }
 
-/* ===== LOGO ===== */
+/* LOGO */
 
 .logo {
-  font-family: "Dancing Script", cursive;
-  color: #D4AF37 !important;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 
-/* ===== MENU ===== */
+.logo-img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* MENU */
 
 .nav-links {
   gap: 15px;
   align-items: center;
 }
 
-/* Nav Links */
+/* LINKS */
 
 .nav-link {
-  color: white !important;
+  color: #fff !important;
   font-size: 16px;
   font-weight: 500;
   transition: 0.3s ease;
 }
 
-/* Hover */
-
 .nav-link:hover {
   color: #D4AF37 !important;
 }
 
-/* ===== BUTTON ===== */
+/* BUTTON */
 
 .nav-btn {
   margin-left: 25px;
 }
 
-/* ===== HAMBURGER ===== */
+/* HAMBURGER */
 
 .navbar-toggler {
   border: none;
@@ -58,13 +60,11 @@
   box-shadow: none;
 }
 
-/* White Hamburger Icon */
-
 .navbar-toggler-icon {
   filter: invert(1);
 }
 
-/* ===== MOBILE VIEW ===== */
+/* MOBILE */
 
 @media (max-width: 991px) {
 
@@ -77,22 +77,24 @@
     background-color: #050606;
   }
 
-  /* Mobile Menu Box */
+  .logo-img {
+    height: 45px;
+  }
 
   .navbar-collapse {
     background-color: transparent !important;
+    position: absolute;
     top: 50px;
     right: 20px;
-    padding: 5px;
-    position: absolute;
-    text-align: right;
     width: max-content;
+    padding: 5px;
+    text-align: right;
   }
 
   .nav-links {
-    gap: 1px;
     flex-direction: column;
     align-items: flex-end;
+    gap: 1px;
   }
 
   .nav-link {
