@@ -1,8 +1,9 @@
 import React from "react";
 import "./Navbar.css";
+import logo from "../../assets/images/logo.webp";
 import Button from "../common/Button/Button";
 
-const Navbar = () => {
+const Navbar = ({openBookingForm}) => {
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
 
@@ -10,7 +11,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <a className="navbar-brand logo" href="/">
-          <span className="logo-text">1000 Light Holidays</span>
+          <img src={logo} alt="1000 Light Holidays" className="logo-img"/>
         </a>
 
         {/* Hamburger Button */}
@@ -74,7 +75,7 @@ const Navbar = () => {
 
           {/* Button */}
           <div className="nav-btn">
-            <Button title="Enquire Now" type="primary" />
+            <Button title="Enquire Now" type="primary" onClick={openBookingForm} />
           </div>
 
         </div>

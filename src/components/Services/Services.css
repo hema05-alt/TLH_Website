@@ -1,0 +1,271 @@
+/* ANIMATION */
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* SERVICES SECTION */
+
+.services {
+  padding: 60px 8%;
+  background: #f8f8f8;
+}
+
+.services-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* LEFT SIDE */
+
+.services-left {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-tag {
+  color: #d4af37;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.services-left h2 {
+  font-size: 34px;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.services-left h2 span {
+  color: #d4af37;
+}
+
+.service-description {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+/* IMAGE */
+
+.service-image {
+  height: 180px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.service-image:hover img {
+  transform: scale(1.06);
+}
+
+/* SERVICE CARDS */
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.mini-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ececec;
+  border-radius: 18px;
+  padding: 18px;
+  transition: 0.3s ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-6px);
+  border-color: #d4af37;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.mini-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.12);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-size: 20px;
+  margin-bottom: 12px;
+  transition: 0.3s ease;
+}
+
+.mini-card:hover .mini-icon {
+  transform: rotate(8deg) scale(1.08);
+}
+
+.mini-card h4 {
+  color: #111;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.mini-card p {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* RIGHT SIDE */
+
+.travel-card {
+  background: linear-gradient(135deg, #111 0%, #1b1b1b 100%);
+  border-radius: 28px;
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.travel-label {
+  color: #d4af37;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.travel-card h3 {
+  color: #fff;
+  font-size: 30px;
+  line-height: 1.3;
+  margin: 14px 0 24px;
+}
+
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.travel-grid p {
+  color: #d8d8d8;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.travel-grid svg {
+  color: #d4af37;
+  min-width: 14px;
+}
+
+/* STATS CARD */
+
+.travel-stats {
+  margin-top: 24px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 18px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-item h4 {
+  color: #d4af37;
+  font-size: 22px;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.stat-item span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .services-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .service-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 50px 20px;
+  }
+
+  .services-left h2 {
+    font-size: 28px;
+  }
+
+  .service-description {
+    max-width: 100%;
+  }
+
+  .service-image {
+    height: 160px;
+  }
+
+  .travel-card {
+    padding: 25px;
+  }
+
+  .travel-card h3 {
+    font-size: 24px;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .stat-divider {
+    width: 60%;
+    height: 1px;
+  }
+}
