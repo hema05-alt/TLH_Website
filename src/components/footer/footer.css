@@ -5,7 +5,7 @@
 }
 
 .footer {
-    background-color: #34311E;
+    background-color: #050606;
     color: #f9f7F5;
     display: flex;
     justify-content: space-between;
@@ -15,6 +15,7 @@
 
 .footer-section {
     width: 22%;
+    
 }
 
 .logo-box {

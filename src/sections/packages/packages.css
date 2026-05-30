@@ -78,4 +78,14 @@ h4 span{
     border-radius: 30px;
     cursor: pointer;
     margin-top: 20px;
+    font-weight: 200px;
+}
+
+.enquire-now:hover{
+    transform: translateY(-2px);
+    background-color: #E4A541;
+}
+
+.package-card:hover{
+    transform: translateY(-5px);
 }

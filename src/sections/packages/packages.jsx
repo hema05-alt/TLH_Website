@@ -14,7 +14,7 @@ function Packages() {
                 <h1> Popular Tour Packages </h1>
             </div>
 
-            {/* Package Cards */}
+            {/* Package Cards1 */}
             <div className="packages-container">
                 <div className="package-card">
                     <img src={package1} alt="Package 1" className="package-image" />
@@ -47,6 +47,7 @@ function Packages() {
 
                 </div>
 
+                {/* Package Cards2 */}
                 <div className="package-card">
                     <img src={package3} alt="Package 2" className="package-image" />
                     <h3>OOTY</h3>
@@ -77,6 +78,8 @@ function Packages() {
                     </div>
 
                 </div>
+
+                {/* Package Cards3 */}
 
                 <div className="package-card">
                     <img src={package2} alt="Package 2" className="package-image" />

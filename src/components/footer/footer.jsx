@@ -1,5 +1,6 @@
 import react from 'react';
 import './footer.css';
+import logo from '../../assets/logos/tlh.png';
 
 function footer() {
     return (
@@ -8,7 +9,7 @@ function footer() {
         {/* Left Section */}
         <div className="footer-section">
             <div className="logo-box">
-                <img src="/assets/logo.png" alt="TLH Logo" className="logo" />
+                <img src={logo} alt="TLH Logo" className="logo" />
 
                 <div>
                     <h2>Thousand Light Holidays</h2>
