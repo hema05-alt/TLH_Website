@@ -1,18 +1,19 @@
 import React from "react";
 import "./about.css";
-import aboutImage from "../../assets/images/about.jpg";
+import picture3 from "../../assets/images/picture3.png";
+import picture1 from "../../assets/images/picture1.png";
+import picture2 from "../../assets/images/picture2.png";
 import {
-  FaMapMarkedAlt,
-  FaUserTie,
-  FaBus,
-  FaPhoneAlt,
-  FaHotel,
-  FaGlobe,
-  FaEye,
-  FaBullseye
-} 
+    FaMapMarkedAlt,
+    FaUserTie,
+    FaBus,
+    FaPhoneAlt,
+    FaHotel, FaGlobe,
+    FaEye,
+    FaBullseye
+}
 
-from "react-icons/fa";
+    from "react-icons/fa";
 
 function About() {
     return (
@@ -24,12 +25,14 @@ function About() {
 
                     {/* Left image */}
                     <div className="about-image">
-                        <img src={aboutImage} alt="About Us" />
+                        <img src={picture3} alt="About Us" className="picture picture1" />
+                        <img src={picture1} alt="About Us" className="picture picture2" />
+                        <img src={picture2} alt="About Us" className="picture picture3" />
                     </div>
 
                     {/* Right content */}
                     <div className="about-content">
-                        <h2>About Us</h2>
+                        <h1>About Us</h1>
                         <p>
                             Thousand Light Holidays is a passionate travel company dedicated
                             to creating memorable journeys across South India. We believe
@@ -42,74 +45,72 @@ function About() {
                             professionalism.
                         </p>
 
-                        {/* Features */}
-                        <div className="features">
-                            <div className="feature-item">
-                                <span><FaMapMarkedAlt /></span>
-                                <p>Personalized Tour Planning</p>
+                        {/* Vision */}
+                        <div className="vision">
+                            <div className="info-card">
+                                <div className="icon">
+                                    <span><FaEye /></span>
+                                </div>
+
+                                <div>
+                                    <h3>Our Vision</h3>
+                                    <p>
+                                        To become the most trusted travel partner
+                                        for exploring the beauty of South India.
+                                    </p>
+                                </div>
                             </div>
 
-                            <div className="feature-item">
-                                <span><FaUserTie /></span>
-                                <p>Experienced Tour Guides</p>
-                            </div>
+                            {/* Mission */}
+                            <div className="info-card1">
+                                <div className="icon1">
+                                    <span><FaBullseye /></span>
+                                </div>
 
-                            <div className="feature-item">
-                                <span><FaBus /></span>
-                                <p>Comfortable Transportation</p>
-                            </div>
-
-                            <div className="feature-item">
-                                <span><FaPhoneAlt /></span>
-                                <p>24/7 Customer Support</p>
-                            </div>
-
-                            <div className="feature-item">
-                                <span><FaHotel /></span>
-                                <p>Trusted Hotel Arrangements</p>
-                            </div>
-
-                            <div className="feature-item">
-                                <span><FaGlobe /></span>
-                                <p>Hassle-free Journey</p>
+                                <div>
+                                    <h3>Our Mission</h3>
+                                    <p>
+                                        To deliver safe, affordable, and joyful
+                                        travel experiences forevery customer.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                {/* Bottom Cards */}
-                <div className="about-bottom">
+            {/* Bottom Cards */}
+            <div className="about-bottom">
 
-                    {/* Vision */}
-                    <div className="info-card">
-                        <div className="icon">
-                            <span><FaEye /></span>
-                        </div>
-
-                        <div>
-                            <h3>Our Vision</h3>
-                            <p>
-                                To become the most trusted travel partner 
-                                for exploring the beauty of South India.
-                            </p>
-                        </div>
+                {/* Features */}
+                <div className="features">
+                    <div className="feature-item">
+                        <span><FaMapMarkedAlt /></span>
+                        <p>Personalized Tour Planning</p>
                     </div>
 
-                    {/* Mission */}
-                    <div className="info-card1">
-                        <div className="icon1">
-                            <span><FaBullseye /></span>
-                        </div>
-
-                        <div>
-                            <h3>Our Mission</h3>
-                            <p>
-                                To deliver safe, affordable, and joyful 
-                                travel experiences forevery customer.
-                            </p>
-                        </div>
+                    <div className="feature-item">
+                        <span><FaUserTie /></span>
+                        <p>Experienced Tour Guides</p>
                     </div>
+
+                    <div className="feature-item">
+                        <span><FaBus /></span>
+                        <p>Comfortable Transportation</p>
+                    </div>
+
+                    <div className="feature-item">
+                        <span><FaPhoneAlt /></span>
+                        <p>24/7 Customer Support</p>
+                    </div>
+
+                    <div className="feature-item">
+                        <span><FaHotel /></span>
+                        <p>Trusted Hotel Arrangements</p>
+                    </div>
+
                 </div>
 
                 {/* Banner */}
