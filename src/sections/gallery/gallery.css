@@ -27,6 +27,13 @@
     border-radius: 10px;
 }
 
+.gallery-item{
+    display: flex;
+    gap: 20px;
+    scroll-behavior: smooth;
+    width: 1200px;
+}
+
 .gallery-buttons{
     display: flex;
     justify-content: space-between;
@@ -34,7 +41,7 @@
     margin-top: 20px;
 }
 
-.button-gallery{
+#button-gallery{
     background-color: #E4A541;
     color: #f9f7f5;
     width: 50px;

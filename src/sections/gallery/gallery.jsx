@@ -8,6 +8,15 @@ import gallery4 from '../../assets/images/vagamon.jpg';
 
 
 function Gallery() {
+    // javascript code
+    const scrollLeft = () => {
+        document.querySelector(".gallery-item").scrollLeft -= 320;
+    };
+
+    const scrollRight = () => {
+        document.querySelector(".gallery-item").scrollRight += 320;
+    };
+
     return (
         <section className="gallery-section">
             <div className="gallery-header">
@@ -20,26 +29,20 @@ function Gallery() {
             <div className="gallery-container">
 
                 {/* button */}
-                <button className="button-gallery">
+                <button onClick={scrollLeft} id="button-gallery">
                     <FaChevronLeft />
                 </button>
 
                 <div className="gallery-item">
                     <img src={gallery1} alt="Gallery Image 1" className="gallery-image" />
-                </div>
-                <div className="gallery-item">
                     <img src={gallery2} alt="Gallery Image 2" className="gallery-image" />
-                </div>
-                <div className="gallery-item">
                     <img src={gallery3} alt="Gallery Image 3" className="gallery-image" />
-                </div>
-                <div className="gallery-item">
                     <img src={gallery4} alt="Gallery Image 4" className="gallery-image" />
                 </div>
 
 
                 {/* button */}
-                <button className="button-gallery">
+                <button onClick={scrollRight} id="button-gallery">
                     <FaChevronRight />
                 </button>
 
