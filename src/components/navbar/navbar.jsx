@@ -3,18 +3,35 @@ import "./Navbar.css";
 import logo from "../../assets/images/logo.webp";
 import Button from "../common/Button/Button";
 
-const Navbar = ({openBookingForm}) => {
+const Navbar = ({ openBookingForm }) => {
+
+  // smooth scroll function
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
 
       <div className="container-fluid px-4">
 
         {/* Logo */}
-        <a className="navbar-brand logo" href="/">
-          <img src={logo} alt="1000 Light Holidays" className="logo-img"/>
-        </a>
+        <div
+          className="navbar-brand logo"
+          onClick={() => scrollToSection("home")}
+          style={{ cursor: "pointer" }}
+        >
+          <img
+            src={logo}
+            alt="1000 Light Holidays"
+            className="logo-img"
+          />
+        </div>
 
-        {/* Hamburger Button */}
+        {/* Hamburger */}
         <button
           className="navbar-toggler"
           type="button"
@@ -30,52 +47,51 @@ const Navbar = ({openBookingForm}) => {
           <ul className="navbar-nav ms-auto nav-links">
 
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <span className="nav-link" onClick={() => scrollToSection("home")}>
                 Home
-              </a>
+              </span>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <span className="nav-link" onClick={() => scrollToSection("about")}>
                 About
-              </a>
+              </span>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <span className="nav-link" onClick={() => scrollToSection("packages")}>
                 Packages
-              </a>
+              </span>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <span className="nav-link" onClick={() => scrollToSection("services")}>
                 Services
-              </a>
+              </span>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                Gallery
-              </a>
-            </li>
-
-            <li className="nav-item">
-              <a className="nav-link" href="/">
+              <span className="nav-link" onClick={() => scrollToSection("testimonials")}>
                 Testimonials
-              </a>
+              </span>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <span className="nav-link" onClick={() => scrollToSection("contact")}>
                 Contact
-              </a>
+              </span>
             </li>
 
           </ul>
 
           {/* Button */}
           <div className="nav-btn">
-            <Button title="Enquire Now" type="primary" onClick={openBookingForm} />
+            <Button
+              title="Enquire Now"
+              type="primary"
+              className="navbar-btn"
+              onClick={openBookingForm}
+            />
           </div>
 
         </div>
