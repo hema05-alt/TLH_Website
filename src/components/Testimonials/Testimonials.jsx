@@ -1,0 +1,316 @@
+import React, { useEffect, useRef, useState } from "react";
+import "./Testimonials.css";
+import reviewsData from "../../data/reviews.json";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
+const routeNames = [
+  "Chennai → Ooty",
+  "Madurai → Kodaikanal",
+  "Coimbatore → Munnar",
+  "Salem → Yercaud",
+  "Erode → Valparai",
+  "Trichy → Wayanad",
+];
+
+const Testimonials = () => {
+  const [reviews, setReviews] = useState([]);
+  const [selectedReview, setSelectedReview] = useState(null);
+  const [currentRoute, setCurrentRoute] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+  const [newReviewId, setNewReviewId] = useState(null);
+  const [hoverStar, setHoverStar] = useState(0);
+  const swiperRef = useRef(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    location: "",
+    trip: "",
+    review: "",
+    rating: 5,
+  });
+
+  /* Load Reviews */
+  useEffect(() => {
+    const storedReviews =
+      JSON.parse(localStorage.getItem("tlhReviews")) || [];
+    setReviews([...storedReviews, ...reviewsData]);
+  }, []);
+
+  /* Route Animation */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoute((prev) =>
+        prev === routeNames.length - 1 ? 0 : prev + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  /* Form Change */
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  /* Submit Review */
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newReview = {
+      id: Date.now(),
+      ...formData,
+      date: new Date().toLocaleDateString(),
+    };
+
+    const updatedReviews = [newReview, ...reviews];
+    setReviews(updatedReviews);
+    setNewReviewId(newReview.id);
+
+    const customReviews = updatedReviews.filter(
+      (item) => !reviewsData.some((d) => d.id === item.id)
+    );
+    localStorage.setItem("tlhReviews", JSON.stringify(customReviews));
+
+    setFormData({ name: "", location: "", trip: "", review: "", rating: 5 });
+    setSubmitted(true);
+
+    /* Jump Swiper to new slide */
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(0);
+    }
+
+    setTimeout(() => setSubmitted(false), 3500);
+  };
+
+  return (
+    <section className="testimonials-section" id="testimonials">
+
+      {/* Floating Pins
+      <div className="pin pin1">📍</div>
+      <div className="pin pin2">📍</div>
+      <div className="pin pin3">📍</div> */}
+
+      {/* Heading */}
+      <div className="testimonial-header">
+        <span className="sub-title">THOUSAND LIGHT HOLIDAYS</span>
+        <h2>
+          Journey Stories From
+          <span> Happy Travellers</span>
+        </h2>
+        <p>Real memories shared by our customers across South India.</p>
+      </div>
+
+      {/* Route Board */}
+      <div className="route-board">
+        <div className="route-label">CURRENT TOUR ROUTE</div>
+        <div className="route-name">{routeNames[currentRoute]}</div>
+      </div>
+
+      {/* Road + Bus */}
+      <div className="road-area">
+        <div className="road"></div>
+        <div className="bus-wrapper">
+          <div className="bus">
+            <div className="bus-top">
+              <div className="window"></div>
+              <div className="window"></div>
+              <div className="window"></div>
+              <div className="window"></div>
+            </div>
+            <div className="bus-bottom"></div>
+            <div className="wheel wheel-left"></div>
+            <div className="wheel wheel-right"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Two-Column: Form LEFT | Reviews RIGHT ── */}
+      <div className="testimonials-two-col">
+
+        {/* LEFT — Share Journey Form */}
+        <div className="share-journey-panel">
+          <div className="form-title">
+            <h3>Share Your Journey</h3>
+            <p>Tell us about your experience with Thousand Light Holidays.</p>
+          </div>
+
+          <form className="review-form" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="location"
+              placeholder="Your City"
+              value={formData.location}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="trip"
+              placeholder="Tour Package"
+              value={formData.trip}
+              onChange={handleChange}
+              required
+            />
+
+            {/* Interactive star rating */}
+            <div className="star-rating-group">
+              <label>Your Rating</label>
+              <div className="stars-input">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    className={`star-btn${
+                      star <= (hoverStar || formData.rating) ? " active" : ""
+                    }`}
+                    onClick={() =>
+                      setFormData({ ...formData, rating: star })
+                    }
+                    onMouseEnter={() => setHoverStar(star)}
+                    onMouseLeave={() => setHoverStar(0)}
+                    aria-label={`${star} star${star > 1 ? "s" : ""}`}
+                  >
+                    ★
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <textarea
+              rows="5"
+              name="review"
+              placeholder="Share your experience..."
+              value={formData.review}
+              onChange={handleChange}
+              required
+            />
+
+            <button type="submit">Submit Review</button>
+
+            {submitted && (
+              <div className="submit-success" role="status">
+                <span className="success-check">✓</span>
+                Your review has been added! Thank you.
+              </div>
+            )}
+          </form>
+        </div>
+
+        {/* RIGHT — Reviews Carousel */}
+        <div className="reviews-carousel-wrapper">
+          <div className="section-row">
+            <h3>What Our Travellers Say</h3>
+            <div className="custom-nav">
+              <button className="review-prev">←</button>
+              <button className="review-next">→</button>
+            </div>
+          </div>
+
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={16}
+            loop={reviews.length > 1}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            navigation={{ prevEl: ".review-prev", nextEl: ".review-next" }}
+            onSwiper={(swiper) => { swiperRef.current = swiper; }}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              600: { slidesPerView: 1 },
+              900: { slidesPerView: 2 },
+            }}
+          >
+            {reviews.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div
+                  className={`review-window-card${
+                    item.id === newReviewId ? " new-review-highlight" : ""
+                  }`}
+                >
+                  <div className="window-glow"></div>
+
+                  <div className="review-top">
+                    <div className="avatar">{item.name.charAt(0)}</div>
+                    <div>
+                      <h4>{item.name}</h4>
+                      <span>{item.location}</span>
+                    </div>
+                  </div>
+
+                  <div className="rating">
+                    {"★".repeat(Number(item.rating))}
+                    {"☆".repeat(5 - Number(item.rating))}
+                  </div>
+
+                  <h5>{item.trip}</h5>
+
+                  <p className="review-preview">{item.review}</p>
+
+                  <button
+                    className="read-more-btn"
+                    onClick={() => setSelectedReview(item)}
+                  >
+                    Read More →
+                  </button>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      {/* Review Modal */}
+      {selectedReview && (
+        <div
+          className="review-modal-overlay"
+          onClick={() => setSelectedReview(null)}
+        >
+          <div
+            className="review-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close-modal"
+              onClick={() => setSelectedReview(null)}
+            >
+              ✕
+            </button>
+
+            <div className="modal-header">
+              <div className="modal-avatar">
+                {selectedReview.name.charAt(0)}
+              </div>
+              <div>
+                <h3>{selectedReview.name}</h3>
+                <span>{selectedReview.location}</span>
+              </div>
+            </div>
+
+            <div className="modal-rating">
+              {"★".repeat(Number(selectedReview.rating))}
+              {"☆".repeat(5 - Number(selectedReview.rating))}
+            </div>
+
+            <h4 className="modal-trip">{selectedReview.trip}</h4>
+            <p className="modal-review">{selectedReview.review}</p>
+            {selectedReview.date && (
+              <div className="modal-date">{selectedReview.date}</div>
+            )}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Testimonials;
