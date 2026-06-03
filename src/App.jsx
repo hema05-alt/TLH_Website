@@ -12,6 +12,7 @@ import BookingForm from './components/Bookingform/Bookingform';
 import Packages from './sections/packages/packages';
 import Herosection from './components/Herosection/Herosection';
 import Services from './components/Services/Services';
+import Testimonials from './components/Testimonials/Testimonials';
 import Gallery from './sections/gallery/gallery';
 
 function App() {
@@ -36,8 +37,9 @@ function App() {
 
       <Herosection />
       <About />
-      <Services />
       <Packages />
+      <Services />
+      <Testimonials/>
       <Gallery />
       <Footer />
     </>
