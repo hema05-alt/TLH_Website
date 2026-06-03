@@ -3,6 +3,8 @@ import "./packages.css";
 import package1 from "../../assets/images/vagamon.jpg";
 import package2 from "../../assets/images/munnar.jpg";
 import package3 from "../../assets/images/ooty.jpg";
+import package4 from "../../assets/images/karnataka.jpg";
+import { FaHotel, FaUtensils, FaBus, FaWhatsapp } from "react-icons/fa";
 
 function Packages() {
     return (
@@ -10,39 +12,31 @@ function Packages() {
             {/* Header */}
 
             <div className="packages-header">
-                <h4> Our Tour Packages </h4>
-                <h1> Popular Tour Packages </h1>
+                <h6> Our Tour Packages </h6>
+                <h1> Popular Tour <span>Packages</span></h1>
+                <p>Handpicked holiday packages for unforgottable experiences.</p>
+                    
             </div>
 
             {/* Package Cards1 */}
             <div className="packages-container">
+
                 <div className="package-card">
                     <img src={package1} alt="Package 1" className="package-image" />
                     <h3>VAGAMON</h3>
                     <p>Explore Adventures Places</p>
 
-
-                    <div className="day1">
-                        <h4>Day 1</h4>
+                    <div className="package-list">
+                        <div className="package-list-item">
+                            <p><FaHotel /> Hotel</p>
+                            <p><FaUtensils /> Meals</p>
+                            <p><FaBus /> Transportation</p>
+                        </div>
                     </div>
-                    <ul>
-                        <li>Visit to Pine Forest</li>
-                        <li>Visit to Vaga View Point</li>
-                        <li>Visit to Vaga Garden</li>
-                    </ul>
 
-                    <div className="day1">
-                        <h4>Day 2</h4>
-                    </div>
-                    <ul>
-                        <li>Visit to Pine Forest</li>
-                        <li>Visit to Vaga Waterfalls</li>
-                        <li>Visit to Vaga Lake</li>
-                    </ul>
-
+                    {/* button */}
                     <div className="package-footer">
-                        <h4><span>$ 3000</span>/Person</h4>
-                        <button className="enquire-now">Enquire Now</button>
+                        <button className="enquire-now"><FaWhatsapp className="whatsapp" /> Enquire Now</button>
                     </div>
 
                 </div>
@@ -53,28 +47,17 @@ function Packages() {
                     <h3>OOTY</h3>
                     <p>Experience the beauty of Ooty</p>
 
-
-                    <div className="day1">
-                        <h4>Day 1</h4>
+                    <div className="package-list">
+                        <div className="package-list-item">
+                            <p><FaHotel /> Hotel</p>
+                            <p><FaUtensils /> Meals</p>
+                            <p><FaBus /> Transportation</p>
+                        </div>
                     </div>
-                    <ul>
-                        <li>Visit to Botanical Gardens</li>
-                        <li>Visit to Ooty Lake</li>
-                        <li>Visit to Doddabetta Peak</li>
-                    </ul>
 
-                    <div className="day1">
-                        <h4>Day 2</h4>
-                    </div>
-                    <ul>
-                        <li>Visit to Rose Garden</li>
-                        <li>Visit to Avalanche Lake</li>
-                        <li>Visit to Emerald Lake</li>
-                    </ul>
-
+                    {/* button */}
                     <div className="package-footer">
-                        <h4><span>$ 3000</span>/Person</h4>
-                        <button className="enquire-now">Enquire Now</button>
+                        <button className="enquire-now"><FaWhatsapp className="whatsapp" /> Enquire Now</button>
                     </div>
 
                 </div>
@@ -86,32 +69,42 @@ function Packages() {
                     <h3>MUNNAR</h3>
                     <p>Experience the beauty of Munnar</p>
 
-
-                        <div className="day1">
-                            <h4>Day 1</h4>
+                    <div className="package-list">
+                        <div className="package-list-item">
+                            <p><FaHotel /> Hotel</p>
+                            <p><FaUtensils /> Meals</p>
+                            <p><FaBus /> Transportation</p>
                         </div>
-                        <ul>
-                            <li>Visit to Tea Plantations</li>
-                            <li>Visit to Eravikulam National Park</li>
-                            <li>Visit to Mattupetty Dam</li>
-                        </ul>
+                    </div>
 
-                        <div className="day1">
-                            <h4>Day 2</h4>
-                        </div>
-                        <ul>
-                            <li>Visit to Anamudi Peak</li>
-                            <li>Visit to Attukal Waterfalls</li>
-                            <li>Visit to Echo Point</li>
-                        </ul>
-
-                        <div className="package-footer">
-                            <h4><span>$ 2500</span>/Person</h4>
-                            <button className="enquire-now">Enquire Now</button>
-                        </div>
-
+                    {/* button */}
+                    <div className="package-footer">
+                        <button className="enquire-now"><FaWhatsapp className="whatsapp" /> Enquire Now</button>
                     </div>
                 </div>
+
+
+                {/* Package Cards4 */}
+
+                <div className="package-card">
+                    <img src={package4} alt="Package 4" className="package-image" />
+                    <h3>KARNATAKA</h3>
+                    <p>Explore many historical places</p>
+
+                    <div className="package-list">
+                        <div className="package-list-item">
+                            <p><span><FaHotel /></span> Hotel</p>
+                            <p><span><FaUtensils /></span> Meals</p>
+                            <p><span><FaBus /></span> Transportation</p>
+                        </div>
+                    </div>
+
+                    {/* button */}
+                    <div className="package-footer">
+                        <button className="enquire-now"><FaWhatsapp className="whatsapp" /> Enquire Now</button>
+                    </div>
+                </div>
+            </div>
 
         </section >
     );

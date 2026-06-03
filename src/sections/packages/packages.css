@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .packages-section {
     background-color: #f9f7f5;
     padding: 60px 20px;
@@ -8,6 +14,23 @@
     padding: 60px 20px;
 }
 
+.packages-header h6 {
+    font-family: "poppins", sans-serif;
+    color: #e4a541;
+}
+
+.packages-header h1 span{
+    color: #e4a541;
+}
+
+.packages-header h1{
+    font-size: 40px;
+}
+
+.packages-header p{
+    color:#7c8386;
+}
+
 .packages-container {
     display: flex;
     justify-content: center;
@@ -15,11 +38,14 @@
 }
 
 .package-card{
-    width: 400px;
-    height: 700px;
-    border:1px solid #34311e;
+    width: 280px;
+    height: 430px;
+    border:none;
     border-radius: 10px;
-    background-color: #cfc4b5;
+    background-color: #f3f1ef;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
 }
 
 .package-card h3{
@@ -30,62 +56,47 @@
 
 .package-card p{
     margin-left: 10px;
-    color: #868F93;
+    color:#383838;
 }
 
 .package-image {
     width: 100%;
-    height: 250px;
+    height: 150px;
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.day1{
-    width:100px;
-    height: 25px;
-    border-radius: 10px;
-    background-color: #E4A541;
-    margin: 0 0 10px 10px;
-}
-
-.day1 h4{
-    text-align: center;
-    font-size: 18px;
-}
-
-h4{
-    font-size: 16px;
-}
-
-.package-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-h4 span{
-    font-size: 25px;
-    font-weight: 500;
+.package-list-item p{
+    font-size: 14px;
     color: #050606;
 }
 
+.package-footer{
+    align-items: center;
+}
+
 .enquire-now {
-    background-color: #E4A541;
+    background-color: goldenrod;
     border: none;
-    padding: 12px 20px;
-    border-radius: 30px;
+    border-radius: 10px;
     cursor: pointer;
-    margin-top: 20px;
-    font-weight: 200px;
+    width: 90%;
+    height: 50px;
+    margin-left: 15px;
+    transition: all 0.4s ease;
+}
+
+.whatsapp {
+    width: 30px;
+    height: 30px;
 }
 
 .enquire-now:hover{
     transform: translateY(-2px);
-    background-color: #E4A541;
+    background-color: #e4a541;
 }
 
 .package-card:hover{
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }

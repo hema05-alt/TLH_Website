@@ -13,6 +13,7 @@ import Packages from './sections/packages/packages';
 import Herosection from './components/Herosection/Herosection';
 import Services from './components/Services/Services';
 import Testimonials from './components/Testimonials/Testimonials';
+import Gallery from './sections/gallery/gallery';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
       <Packages />
       <Services />
       <Testimonials/>
+      <Gallery />
       <Footer />
     </>
   );
