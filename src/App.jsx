@@ -14,6 +14,7 @@ import Herosection from './components/Herosection/Herosection';
 import Services from './components/Services/Services';
 import Testimonials from './components/Testimonials/Testimonials';
 import Gallery from './sections/gallery/gallery';
+import WhatsAppButton from './components/WhatsAppButton/whatsappbutton';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
       <Testimonials/>
       <Gallery />
       <Footer />
+      <WhatsAppButton/>
     </>
   );
 }

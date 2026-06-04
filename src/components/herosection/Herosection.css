@@ -1,6 +1,4 @@
-/* =========================
-   HERO SECTION
-========================= */
+/* Hero Section */
 
 .hero-section {
   height: 100vh;
@@ -65,7 +63,7 @@
 
 /* BRAND NAME */
 .company-name {
-  color: #D4AF37;
+  color: #00D4AA;
   font-size: 72px;
   font-family: "Great Vibes", cursive;
   margin-bottom: 25px;
@@ -90,9 +88,7 @@
   flex-wrap: wrap;
 }
 
-/* =========================
-   STATS SECTION
-========================= */
+/* Stats section */
 
 .hero-stats {
   margin-top: 25px;
@@ -106,9 +102,9 @@
   padding: 12px;
   border-radius: 14px;
 
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(11, 31, 59, 0.8);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(11, 31, 59, 0.12);
 
   max-width: 850px;
   margin: 0 auto;
@@ -129,13 +125,13 @@
 /* ICON */
 .icon {
   font-size: 20px;
-  color: #D4AF37;
+  color:#00D4AA;
   animation: pulseIcon 2s infinite;
 }
 
 /* TEXT */
 .stat-item h3 {
-  color: #D4AF37;
+  color: #00D4AA;
   font-size: 1.1rem;
   margin: 0;
 }
@@ -227,7 +223,6 @@
     line-height: 1.6;
   }
 
-  /* 🔥 KEY FIX: 2x2 GRID */
   .stats-box {
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;

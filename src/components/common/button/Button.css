@@ -17,16 +17,17 @@
 .navbar-btn {
   padding: 6px 14px;
   font-size: 13px;
+  background-color: #00D4AA !important;
 }
 /* ===== PRIMARY BUTTON ===== */
 
 .primary {
-  background-color: #D4AF37;
+  background-color: #00D4AA !important;
   color: black;
 }
 
 .primary:hover {
-  background-color: #f1c94b;
+  background-color:  #8ff6e6 !important;
   transform: translateY(-2px);
 }
 
@@ -34,13 +35,13 @@
 
 .secondary {
   background-color: transparent;
-  color: #D4AF37;
+  color: #00D4AA ;
 
-  border: 1px solid #D4AF37;
+  border: 1px solid #00D4AA ;
 }
 
 .secondary:hover {
-  background-color: #D4AF37;
+  background-color: #00D4AA ;
   color: black;
 
   transform: translateY(-2px);

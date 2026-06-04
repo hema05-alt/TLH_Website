@@ -1,13 +1,13 @@
 /* NAVBAR */
 .custom-navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   padding: 12px 0;
-  background: rgba(0, 8, 8, 0.8);
+  background: rgba(11, 31, 59, 0.5);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-}
+  width:100%;
 
 /* BOOTSTRAP RESET */
 .navbar {
@@ -58,13 +58,13 @@
   bottom: 0;
   width: 0%;
   height: 2px;
-  background: #D4AF37;
+  background:#00D4AA;
   transform: translateX(-50%);
   transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #D4AF37 !important;
+  color: #00D4AA !important;
 }
 
 .nav-link:hover::after {
@@ -73,7 +73,7 @@
 
 /* ACTIVE LINK */
 .nav-link.active {
-  color: #D4AF37 !important;
+  color: #00D4AA !important;
 }
 
 .nav-link.active::after {
@@ -116,7 +116,7 @@
     right: 10px;
     width: 220px;
     padding: 15px;
-    background: rgba(0, 8, 8, 0.85);
+    background: rgba(11, 31, 59, 0.8);
     backdrop-filter: blur(12px);
     border-radius: 12px;
     text-align: right;
@@ -151,4 +151,5 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
 }
