@@ -1,48 +1,57 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './gallery.css';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 import gallery1 from '../../assets/images/gallery1.jpg';
 import gallery2 from '../../assets/images/gallery2.jpg';
 import gallery3 from '../../assets/images/ooty.jpg';
 import gallery4 from '../../assets/images/vagamon.jpg';
-
+import gallery5 from '../../assets/images/gallery5.jpeg';
+import gallery6 from '../../assets/images/gallery6.jpeg';
+import gallery7 from '../../assets/images/gallery7.jpeg';
+import gallery8 from '../../assets/images/gallery8.jpeg';
+import gallery9 from '../../assets/images/gallery9.jpeg';
 
 function Gallery() {
-    // javascript code
+
+    const galleryRef = useRef(null);
+
     const scrollLeft = () => {
-        document.querySelector(".gallery-item").scrollLeft -= 320;
+        galleryRef.current.scrollLeft -= 320;
     };
 
     const scrollRight = () => {
-        document.querySelector(".gallery-item").scrollRight += 320;
+        galleryRef.current.scrollLeft += 320;
     };
 
     return (
         <section className="gallery-section">
+
             <div className="gallery-header">
-                <h4> Our Gallery </h4>
-                <h1> Explore Our Memorable Moments </h1>
+                <h4>Our Gallery</h4>
+                <h1>Explore Our Memorable Moments</h1>
             </div>
 
-
-            {/* images */}
             <div className="gallery-container">
 
-                {/* button */}
-                <button onClick={scrollLeft} id="button-gallery">
+                <button onClick={scrollLeft} className="button-gallery">
                     <FaChevronLeft />
                 </button>
 
-                <div className="gallery-item">
-                    <img src={gallery1} alt="Gallery Image 1" className="gallery-image" />
-                    <img src={gallery2} alt="Gallery Image 2" className="gallery-image" />
-                    <img src={gallery3} alt="Gallery Image 3" className="gallery-image" />
-                    <img src={gallery4} alt="Gallery Image 4" className="gallery-image" />
+                <div className="gallery-item" ref={galleryRef}>
+                    <img src={gallery1} alt="" className="gallery-image" />
+                    <img src={gallery2} alt="" className="gallery-image" />
+                    <img src={gallery8} alt="" className="gallery-image" />
+                    <img src={gallery9} alt="" className="gallery-image" />
+                    <img src={gallery5} alt="" className="gallery-image" />
+                    <img src={gallery6} alt="" className="gallery-image" />
+                    <img src={gallery7} alt="" className="gallery-image" />
+                    <img src={gallery3} alt="" className="gallery-image" />
+                    <img src={gallery4} alt="" className="gallery-image" />
+
                 </div>
 
-
-                {/* button */}
-                <button onClick={scrollRight} id="button-gallery">
+                <button onClick={scrollRight} className="button-gallery">
                     <FaChevronRight />
                 </button>
 
@@ -50,6 +59,6 @@ function Gallery() {
 
         </section>
     );
-};
+}
 
 export default Gallery;
