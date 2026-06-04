@@ -29,7 +29,7 @@
 }
 
 .service-tag {
-  color: #d4af37;
+  color: #00D4AA;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -45,7 +45,7 @@
 }
 
 .services-left h2 span {
-  color: #d4af37;
+  color: #00D4AA;
 }
 
 .service-description {
@@ -93,7 +93,7 @@
 
 .mini-card:hover {
   transform: translateY(-6px);
-  border-color: #d4af37;
+  border-color: #00D4AA;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
@@ -105,7 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #d4af37;
+  color: #00D4AA;
   font-size: 20px;
   margin-bottom: 12px;
   transition: 0.3s ease;
@@ -130,7 +130,7 @@
 /* RIGHT SIDE */
 
 .travel-card {
-  background: linear-gradient(135deg, #111 0%, #1b1b1b 100%);
+  background:rgba(11, 31, 59, 0.9);
   border-radius: 28px;
   padding: 30px;
   height: 100%;
@@ -142,7 +142,7 @@
 }
 
 .travel-label {
-  color: #d4af37;
+  color: #00D4AA;
   font-size: 12px;
   letter-spacing: 2px;
   font-weight: 600;
@@ -172,7 +172,7 @@
 }
 
 .travel-grid svg {
-  color: #d4af37;
+  color: #00D4AA;
   min-width: 14px;
 }
 
@@ -201,7 +201,7 @@
 }
 
 .stat-item h4 {
-  color: #d4af37;
+  color: #00D4AA;
   font-size: 22px;
   margin-bottom: 4px;
   font-weight: 700;
@@ -215,7 +215,7 @@
 .stat-divider {
   width: 1px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(11, 31, 59, 0.75);
 }
 
 /* RESPONSIVE */

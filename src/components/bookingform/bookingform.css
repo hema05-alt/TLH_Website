@@ -1,11 +1,9 @@
-/* =========================
-   OVERLAY
-========================= */
+/* OVERLAY*/
 
 .booking-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(11, 31, 59, 0.75) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,9 +11,7 @@
   z-index: 9999;
 }
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .booking-modal {
   width: 100%;
@@ -23,7 +19,7 @@
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 10px 35px rgba(11, 31, 59, 0.75);
   animation: popup 0.25s ease;
 }
 
@@ -45,9 +41,7 @@
   }
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .booking-header {
   background: #1f1f1f;
@@ -85,9 +79,7 @@
   white-space: nowrap;
 }
 
-/* =========================
-   CLOSE BUTTON
-========================= */
+/*CLOSE BUTTON*/
 
 .close-btn {
   width: 30px;
@@ -112,17 +104,11 @@
   transform: rotate(90deg);
 }
 
-/* =========================
-   BODY
-========================= */
+/*BODY */
 
 .booking-body {
   padding: 14px 16px;
 }
-
-/* =========================
-   INFO BOX
-========================= */
 
 .info-box {
   background: #fff4c2;
@@ -137,9 +123,7 @@
   color: #4b4b4b;
 }
 
-/* =========================
-   FORM
-========================= */
+/* FORM */
 
 .form-row {
   display: flex;
@@ -192,9 +176,7 @@
   min-height: 55px;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTON */
 
 .button-group {
   display: flex;
@@ -241,9 +223,7 @@
   transform: scale(0.98);
 }
 
-/* =========================
-   MOBILE
-========================= */
+
 
 @media (max-width: 768px) {
 
