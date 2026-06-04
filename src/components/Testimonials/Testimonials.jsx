@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import testimonialsBg from "../../assets/images/testimonials-bg.webp";
 
 const routeNames = [
   "Chennai → Ooty",
@@ -266,6 +267,11 @@ const Testimonials = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          <div className="testimonial-bg-image">
+            <img src={testimonialsBg} alt="Munnar College Trip"/>
+          </div>
+
         </div>
       </div>
 
