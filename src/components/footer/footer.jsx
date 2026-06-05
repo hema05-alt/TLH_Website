@@ -1,6 +1,7 @@
 import react from 'react';
 import './footer.css';
 import logo from '../../assets/logos/tlh.png';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 function footer() {
     return (
@@ -11,9 +12,9 @@ function footer() {
             <div className="logo-box">
                 <img src={logo} alt="TLH Logo" className="logo" />
 
-                <div>
+                <div className='company-info'>
                     <h2>Thousand Light Holidays</h2>
-                    <p>A Thousand Way Of Happiness</p>
+                    <p>Travel • Explore • Experience</p>
                 </div>
             </div>
 
@@ -21,24 +22,18 @@ function footer() {
                 Your trusted travel partner for exploring the beautiful
                 destinations of South India.
             </p>
-
-            <div className="contact-icons">
-                
-            </div>
         </div>
 
         {/* Quick Section */}
         <div className="footer-section">
             <h3>Quick Links</h3>
-
+            
             <ul>
                 <li>Home</li>
                 <li>About Us</li>
-                <li>Destinations</li>
                 <li>Tour Packages</li>
                 <li>Services</li>
                 <li>Gallery</li>
-                <li>Offers</li>
                 <li>Contact Us</li>
             </ul>
         </div>
@@ -63,15 +58,15 @@ function footer() {
             <h3>Contact Info</h3>
             <ul className="contact-info">
                 <li>
-                    +91 12345 67890
+                    <FaPhoneAlt />+91 73588 56007
                 </li>
 
                 <li>
-                    thousandlightholidays@gmail.com
+                    <FaEnvelope />thousandlightholidays@gmail.com
                 </li>
 
                 <li>
-                    Cheranmahadevi, Tirunelveli,
+                    <FaMapMarkerAlt />Tirunelveli,
                     Tamil Nadu, India
                 </li>
 
