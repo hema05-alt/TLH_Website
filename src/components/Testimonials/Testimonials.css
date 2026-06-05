@@ -1,6 +1,6 @@
 /* ===== Section ===== */
 .testimonials-section {
-  background-color: #fdf8f2;
+  background-color: #f0f4f8;
   padding: 50px 24px;
   font-family: 'DM Sans', sans-serif;
   position: relative;
@@ -19,15 +19,34 @@
   text-transform: uppercase;
   color: #00D4AA;
   font-weight: 500;
-  display: block;
+  display: inline-block;
   margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Underline */
+.testimonial-header .sub-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #00D4AA;
+  transition: width 0.4s ease;
+}
+
+/* Hover */
+.testimonial-header .sub-title:hover::after {
+  width: 100%;
 }
 
 .testimonial-header h2 {
   font-family: 'Playfair Display', serif;
   font-size: 38px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #0B1F3B;
   margin: 0 0 10px;
   line-height: 1.25;
 }
@@ -38,13 +57,13 @@
 
 .testimonial-header p {
   font-size: 14px;
-  color: #999;
+  color: #6b7a8d;
   margin: 0;
 }
 
 /* ===== Route Board ===== */
 .route-board {
-  background: #1a1a1a;
+  background: #0B1F3B;
   color: #fff;
   padding: 10px 24px;
   border-radius: 24px;
@@ -82,7 +101,7 @@
   height: 3px;
   background: repeating-linear-gradient(
     to right,
-    #0b0b0b 0px,
+    #0B1F3B 0px,
     #00D4AA 20px,
     transparent 20px,
     transparent 36px
@@ -131,7 +150,7 @@
   left: 0;
   right: 0;
   height: 14px;
-  background: #545252;
+  background: #0B1F3B;
   border-radius: 0 0 4px 4px;
 }
 
@@ -141,8 +160,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #333;
-  border: 3px solid #888;
+  background: #0B1F3B;
+  border: 3px solid #4a6080;
   animation: wheelSpin 0.4s linear infinite;
 }
 
@@ -190,8 +209,8 @@
   background: #fff;
   border-radius: 18px;
   padding: 24px 20px;
-  border: 1px solid #f0e9de;
-  box-shadow: 0 4px 24px rgba(200, 150, 62, 0.08);
+  border: 1px solid #d0dce8;
+  box-shadow: 0 4px 24px rgba(11, 31, 59, 0.08);
   position: sticky;
   top: 24px;
 }
@@ -199,13 +218,13 @@
 .form-title h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
-  color: #1a1a1a;
+  color: #0B1F3B;
   margin: 0 0 6px;
 }
 
 .form-title p {
   font-size: 12px;
-  color: #999;
+  color: #6b7a8d;
   margin: 0 0 18px;
 }
 
@@ -215,12 +234,12 @@
 .review-form textarea {
   width: 100%;
   padding: 11px 14px;
-  border: 1.5px solid #ede8e0;
+  border: 1.5px solid #c5d3e0;
   border-radius: 10px;
   font-size: 13px;
   font-family: 'DM Sans', sans-serif;
-  color: #1a1a1a;
-  background: #fdf8f2;
+  color: #0B1F3B;
+  background: #f0f4f8;
   outline: none;
   transition: 0.2s ease;
   box-sizing: border-box;
@@ -237,7 +256,7 @@
 
 .review-form input::placeholder,
 .review-form textarea::placeholder {
-  color: #bdbdbd;
+  color: #8fa5bb;
 }
 
 .review-form textarea {
@@ -254,7 +273,7 @@
 .star-rating-group label {
   display: block;
   font-size: 12px;
-  color: #888;
+  color: #5a7290;
   margin-bottom: 8px;
 }
 
@@ -268,14 +287,14 @@
   border: none;
   cursor: pointer;
   font-size: 24px;
-  color: #e1d9cd;
+  color: #c5d3e0;
   padding: 0;
   line-height: 1;
   transition: 0.2s ease;
 }
 
 .star-btn.active {
-  color: #f7c600;
+  color: #00D4AA;
 }
 
 .star-btn:hover {
@@ -299,7 +318,7 @@
 }
 
 .review-form button[type="submit"]:hover {
-  background: #74ead2;
+  background: #00b892;
 }
 
 .review-form button[type="submit"]:active {
@@ -315,9 +334,9 @@
   margin-top: 14px;
   padding: 12px 14px;
   border-radius: 10px;
-  background: #edf8f0;
-  border: 1px solid #cde8d5;
-  color: #2f7a45;
+  background: #e0f7f2;
+  border: 1px solid #a0e8d8;
+  color: #0B1F3B;
   font-size: 13px;
   animation: fadeInUp 0.35s ease;
 }
@@ -325,6 +344,7 @@
 .success-check {
   font-size: 16px;
   font-weight: 700;
+  color: #00D4AA;
 }
 
 /* ===== Right Section Header ===== */
@@ -343,7 +363,7 @@
 .section-row h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
-  color: #1a1a1a;
+  color: #0B1F3B;
   margin: 0;
 }
 
@@ -359,7 +379,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid #ede8e0;
+  border: 1.5px solid #c5d3e0;
   background: #fff;
   color: #00D4AA;
   font-size: 16px;
@@ -381,12 +401,12 @@
 
 .review-window-card {
   background: #fff;
-  border: 1px solid #f0e9de;
+  border: 1px solid #d0dce8;
   border-radius: 16px;
   padding: 16px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 14px rgba(200, 150, 62, 0.06);
+  box-shadow: 0 2px 14px rgba(11, 31, 59, 0.06);
   transition: 0.25s ease;
   min-height: 220px;
   display: flex;
@@ -396,12 +416,12 @@
 
 .review-window-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(200, 150, 62, 0.12);
+  box-shadow: 0 6px 24px rgba(11, 31, 59, 0.12);
 }
 
 .review-window-card.new-review-highlight {
   border-color: #00D4AA;
-  box-shadow: 0 0 0 3px rgba(247, 198, 0, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.15);
 }
 
 .window-glow {
@@ -426,7 +446,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #00D4AA;
+  background: #0B1F3B;
   color: #fff;
   font-size: 14px;
   font-weight: 600;
@@ -439,16 +459,16 @@
 .review-top h4 {
   margin: 0 0 2px;
   font-size: 14px;
-  color: #1a1a1a;
+  color: #0B1F3B;
 }
 
 .review-top span {
   font-size: 11px;
-  color: #999;
+  color: #6b7a8d;
 }
 
 .rating {
-  color: #f7c600;
+  color: #00D4AA;
   font-size: 14px;
   margin-bottom: 8px;
   letter-spacing: 2px;
@@ -459,7 +479,7 @@
   margin: 0 0 10px;
   padding: 3px 10px;
   border-radius: 20px;
-  background: rgba(247, 198, 0, 0.1);
+  background: rgba(0, 212, 170, 0.1);
   color: #00D4AA;
   font-size: 12px;
   font-weight: 600;
@@ -468,7 +488,7 @@
 .review-preview {
   flex: 1;
   font-size: 12px;
-  color: #666;
+  color: #4a5a6b;
   line-height: 1.5;
 
   display: -webkit-box;
@@ -522,7 +542,7 @@
 .review-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(11, 31, 59, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -551,14 +571,14 @@
   height: 32px;
   border: none;
   border-radius: 50%;
-  background: #f5f5f5;
-  color: #666;
+  background: #eef2f7;
+  color: #4a5a6b;
   cursor: pointer;
   font-size: 14px;
 }
 
 .close-modal:hover {
-  background: #ececec;
+  background: #dce6f0;
 }
 
 .modal-header {
@@ -572,7 +592,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #00D4AA;
+  background: #0B1F3B;
   color: #fff;
   font-size: 18px;
   font-weight: 600;
@@ -584,15 +604,16 @@
 .modal-header h3 {
   margin: 0 0 2px;
   font-size: 17px;
+  color: #0B1F3B;
 }
 
 .modal-header span {
   font-size: 12px;
-  color: #999;
+  color: #6b7a8d;
 }
 
 .modal-rating {
-  color: #f7c600;
+  color: #00D4AA;
   font-size: 17px;
   letter-spacing: 2px;
   margin-bottom: 12px;
@@ -603,7 +624,7 @@
   margin-bottom: 14px;
   padding: 4px 12px;
   border-radius: 20px;
-  background: rgba(247, 198, 0, 0.1);
+  background: rgba(0, 212, 170, 0.1);
   color: #00D4AA;
   font-size: 12px;
 }
@@ -611,14 +632,14 @@
 .modal-review {
   font-size: 14px;
   line-height: 1.7;
-  color: #555;
+  color: #3a4a5a;
   word-break: break-word;
 }
 
 .modal-date {
   margin-top: 14px;
   font-size: 12px;
-  color: #bbb;
+  color: #8fa5bb;
 }
 
 /* ===== Animation ===== */
@@ -756,7 +777,7 @@
   overflow: hidden;
   border-radius: 20px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px rgba(11, 31, 59, 0.15);
 
   opacity: 0;
   animation:

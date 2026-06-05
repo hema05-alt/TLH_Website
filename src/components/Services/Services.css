@@ -34,6 +34,25 @@
   font-weight: 600;
   letter-spacing: 2px;
   margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.service-tag::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #00D4AA;
+  transition: width 0.4s ease;
+}
+
+.service-tag:hover::after {
+  width: 100%;
 }
 
 .services-left h2 {
