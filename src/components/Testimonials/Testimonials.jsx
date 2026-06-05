@@ -96,7 +96,7 @@ const Testimonials = () => {
 
       {/* Heading */}
       <div className="testimonial-header">
-        <span className="sub-title">THOUSAND LIGHT HOLIDAYS</span>
+        <span className="sub-title">THOUSAND LIGHT HOLIDAYS - REVIEWS</span>
         <h2>
           Journey Stories From
           <span> Happy Travellers</span>

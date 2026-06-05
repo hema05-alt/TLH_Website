@@ -27,7 +27,7 @@ function Packages() {
     const [showBookingForm, setShowBookingForm] = useState(false);
 
     return (
-        <section className="packages-section" id="package">
+        <section className="packages-section" id="packages">
 
             <div className="packages-header">
                 <h6>Our Tour Packages</h6>
