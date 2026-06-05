@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./about.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import picture3 from "../../assets/images/picture3.png";
 import picture1 from "../../assets/images/picture1.png";
 import picture2 from "../../assets/images/picture2.png";
-import {
-    FaMapMarkedAlt,
-    FaUserTie,
-    FaBus,
-    FaPhoneAlt,
-    FaHotel, FaGlobe,
-    FaEye,
-    FaBullseye
-}
-
-    from "react-icons/fa";
+import {FaMapMarkedAlt, FaUserTie, FaBus, FaPhoneAlt, FaHotel, FaGlobe, FaEye, FaBullseye}from "react-icons/fa";
 
 function About() {
+
+    // animation when i scroll the page
+     useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    }, []);
+
+
     return (
-        <section className="about-section">
+        <section className="about-section" id="about">
             <div className="about-container">
 
                 {/* Top content */}
                 <div className="about-top">
 
                     {/* Left image */}
-                    <div className="about-image">
+                    <div className="about-image" data-aos="zoom-in">
                         <img src={picture3} alt="About Us" className="picture picture1" />
                         <img src={picture1} alt="About Us" className="picture picture2" />
                         <img src={picture2} alt="About Us" className="picture picture3" />
                     </div>
 
                     {/* Right content */}
-                    <div className="about-content">
+                    <div className="about-content" data-aos="fade-left">
                         <h1>About Us</h1>
                         <p>
                             Thousand Light Holidays is a passionate travel company dedicated
@@ -46,9 +48,9 @@ function About() {
                         </p>
 
                         {/* Vision */}
-                        <div className="vision">
-                            <div className="info-card">
-                                <div className="icon">
+                        <div className="vision" >
+                            <div className="info-card" data-aos="fade-up" data-aos-delay="100">
+                                <div className="icon1">
                                     <span><FaEye /></span>
                                 </div>
 
@@ -62,8 +64,8 @@ function About() {
                             </div>
 
                             {/* Mission */}
-                            <div className="info-card1">
-                                <div className="icon1">
+                            <div className="info-card1" data-aos="fade-up" data-aos-delay="200">
+                                <div className="icon2">
                                     <span><FaBullseye /></span>
                                 </div>
 
@@ -82,7 +84,7 @@ function About() {
 
 
             {/* Bottom Cards */}
-            <div className="about-bottom">
+            <div className="about-bottom" data-aos="fade-up">
 
                 {/* Features */}
                 <div className="features">
@@ -112,12 +114,6 @@ function About() {
                     </div>
 
                 </div>
-
-                {/* Banner */}
-                <div className="about-banner">
-
-                </div>
-
             </div>
         </section>
     );
