@@ -269,3 +269,251 @@
     height: 1px;
   }
 }
+
+/* ===================================
+   LARGE LAPTOP (1440px+)
+=================================== */
+@media (min-width: 1440px) {
+
+  .services {
+    padding: 90px 10%;
+  }
+
+  .services-wrapper {
+    gap: 50px;
+  }
+
+  .services-left h2 {
+    font-size: 44px;
+  }
+
+  .service-description {
+    font-size: 18px;
+    max-width: 95%;
+  }
+
+  .service-image {
+    height: 260px;
+  }
+
+  .service-cards {
+    gap: 18px;
+  }
+
+  .mini-card {
+    padding: 24px;
+  }
+
+  .mini-card h4 {
+    font-size: 18px;
+  }
+
+  .mini-card p {
+    font-size: 15px;
+  }
+
+  .mini-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .travel-card {
+    padding: 40px;
+  }
+
+  .travel-card h3 {
+    font-size: 38px;
+  }
+
+  .travel-grid p {
+    font-size: 16px;
+  }
+
+  .stat-item h4 {
+    font-size: 28px;
+  }
+
+  .stat-item span {
+    font-size: 14px;
+  }
+}
+
+/* ===================================
+   FULL HD (1920px+)
+=================================== */
+@media (min-width: 1920px) {
+
+  .services {
+    padding: 120px 12%;
+  }
+
+  .services-wrapper {
+    gap: 70px;
+  }
+
+  .services-left h2 {
+    font-size: 56px;
+  }
+
+  .service-tag {
+    font-size: 15px;
+  }
+
+  .service-description {
+    font-size: 22px;
+    line-height: 2;
+  }
+
+  .service-image {
+    height: 320px;
+  }
+
+  .service-cards {
+    gap: 24px;
+  }
+
+  .mini-card {
+    padding: 30px;
+  }
+
+  .mini-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+
+  .mini-card h4 {
+    font-size: 22px;
+  }
+
+  .mini-card p {
+    font-size: 17px;
+  }
+
+  .travel-card {
+    padding: 50px;
+  }
+
+  .travel-card h3 {
+    font-size: 48px;
+  }
+
+  .travel-label {
+    font-size: 14px;
+  }
+
+  .travel-grid p {
+    font-size: 18px;
+  }
+
+  .travel-grid svg {
+    min-width: 20px;
+  }
+
+  .stat-card {
+    padding: 24px;
+  }
+
+  .stat-item h4 {
+    font-size: 34px;
+  }
+
+  .stat-item span {
+    font-size: 16px;
+  }
+}
+
+/* ===================================
+   2K / 4K MONITORS (2560px+)
+=================================== */
+@media (min-width: 2560px) {
+
+  .services {
+    padding: 150px 14%;
+  }
+
+  .services-wrapper {
+    gap: 100px;
+  }
+
+  .services-left h2 {
+    font-size: 72px;
+  }
+
+  .service-tag {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .service-description {
+    font-size: 28px;
+    max-width: 100%;
+  }
+
+  .service-image {
+    height: 420px;
+  }
+
+  .service-cards {
+    gap: 30px;
+  }
+
+  .mini-card {
+    padding: 38px;
+    border-radius: 24px;
+  }
+
+  .mini-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+    border-radius: 20px;
+  }
+
+  .mini-card h4 {
+    font-size: 28px;
+  }
+
+  .mini-card p {
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  .travel-card {
+    padding: 70px;
+    border-radius: 36px;
+  }
+
+  .travel-card h3 {
+    font-size: 64px;
+  }
+
+  .travel-label {
+    font-size: 18px;
+  }
+
+  .travel-grid p {
+    font-size: 24px;
+  }
+
+  .travel-grid svg {
+    min-width: 24px;
+  }
+
+  .stat-card {
+    padding: 35px;
+  }
+
+  .stat-item h4 {
+    font-size: 48px;
+  }
+
+  .stat-item span {
+    font-size: 20px;
+  }
+
+  .stat-divider {
+    height: 70px;
+  }
+}

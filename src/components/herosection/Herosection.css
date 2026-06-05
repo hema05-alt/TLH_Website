@@ -246,3 +246,143 @@
     font-size: 0.7rem;
   }
 }
+
+/* =========================
+   LARGE LAPTOP (1440px+)
+========================= */
+@media (min-width: 1440px) {
+
+  .hero-inner {
+    max-width: 1200px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .company-name {
+    font-size: 90px;
+  }
+
+  .hero-description {
+    max-width: 900px;
+    font-size: 22px;
+  }
+
+  .hero-buttons {
+    margin-top: 40px;
+  }
+
+  .stats-box {
+    max-width: 1000px;
+    padding: 18px;
+    gap: 20px;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+
+  .stat-item h3 {
+    font-size: 1.3rem;
+  }
+
+  .stat-item p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   FULL HD (1920px+)
+========================= */
+@media (min-width: 1920px) {
+
+  .hero-inner {
+    max-width: 1400px;
+  }
+
+  .hero-title {
+    font-size: 52px;
+  }
+
+  .company-name {
+    font-size: 120px;
+    margin-bottom: 35px;
+  }
+
+  .hero-description {
+    max-width: 1100px;
+    font-size: 26px;
+    line-height: 2;
+  }
+
+  .hero-buttons {
+    gap: 30px;
+    margin-top: 45px;
+  }
+
+  .stats-box {
+    max-width: 1200px;
+    padding: 24px;
+    gap: 25px;
+  }
+
+  .icon {
+    font-size: 30px;
+  }
+
+  .stat-item h3 {
+    font-size: 1.6rem;
+  }
+
+  .stat-item p {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   2K / 4K MONITORS
+========================= */
+@media (min-width: 2560px) {
+
+  .hero-inner {
+    max-width: 1800px;
+  }
+
+  .hero-title {
+    font-size: 68px;
+  }
+
+  .company-name {
+    font-size: 160px;
+  }
+
+  .hero-description {
+    max-width: 1400px;
+    font-size: 32px;
+    line-height: 2.1;
+  }
+
+  .hero-buttons {
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .stats-box {
+    max-width: 1500px;
+    padding: 30px;
+    gap: 35px;
+  }
+
+  .icon {
+    font-size: 38px;
+  }
+
+  .stat-item h3 {
+    font-size: 2rem;
+  }
+
+  .stat-item p {
+    font-size: 1.2rem;
+  }
+}
