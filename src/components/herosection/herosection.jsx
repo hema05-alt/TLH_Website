@@ -16,7 +16,7 @@ const heroImages = [hero1, hero2, hero3, hero4];
 const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
-  // image slider
+  // Image Slider
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
@@ -27,46 +27,65 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Scroll to Packages Section
+  const handleViewPackages = () => {
+    document
+      .getElementById("packages")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Open WhatsApp
+  const handleContactUs = () => {
+    window.open(
+      "https://wa.me/917358856007?text=Hi%20Thousand%20Light%20Holidays,%20I%20would%20like%20to%20know%20more%20about%20your%20travel%20packages.",
+      "_blank"
+    );
+  };
+
   return (
     <section
       className="hero-section"
       id="home"
       style={{ backgroundImage: `url(${heroImages[currentImage]})` }}
     >
-      {/* overlay */}
+      {/* Overlay */}
       <div className="overlay"></div>
 
-      {/* content */}
+      {/* Content */}
       <div className="hero-content">
-
         <div className="hero-inner">
 
-          {/* title */}
           <h4 className="hero-title">
             Let’s Explore The World With
           </h4>
 
-          {/* brand */}
           <h1 className="company-name">
             Thousand Light Holidays
           </h1>
 
-          {/* description */}
           <p className="hero-description">
             Your trusted travel partner for family tours, honeymoon packages,
             group trips, and customized holiday experiences. Discover affordable
             travel packages, comfortable journeys, and unforgettable memories with us.
           </p>
 
-          {/* buttons */}
+          {/* Buttons */}
           <div className="hero-buttons">
-            <Button title="View Packages" type="primary" />
-            <Button title="Contact Us" type="secondary" />
+            <Button
+              title="View Packages"
+              type="primary"
+              onClick={handleViewPackages}
+            />
+
+            <Button
+              title="Contact Us"
+              type="secondary"
+              onClick={handleContactUs}
+            />
           </div>
 
-          {/* stats */}
+          {/* Stats */}
           <div className="hero-stats">
-
             <div className="stats-box">
 
               <div className="stat-item">
@@ -102,11 +121,9 @@ const HeroSection = () => {
               </div>
 
             </div>
-
           </div>
 
         </div>
-
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ import { FaHotel, FaUtensils, FaBus, FaWhatsapp } from "react-icons/fa";
 
 function Packages() {
     return (
-        <section className="packages-section">
+        <section id="packages" className="packages-section">
             {/* Header */}
 
             <div className="packages-header">

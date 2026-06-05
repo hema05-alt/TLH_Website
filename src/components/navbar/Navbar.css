@@ -7,7 +7,8 @@
   background: rgba(11, 31, 59, 0.5);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  width:100%;
+  width: 100%;
+}
 
 /* BOOTSTRAP RESET */
 .navbar {
@@ -58,7 +59,7 @@
   bottom: 0;
   width: 0%;
   height: 2px;
-  background:#00D4AA;
+  background: #00D4AA;
   transform: translateX(-50%);
   transition: all 0.3s ease;
 }
@@ -99,7 +100,91 @@
   filter: invert(1);
 }
 
-/* MOBILE */
+/* ==========================
+   LARGE SCREENS
+========================== */
+
+/* Laptop */
+@media (min-width: 1200px) {
+  .custom-navbar .container {
+    max-width: 1140px;
+  }
+}
+
+/* Large Laptop */
+@media (min-width: 1400px) {
+  .custom-navbar .container {
+    max-width: 1320px;
+  }
+
+  .nav-links {
+    gap: 28px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+}
+
+/* Full HD Monitor */
+@media (min-width: 1920px) {
+  .custom-navbar {
+    padding: 18px 0;
+  }
+
+  .custom-navbar .container {
+    max-width: 1700px;
+  }
+
+  .nav-links {
+    gap: 40px;
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .logo-img {
+    height: 60px;
+  }
+}
+
+/* 2K / 4K Screens */
+@media (min-width: 2560px) {
+  .custom-navbar {
+    padding: 22px 0;
+  }
+
+  .custom-navbar .container {
+    max-width: 2200px;
+  }
+
+  .nav-links {
+    gap: 55px;
+  }
+
+  .nav-link {
+    font-size: 22px;
+  }
+
+  .logo-img {
+    height: 75px;
+  }
+
+  .nav-btn button {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
 @media (max-width: 991px) {
 
   .custom-navbar {
@@ -147,9 +232,9 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
 }
