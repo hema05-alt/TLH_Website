@@ -27,7 +27,7 @@ function footer() {
         {/* Quick Section */}
         <div className="footer-section">
             <h3>Quick Links</h3>
-
+            
             <ul>
                 <li>Home</li>
                 <li>About Us</li>
@@ -58,7 +58,7 @@ function footer() {
             <h3>Contact Info</h3>
             <ul className="contact-info">
                 <li>
-                    <FaPhoneAlt />+91 12345 67890
+                    <FaPhoneAlt />+91 73588 56007
                 </li>
 
                 <li>
@@ -66,7 +66,7 @@ function footer() {
                 </li>
 
                 <li>
-                    <FaMapMarkerAlt />Cheranmahadevi, Tirunelveli,
+                    <FaMapMarkerAlt />Tirunelveli,
                     Tamil Nadu, India
                 </li>
 
