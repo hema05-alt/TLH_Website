@@ -9,7 +9,7 @@
   width: 100%;
   z-index: 999;
 
-  padding: 12px 0;
+  padding: 6px 0;
 
   background: rgba(4, 25, 42, 0.75);
   backdrop-filter: blur(14px);
@@ -19,11 +19,28 @@
 }
 
 /* =========================
-   PLACEHOLDER
+   LOGO
 ========================= */
 
-.navbar-placeholder {
-  width: 80px;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  height: 36px;
+  width: 36px;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.5));
 }
 
 /* =========================
@@ -38,7 +55,7 @@
 
 .nav-link {
   color: #ffffff !important;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
 
@@ -62,7 +79,7 @@
   position: absolute;
 
   left: 0;
-  bottom: -1px; /* Line close to text */
+  bottom: -1px;
 
   width: 100%;
   height: 2px;
@@ -111,20 +128,69 @@
 }
 
 /* =========================
-   HAMBURGER MENU
+   CUSTOM HAMBURGER → X
 ========================= */
 
-.navbar-toggler {
+.custom-toggler {
+  background: transparent;
   border: none;
   box-shadow: none !important;
+  outline: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
 }
 
-.navbar-toggler:focus {
+.custom-toggler:focus {
   box-shadow: none !important;
+  outline: none;
 }
 
-.navbar-toggler-icon {
-  filter: brightness(0) invert(1);
+.toggler-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 4px;
+  transition: transform 0.35s ease, opacity 0.25s ease, width 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.custom-toggler.is-open .bar1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.custom-toggler.is-open .bar2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.custom-toggler.is-open .bar3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE COLLAPSE
+========================= */
+
+/* Hide collapse wrapper on desktop (Bootstrap handles ≥992px) */
+@media (min-width: 992px) {
+  .custom-collapse {
+    display: flex !important;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .custom-toggler {
+    display: none;
+  }
 }
 
 /* =========================
@@ -133,23 +199,39 @@
 
 @media (max-width: 991px) {
 
-  .navbar-placeholder {
-    width: 0;
-  }
-
-  .navbar-collapse {
-    margin-top: 15px;
+  .custom-collapse {
+    display: none;
+    margin-top: 12px;
     padding: 20px;
 
-    background: rgba(4, 25, 42, 0.95);
+    background: rgba(4, 25, 42, 0.97);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
     border-radius: 16px;
+    border: 1px solid rgba(0, 212, 170, 0.12);
+
+    animation: menuSlideDown 0.28s ease;
+  }
+
+  .custom-collapse.show {
+    display: block;
+  }
+
+  @keyframes menuSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .nav-links {
-    gap: 12px;
+    flex-direction: column;
+    gap: 4px;
     text-align: center;
   }
 
@@ -173,5 +255,16 @@
   .navbar-btn {
     width: 100%;
     max-width: 220px;
+  }
+
+  /* Stack layout: logo left, toggler right */
+  .container-fluid {
+    flex-wrap: wrap !important;
+  }
+
+  .navbar-collapse,
+  .custom-collapse {
+    flex-basis: 100%;
+    width: 100%;
   }
 }
