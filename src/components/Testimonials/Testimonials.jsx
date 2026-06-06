@@ -8,6 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import testimonialsBg from "../../assets/images/testimonials-bg.webp";
 
+import VanillaTilt from "vanilla-tilt";
+
 const routeNames = [
   "Chennai → Ooty",
   "Madurai → Kodaikanal",
@@ -25,6 +27,23 @@ const Testimonials = () => {
   const [newReviewId, setNewReviewId] = useState(null);
   const [hoverStar, setHoverStar] = useState(0);
   const swiperRef = useRef(null);
+
+  const cardsRef = useRef([]);
+
+  /* 3D Tilt Effect */
+  useEffect(() => {
+    if (cardsRef.current) {
+      VanillaTilt.init(cardsRef.current, {
+        max: 18,
+        speed: 500,
+        glare: true,
+        "max-glare": 0.35,
+        scale: 1.04,
+        perspective: 1400,
+        gyroscope: true,
+      });
+    }
+  }, [reviews]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -89,17 +108,12 @@ const Testimonials = () => {
   return (
     <section className="testimonials-section" id="testimonials">
 
-      {/* Floating Pins
-      <div className="pin pin1">📍</div>
-      <div className="pin pin2">📍</div>
-      <div className="pin pin3">📍</div> */}
-
       {/* Heading */}
       <div className="testimonial-header">
         <span className="sub-title">THOUSAND LIGHT HOLIDAYS - REVIEWS</span>
         <h2>
-          Journey Stories From
-          <span> Happy Travellers</span>
+          <span className="pin-icon pin-before">📍</span>Journey Stories From
+          <span> Happy Travellers</span><span className="pin-icon pin-after">📍</span>
         </h2>
         <p>Real memories shared by our customers across South India.</p>
       </div>
@@ -164,9 +178,9 @@ const Testimonials = () => {
               required
             />
 
-            {/* Interactive star rating */}
-            <div className="star-rating-group">
-              <label>Your Rating</label>
+            {/* Inline star rating row */}
+            <div className="star-rating-inline">
+              <span className="star-rating-label">Your Rating</span>
               <div className="stars-input">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
@@ -231,13 +245,15 @@ const Testimonials = () => {
               900: { slidesPerView: 2 },
             }}
           >
-            {reviews.map((item) => (
+            {reviews.map((item, index) => (
               <SwiperSlide key={item.id}>
                 <div
-                  className={`review-window-card${
-                    item.id === newReviewId ? " new-review-highlight" : ""
+                  ref={(el) => (cardsRef.current[index] = el)}
+                  className={`review-window-card ${
+                  item.id === newReviewId ? " new-review-highlight" : ""
                   }`}
                 >
+
                   <div className="window-glow"></div>
 
                   <div className="review-top">
