@@ -46,3 +46,54 @@
 
   transform: translateY(-2px);
 }
+
+/* ===================================
+   LARGE LAPTOP (1440px+)
+=================================== */
+@media (min-width: 1440px) {
+
+  .custom-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    border-radius: 30px;
+  }
+
+  .navbar-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ===================================
+   FULL HD (1920px+)
+=================================== */
+@media (min-width: 1920px) {
+
+  .custom-btn {
+    padding: 15px 34px;
+    font-size: 18px;
+    border-radius: 35px;
+  }
+
+  .navbar-btn {
+    padding: 10px 22px;
+    font-size: 16px;
+  }
+}
+
+/* ===================================
+   2K / 4K MONITORS (2560px+)
+=================================== */
+@media (min-width: 2560px) {
+
+  .custom-btn {
+    padding: 18px 42px;
+    font-size: 22px;
+    border-radius: 40px;
+  }
+
+  .navbar-btn {
+    padding: 12px 28px;
+    font-size: 18px;
+  }
+}

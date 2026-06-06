@@ -1,155 +1,270 @@
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
+
 .custom-navbar {
   position: fixed;
   top: 0;
-  z-index: 1000;
-  padding: 12px 0;
-  background: rgba(11, 31, 59, 0.5);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  width:100%;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 
-/* BOOTSTRAP RESET */
-.navbar {
-  min-height: auto;
-  padding: 0 !important;
+  padding: 6px 0;
+
+  background: rgba(4, 25, 42, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition: all 0.3s ease;
 }
 
-/* LOGO */
-.logo {
+/* =========================
+   LOGO
+========================= */
+
+.navbar-brand {
   display: flex;
   align-items: center;
-}
-
-.logo-img {
-  height: 44px;
-  width: auto;
-  border-radius: 48%;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.06);
-}
-
-/* NAV LINKS */
-.nav-links {
-  gap: 20px;
-  align-items: center;
-}
-
-/* LINK STYLE */
-.nav-link {
-  position: relative;
-  color: #fff !important;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 8px 10px !important;
   text-decoration: none;
-  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-/* HOVER UNDERLINE */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background:#00D4AA;
-  transform: translateX(-50%);
+.navbar-logo {
+  height: 36px;
+  width: 36px;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.5));
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+
+  position: relative;
+  display: inline-block;
+
+  padding-bottom: 2px;
+
   transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #00D4AA !important;
+  color: #00d4aa !important;
+  text-shadow: 0 0 10px rgba(0, 212, 170, 0.4);
+}
+
+/* Full Word Underline */
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 2px;
+
+  background: #00d4aa;
+  border-radius: 20px;
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform 0.3s ease;
 }
 
 .nav-link:hover::after {
-  width: 70%;
+  transform: scaleX(1);
 }
 
-/* ACTIVE LINK */
-.nav-link.active {
-  color: #00D4AA !important;
-}
+/* =========================
+   BUTTON
+========================= */
 
-.nav-link.active::after {
-  width: 70%;
-}
-
-/* BUTTON */
 .nav-btn {
-  margin-left: 20px;
+  margin-left: 35px;
 }
 
-/* HAMBURGER */
-.navbar-toggler {
+.navbar-btn {
   border: none;
-  padding: 4px 6px;
+  border-radius: 50px;
+
+  padding: 12px 28px;
+
+  background: #00d4aa;
+  color: #04192a;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: all 0.3s ease;
 }
 
-.navbar-toggler:focus {
-  box-shadow: none;
+.navbar-btn:hover {
+  background: #00f0c0;
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 25px rgba(0, 212, 170, 0.35);
 }
 
-.navbar-toggler-icon {
-  filter: invert(1);
+/* =========================
+   CUSTOM HAMBURGER → X
+========================= */
+
+.custom-toggler {
+  background: transparent;
+  border: none;
+  box-shadow: none !important;
+  outline: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
 }
 
-/* MOBILE */
+.custom-toggler:focus {
+  box-shadow: none !important;
+  outline: none;
+}
+
+.toggler-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 4px;
+  transition: transform 0.35s ease, opacity 0.25s ease, width 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.custom-toggler.is-open .bar1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.custom-toggler.is-open .bar2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.custom-toggler.is-open .bar3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE COLLAPSE
+========================= */
+
+/* Hide collapse wrapper on desktop (Bootstrap handles ≥992px) */
+@media (min-width: 992px) {
+  .custom-collapse {
+    display: flex !important;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+  .custom-toggler {
+    display: none;
+  }
+}
+
+/* =========================
+   MOBILE VIEW
+========================= */
+
 @media (max-width: 991px) {
 
-  .custom-navbar {
-    padding: 8px 0;
+  .custom-collapse {
+    display: none;
+    margin-top: 12px;
+    padding: 20px;
+
+    background: rgba(4, 25, 42, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 170, 0.12);
+
+    animation: menuSlideDown 0.28s ease;
   }
 
-  .logo-img {
-    height: 38px;
+  .custom-collapse.show {
+    display: block;
   }
 
-  .navbar-collapse {
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 220px;
-    padding: 15px;
-    background: rgba(11, 31, 59, 0.8);
-    backdrop-filter: blur(12px);
-    border-radius: 12px;
-    text-align: right;
-    animation: fadeInMenu 0.25s ease-in-out;
+  @keyframes menuSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .nav-links {
     flex-direction: column;
-    align-items: flex-end;
-    gap: 0;
+    gap: 4px;
+    text-align: center;
   }
 
   .nav-link {
-    padding: 12px 0 !important;
+    display: block;
+    padding: 10px 0;
+  }
+
+  .nav-link::after {
+    display: none;
   }
 
   .nav-btn {
     margin-left: 0;
-    margin-top: 12px;
-    display: flex;
-    justify-content: flex-end;
-  }
-}
+    margin-top: 15px;
 
-/* ANIMATION */
-@keyframes fadeInMenu {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+    display: flex;
+    justify-content: center;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .navbar-btn {
+    width: 100%;
+    max-width: 220px;
   }
-}
+
+  /* Stack layout: logo left, toggler right */
+  .container-fluid {
+    flex-wrap: wrap !important;
+  }
+
+  .navbar-collapse,
+  .custom-collapse {
+    flex-basis: 100%;
+    width: 100%;
+  }
 }
