@@ -6,16 +6,45 @@ import logo from "../../assets/images/logo.webp";
 const Navbar = ({ openBookingForm }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef(null);
+  const logoTextRef = useRef(null);
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    setMenuOpen(false); // close menu on nav click
-  };
+  // Typing effect — isolated to logo text only
+  useEffect(() => {
+    const el = logoTextRef.current;
+    if (!el) return;
 
-  // Close on click anywhere outside the navbar
+    const fullText = "1000 Light Holidays";
+    let i = 0;
+    let deleting = false;
+    let timer;
+
+    const type = () => {
+      if (!deleting) {
+        el.textContent = fullText.slice(0, i);
+        i++;
+        if (i > fullText.length) {
+          deleting = true;
+          timer = setTimeout(type, 2000);
+          return;
+        }
+      } else {
+        el.textContent = fullText.slice(0, i);
+        i--;
+        if (i < 0) {
+          deleting = false;
+          i = 0;
+          timer = setTimeout(type, 500);
+          return;
+        }
+      }
+      timer = setTimeout(type, deleting ? 45 : 85);
+    };
+
+    type();
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Close menu on outside click
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -32,20 +61,29 @@ const Navbar = ({ openBookingForm }) => {
     };
   }, [menuOpen]);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg custom-navbar" ref={navRef}>
       <div className="container-fluid px-4">
 
-        {/* Logo — Left */}
+        {/* Logo + Brand Name */}
         <a
           className="navbar-brand"
           href="#home"
           onClick={(e) => { e.preventDefault(); scrollToSection("home"); }}
         >
           <img src={logo} alt="Thousand Light Holidays" className="navbar-logo" />
+          <span className="navbar-logo-text" ref={logoTextRef}></span>
         </a>
 
-        {/* Hamburger / X Toggle */}
+        {/* Hamburger Toggle */}
         <button
           className={`navbar-toggler custom-toggler${menuOpen ? " is-open" : ""}`}
           type="button"
@@ -61,12 +99,12 @@ const Navbar = ({ openBookingForm }) => {
         <div className={`custom-collapse${menuOpen ? " show" : ""}`} id="navbarMenu">
           <ul className="navbar-nav ms-auto nav-links">
             {[
-              { label: "Home", id: "home" },
-              { label: "About Us", id: "about" },
-              { label: "Packages", id: "packages" },
-              { label: "Services", id: "services" },
+              { label: "Home",         id: "home"         },
+              { label: "About Us",     id: "about"        },
+              { label: "Packages",     id: "packages"     },
+              { label: "Services",     id: "services"     },
               { label: "Testimonials", id: "testimonials" },
-              { label: "Contact", id: "contact" },
+              { label: "Contact",      id: "contact"      },
             ].map(({ label, id }) => (
               <li className="nav-item" key={id}>
                 <span className="nav-link" onClick={() => scrollToSection(id)}>
