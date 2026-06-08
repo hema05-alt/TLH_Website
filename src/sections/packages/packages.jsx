@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./packages.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+
 import package1 from "../../assets/images/vagamon.jpg";
 import package2 from "../../assets/images/munnar.jpg";
 import package3 from "../../assets/images/ooty.jpg";
 import package4 from "../../assets/images/karnataka.jpg";
-import {FaWhatsapp, FaMountain, FaTree, FaTrain, FaLeaf, FaWater, FaLandmark, FaMonument}from "react-icons/fa";
+
+import {FaWhatsapp, FaSuitcaseRolling, FaMountain, FaTree, FaTrain, FaLeaf, FaWater, FaLandmark, FaMonument
+} from "react-icons/fa";
+
 import BookingForm from "../../components/bookingform/bookingform";
-
-
 
 function Packages() {
 
-    // animation when i scroll the section
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -22,18 +22,61 @@ function Packages() {
         });
     }, []);
 
-
-    // for opening the BookingForm
     const [showBookingForm, setShowBookingForm] = useState(false);
+
+    const packages = [
+        {
+            title: "VAGAMON",
+            subtitle: "Explore Adventure & Nature",
+            image: package1,
+            places: [
+                { icon: <FaMountain />, text: "Pine Forest" },
+                { icon: <FaTree />, text: "Vagamon Meadows" },
+                { icon: <FaMountain />, text: "Adventure Park" }
+            ]
+        },
+        {
+            title: "OOTY",
+            subtitle: "Queen of Hill Stations",
+            image: package3,
+            places: [
+                { icon: <FaTrain />, text: "Toy Train" },
+                { icon: <FaLeaf />, text: "Botanical Garden" },
+                { icon: <FaMountain />, text: "Doddabetta Peak" }
+            ]
+        },
+        {
+            title: "MUNNAR",
+            subtitle: "Tea Gardens & Waterfalls",
+            image: package2,
+            places: [
+                { icon: <FaLeaf />, text: "Tea Gardens" },
+                { icon: <FaWater />, text: "Attukad Falls" },
+                { icon: <FaMountain />, text: "Top Station" }
+            ]
+        },
+        {
+            title: "KARNATAKA",
+            subtitle: "History & Heritage",
+            image: package4,
+            places: [
+                { icon: <FaLandmark />, text: "Mysore Palace" },
+                { icon: <FaMonument />, text: "Hampi" },
+                { icon: <FaLandmark />, text: "Gol Gumbaz" }
+            ]
+        }
+    ];
 
     return (
         <section className="packages-section" id="packages">
 
             <div className="packages-header">
-                <h6>Our Tour Packages</h6>
+                <h6 className="pack-underline">Our Tour Packages</h6>
                 <h1>
                     Popular Tour <span>Packages</span>
+                    <FaSuitcaseRolling className="package-logo" />
                 </h1>
+
                 <p>
                     Handpicked holiday packages for unforgettable experiences.
                 </p>
@@ -41,102 +84,55 @@ function Packages() {
 
             <div className="packages-container">
 
-                {/* Vagamon */}
-                <div className="package-card" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <img src={package1} alt="Vagamon" className="package-image" />
+                {packages.map((item, index) => (
+                    <div
+                        key={index}
+                        className="package-card"
+                        data-aos="fade-up"
+                        data-aos-delay={100 * (index + 1)}
+                    >
 
-                    <h3>VAGAMON</h3>
-                    <p>Explore Adventure & Nature</p>
+                        <img
+                            src={item.image}
+                            alt={item.title}
+                            className="package-image"
+                        />
 
-                    <div className="package-list-item">
-                        <p><FaMountain /> Pine Forest</p>
-                        <p><FaTree /> Vagamon Meadows</p>
-                        <p><FaMountain /> Adventure Park</p>
+                        <h3>{item.title}</h3>
+                        <p>{item.subtitle}</p>
+
+                        <div className="package-list-item">
+
+                            {item.places.map((place, i) => (
+                                <p key={i}>
+                                    {place.icon}
+                                    {place.text}
+                                </p>
+                            ))}
+
+                        </div>
+
+                        <div className="package-footer">
+                            <button
+                                className="enquire-now"
+                                onClick={() => setShowBookingForm(true)}
+                            >
+                                <FaWhatsapp className="whatsapp" />
+                                Enquire Now
+                            </button>
+                        </div>
+
                     </div>
-
-                    <div className="package-footer">
-                        <button className="enquire-now" onClick={() => setShowBookingForm(true)}>
-                            <FaWhatsapp className="whatsapp" />
-                            Enquire Now
-                        </button>
-                    </div>
-                </div>
-
-                {/* Ooty */}
-                <div className="package-card" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <img src={package3} alt="Ooty" className="package-image" />
-
-                    <h3>OOTY</h3>
-                    <p>Queen of Hill Stations</p>
-
-                    <div className="package-list-item">
-                        <p><FaTrain /> Toy Train</p>
-                        <p><FaLeaf /> Botanical Garden</p>
-                        <p><FaMountain /> Doddabetta Peak</p>
-                    </div>
-
-                    <div className="package-footer">
-                        <button className="enquire-now" onClick={() => setShowBookingForm(true)}>
-                            <FaWhatsapp className="whatsapp" />
-                            Enquire Now
-                        </button>
-                    </div>
-                </div>
-
-                {/* Munnar */}
-                <div className="package-card" data-aos="fade-up"
-                    data-aos-delay="300">
-                    <img src={package2} alt="Munnar" className="package-image" />
-
-                    <h3>MUNNAR</h3>
-                    <p>Tea Gardens & Waterfalls</p>
-
-                    <div className="package-list-item">
-                        <p><FaLeaf /> Tea Gardens</p>
-                        <p><FaWater /> Attukad Falls</p>
-                        <p><FaMountain /> Top Station</p>
-                    </div>
-
-                    <div className="package-footer">
-                        <button className="enquire-now" onClick={() => setShowBookingForm(true)}>
-                            <FaWhatsapp className="whatsapp" />
-                            Enquire Now
-                        </button>
-                    </div>
-                </div>
-
-                {/* Karnataka */}
-                <div className="package-card" data-aos="fade-up"
-                    data-aos-delay="400">
-                    <img src={package4} alt="Karnataka" className="package-image" />
-
-                    <h3>KARNATAKA</h3>
-                    <p>History & Heritage</p>
-
-                    <div className="package-list-item">
-                        <p><FaLandmark /> Mysore Palace</p>
-                        <p><FaMonument /> Hampi</p>
-                        <p><FaLandmark /> Gol Gumbaz</p>
-                    </div>
-
-                    <div className="package-footer">
-                        <button className="enquire-now" onClick={() => setShowBookingForm(true)}>
-                            <FaWhatsapp className="whatsapp" />
-                            Enquire Now
-                        </button>
-                    </div>
-                </div>
+                ))}
 
             </div>
 
-            {/* for closing the BookingForm */}
             {showBookingForm && (
                 <BookingForm
                     closeForm={() => setShowBookingForm(false)}
                 />
             )}
+
         </section>
     );
 }

@@ -3,14 +3,8 @@
     color: #ffffff;
     padding: 60px 80px;
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    flex: 0.9;
-    min-width: 200px;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
 }
 
 .logo-box {
@@ -21,50 +15,35 @@
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     object-fit: contain;
-    background: white;
+    background: #fff;
     border-radius: 50%;
     padding: 5px;
 }
 
 .company-info h2 {
-    font-size: 24px;
+    font-size: 34px;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
     margin-bottom: 5px;
-    color: #00D4AA;
-    font-family: "Great Vibes", cursive;
 }
 
-.company-info span {
+.company-info p {
     color: #00D4AA;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
+    margin: 0;
+    letter-spacing: 1px;
 }
 
 .description {
     color: #d9d9d9;
     line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 320px;
-}
-
-.contact-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.contact-icons svg {
-    font-size: 22px;
-    color: #00D4AA;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.contact-icons svg:hover {
-    transform: translateY(-5px);
-    color: white;
+    max-width: 340px;
 }
 
 .footer-section h3 {
@@ -80,14 +59,26 @@
 
 .footer-section ul li {
     margin-bottom: 14px;
+}
+
+.footer-section ul li a {
     color: #e5e5e5;
-    cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #00D4AA;
+    padding-left: 6px;
+}
+
+.footer-section ul li {
+    color: #e5e5e5;
+    transition: 0.3s;
 }
 
 .footer-section ul li:hover {
     color: #00D4AA;
-    padding-left: 6px;
 }
 
 .contact-info li {
@@ -105,60 +96,323 @@
     flex-shrink: 0;
 }
 
-/* Bottom section */
-
-.footer-bottom {
-    width: 100%;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    margin-top: 40px;
-    padding-top: 20px;
-    color: #cccccc;
-    font-size: 14px;
+.contact-info span {
+    color: #e5e5e5;
 }
 
-/* tablet screen */
+/* ============================================
+   FOOTER SECTION FADE-UP ANIMATION
+============================================ */
+
+.footer-section {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: footerFadeUp 0.8s ease forwards;
+}
+
+.footer-section:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.footer-section:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.footer-section:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.footer-section:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@keyframes footerFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   FOOTER SECTION HOVER EFFECT
+============================================ */
+
+.footer-section {
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+/* ============================================
+   LOGO FLOAT ANIMATION
+============================================ */
+
+.logo {
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   FOOTER HEADING UNDERLINE ANIMATION
+============================================ */
+
+.footer-section h3 {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #00D4AA;
+    transition: width 0.4s ease;
+}
+
+.footer-section:hover h3::after {
+    width: 100%;
+}
+
+/* ============================================
+   QUICK LINKS ANIMATION
+============================================ */
+
+.footer-section ul li {
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li:hover {
+    color: #00D4AA;
+    transform: translateX(6px);
+}
+
+/* ============================================
+   CONTACT ICON ANIMATION
+============================================ */
+
+.contact-info svg {
+    transition: all 0.3s ease;
+}
+
+.contact-info li:hover svg {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+
+/* ============================================
+   COMPANY NAME GLOW EFFECT
+============================================ */
+
+.company-info h2 {
+    transition: all 0.3s ease;
+}
+
+.company-info h2:hover {
+    text-shadow: 0 0 10px rgba(0, 212, 170, 0.6);
+}
+
+/* ============================================
+   TRAVEL • EXPLORE • EXPERIENCE
+============================================ */
+
+.company-info p {
+    animation: fadeText 3s ease-in-out infinite;
+}
+
+@keyframes fadeText {
+    0% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}
+
+/* ============================================
+   FOOTER BOTTOM FADE-IN
+============================================ */
+
+.footer-bottom {
+    opacity: 0;
+    animation: footerBottomFade 1s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes footerBottomFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   Tablet ≤ 992px
+========================= */
 
 @media (max-width: 992px) {
 
     .footer {
+        grid-template-columns: repeat(2, 1fr);
         padding: 50px 40px;
-        gap: 40px;
+        gap: 35px;
     }
 
-    .footer-section {
-        min-width: 300px;
+    .company-info h2 {
+        font-size: 30px;
     }
 }
 
-/* Responsive */
+/* =========================
+   Mobile ≤ 768px
+========================= */
 
 @media (max-width: 768px) {
 
     .footer {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         text-align: center;
-        padding: 40px 25px;
+        padding: 40px 20px;
+        gap: 30px;
     }
 
     .logo-box {
-        justify-content: center;
+        flex-direction: column;
     }
 
     .description {
         max-width: 100%;
     }
 
-    .contact-icons {
+    .contact-info li {
         justify-content: center;
     }
 
-    .contact-info li {
-        justify-content: center;
-        text-align: center;
+    .company-info h2 {
+        font-size: 28px;
     }
 
     .footer-section h3 {
-        margin-top: 15px;
+        font-size: 20px;
+    }
+}
+
+/* =========================
+   Small Mobile ≤ 400px
+========================= */
+
+@media (max-width: 400px) {
+
+    .company-info h2 {
+        font-size: 24px;
+    }
+
+    .company-info p {
+        font-size: 13px;
+    }
+
+    .footer-section h3 {
+        font-size: 18px;
+    }
+
+    .footer-section ul li,
+    .contact-info span {
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   Large Laptop ≥ 1440px
+========================= */
+
+@media (min-width: 1440px) {
+
+    .company-info h2 {
+        font-size: 38px;
+    }
+
+    .company-info p {
+        font-size: 17px;
+    }
+}
+
+/* =========================
+   Full HD ≥ 1920px
+========================= */
+
+@media (min-width: 1920px) {
+
+    .footer {
+        padding: 80px 120px;
+    }
+
+    .company-info h2 {
+        font-size: 44px;
+    }
+
+    .company-info p {
+        font-size: 18px;
+    }
+
+    .footer-section h3 {
+        font-size: 26px;
+    }
+}
+
+/* =========================
+   2K / 4K ≥ 2560px
+========================= */
+
+@media (min-width: 2560px) {
+
+    .footer {
+        padding: 100px 180px;
+    }
+
+    .company-info h2 {
+        font-size: 56px;
+    }
+
+    .company-info p {
+        font-size: 22px;
+    }
+
+    .footer-section h3 {
+        font-size: 32px;
+    }
+
+    .footer-section ul li,
+    .contact-info span {
+        font-size: 20px;
     }
 }

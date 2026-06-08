@@ -1,79 +1,82 @@
-import react from 'react';
+import React from 'react';
 import './footer.css';
-import logo from '../../assets/logos/tlh.png';
+import logo from '../../assets/images/logo.webp';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
-function footer() {
+function Footer() {
     return (
         <footer className="footer">
 
-        {/* Left Section */}
-        <div className="footer-section">
-            <div className="logo-box">
-                <img src={logo} alt="TLH Logo" className="logo" />
+            {/* Company Info */}
+            <div className="footer-section">
+                <div className="logo-box">
+                    <img src={logo} alt="TLH Logo" className="logo" />
 
-                <div className='company-info'>
-                    <h2>Thousand Light Holidays</h2>
-                    <p>Travel • Explore • Experience</p>
+                    <div className="company-info">
+                        <h2>Thousand Light Holidays</h2>
+                        <p>Travel • Explore • Experience</p>
+                    </div>
                 </div>
+
+                <p className="description">
+                    Your trusted travel partner for exploring the beautiful
+                    destinations of South India.
+                </p>
             </div>
 
-            <p className="description">
-                Your trusted travel partner for exploring the beautiful
-                destinations of South India.
-            </p>
-        </div>
+            {/* Quick Links */}
+            <div className="footer-section">
+                <h3>Quick Links</h3>
 
-        {/* Quick Section */}
-        <div className="footer-section">
-            <h3>Quick Links</h3>
-            
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Tour Packages</li>
-                <li>Services</li>
-                <li>Gallery</li>
-                <li>Contact Us</li>
-            </ul>
-        </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#packages">Tour Packages</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
 
-        {/* SERVICES*/}
-        <div className="footer-section">
-            <h3>Our Services</h3>
+            {/* Services */}
+            <div className="footer-section">
+                <h3>Our Services</h3>
 
-            <ul>
-                <li>Domestic Tours</li>
-                <li>Honeymoon Packages</li>
-                <li>Family Vacations</li>
-                <li>Group Tours</li>
-                <li>Corporate Tours</li>
-                <li>Educational Tours</li>
-                <li>Adventure Trips</li>
-            </ul>
-        </div>
+                <ul>
+                    <li>Domestic Tours</li>
+                    <li>Honeymoon Packages</li>
+                    <li>Family Vacations</li>
+                    <li>Group Tours</li>
+                    <li>Corporate Tours</li>
+                    <li>Educational Tours</li>
+                    <li>Adventure Trips</li>
+                </ul>
+            </div>
 
-        {/* Contact Section */}
-        <div className="footer-section">
-            <h3>Contact Info</h3>
-            <ul className="contact-info">
-                <li>
-                    <FaPhoneAlt />+91 73588 56007
-                </li>
+            {/* Contact */}
+            <div className="footer-section">
+                <h3>Contact Info</h3>
 
-                <li>
-                    <FaEnvelope />thousandlightholidays@gmail.com
-                </li>
+                <ul className="contact-info">
+                    <li>
+                        <FaPhoneAlt />
+                        <span>+91 73588 56007</span>
+                    </li>
 
-                <li>
-                    <FaMapMarkerAlt />Tirunelveli,
-                    Tamil Nadu, India
-                </li>
+                    <li>
+                        <FaEnvelope />
+                        <span>thousandlightholidays@gmail.com</span>
+                    </li>
 
-            </ul>
-        </div>
+                    <li>
+                        <FaMapMarkerAlt />
+                        <span>Tirunelveli, Tamil Nadu, India</span>
+                    </li>
+                </ul>
+            </div>
+
         </footer>
     );
-};
+}
 
-export  default footer;
+export default Footer;
