@@ -211,13 +211,14 @@
   animation: fadeUp 0.8s 0.85s ease forwards;
 }
 
-/* slide dots*/
+/* ── Slide dots ── */
 
 .slide-dots {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 22px;
+  align-items: center;
+  gap: 7px;
+  margin-top: 18px;
 
   opacity: 0;
   animation: none;
@@ -228,21 +229,22 @@
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.35);
   border: none;
   cursor: pointer;
-  transition: background 0.35s, transform 0.35s, width 0.35s;
+  transition: background 0.35s, transform 0.3s, width 0.3s, border-radius 0.3s;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .dot.active {
   background: #00D4AA;
-  transform: scale(1.25);
-  width: 24px;
-  border-radius: 6px;
+  transform: scale(1.1);
+  width: 18px;
+  border-radius: 4px;
 }
 
 .dot:hover:not(.active) {
@@ -431,16 +433,18 @@
   }
 
   .slide-dots {
-    margin-top: 14px;
+    margin-top: 12px;
+    gap: 6px;
   }
 
   .dot {
-    width: 7px;
-    height: 7px;
+    width: 5px;
+    height: 5px;
   }
 
   .dot.active {
-    width: 20px;
+    width: 14px;
+    border-radius: 3px;
   }
 
   .hero-stats {
