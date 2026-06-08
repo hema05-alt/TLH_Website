@@ -77,7 +77,7 @@
     font-size: 35px;
 }
 
-.about-content > p {
+.about-content p {
     color: #123A2F;
     line-height: 1.8;
     margin-bottom: 25px;
@@ -424,7 +424,7 @@
     .picture3 { bottom: 38px; left: 50%; transform: translateX(-50%) rotate(3deg); }
 
     .about-content h1 { font-size: 30px; }
-    .about-content > p { font-size: 14px; }
+    .about-content p { font-size: 14px; }
 
     .vision {
         flex-direction: column;

@@ -36,7 +36,7 @@ function About() {
                     <div className="about-content" data-aos="fade-left">
                         <h1 className="heading">About Us</h1>
                         <p>
-                            Thousand Light Holidays is a passionate travel company dedicated
+                            Thousand Light Holiday is a passionate travel company dedicated
                             to creating memorable journeys across South India. We believe
                             every trip should be comfortable, safe, and full of beautiful
                             memories.

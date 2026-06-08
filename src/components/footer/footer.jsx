@@ -47,7 +47,7 @@ function Footer() {
                     <li>Honeymoon Packages</li>
                     <li>Family Vacations</li>
                     <li>Group Tours</li>
-                    <li>Corporate Tours</li>
+                    <li>College Tours</li>
                     <li>Educational Tours</li>
                     <li>Adventure Trips</li>
                 </ul>
