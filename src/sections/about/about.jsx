@@ -34,7 +34,7 @@ function About() {
 
                     {/* Right content */}
                     <div className="about-content" data-aos="fade-left">
-                        <h1>About Us</h1>
+                        <h1 className="heading">About Us</h1>
                         <p>
                             Thousand Light Holidays is a passionate travel company dedicated
                             to creating memorable journeys across South India. We believe
