@@ -4,11 +4,13 @@
     box-sizing: border-box;
 }
 
+/* SECTION */
 .packages-section {
-    background: #f9f7f5;
+    background: #f0f4f8;
     padding: 60px 20px;
 }
 
+/* HEADER */
 .packages-header {
     text-align: center;
     margin-bottom: 50px;
@@ -17,6 +19,7 @@
 .packages-header h6 {
     color: #00D4AA;
     font-family: Poppins, sans-serif;
+    font-size: 14px;
 }
 
 .packages-header h1 {
@@ -33,16 +36,18 @@
     color: #123A2F;
 }
 
-.pack-underline::after{
+/* FIXED UNDERLINE (centered properly) */
+.pack-underline::after {
     content: "";
     display: block;
     width: 150px;
     height: 2px;
     background: #00D4AA;
     border-radius: 10px;
-    margin-left: 725px;
+    margin: 10px auto 0;   /* FIXED */
 }
 
+/* LOGO ANIMATION */
 .package-logo {
     margin-left: 12px;
     color: #0f273b;
@@ -50,29 +55,22 @@
 }
 
 @keyframes floatLogo {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
 }
 
-/* Cards Container */
-
+/* GRID CONTAINER */
 .packages-container {
     max-width: 1200px;
     margin: auto;
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
-/* Card */
-
+/* CARD */
 .package-card {
     background: #f3f1ef;
     border-radius: 15px;
@@ -147,9 +145,8 @@
     margin-right: 8px;
     font-size: 25px;
 }
-/* ==========================================
-   TABLET (≤ 992px)
-========================================== */
+
+/* ================= TABLET ================= */
 @media (max-width: 992px) {
 
     .packages-section {
@@ -164,16 +161,9 @@
     .packages-header h1 {
         font-size: 34px;
     }
-
-    .pack-underline::after {
-        margin: 10px auto 0;
-    }
 }
 
-
-/* ==========================================
-   MOBILE (≤ 768px)
-========================================== */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
     .packages-section {
@@ -182,6 +172,10 @@
 
     .packages-header {
         margin-bottom: 35px;
+    }
+
+    .packages-header h6{
+        font-size: 11px;
     }
 
     .packages-header h1 {
@@ -195,12 +189,8 @@
 
     .packages-container {
         grid-template-columns: 1fr;
-        max-width: 400px;
+        max-width: 100%;
         gap: 20px;
-    }
-
-    .package-card h3 {
-        font-size: 22px;
     }
 
     .package-image {
@@ -209,14 +199,10 @@
 
     .pack-underline::after {
         width: 120px;
-        margin: 10px auto 0;
     }
 }
 
-
-/* ==========================================
-   SMALL MOBILE (≤ 400px)
-========================================== */
+/* ================= SMALL MOBILE ================= */
 @media (max-width: 400px) {
 
     .packages-header h1 {
@@ -251,25 +237,14 @@
         height: 45px;
         font-size: 14px;
     }
-
-    .package-logo {
-        font-size: 26px;
-    }
 }
 
-
-/* ==========================================
-   LARGE LAPTOP (≥ 1440px)
-========================================== */
+/* ================= LARGE SCREENS ================= */
 @media (min-width: 1440px) {
 
     .packages-container {
         max-width: 1400px;
         gap: 30px;
-    }
-
-    .packages-header h1 {
-        font-size: 48px;
     }
 
     .package-image {
@@ -281,10 +256,6 @@
     }
 }
 
-
-/* ==========================================
-   FULL HD (≥ 1920px)
-========================================== */
 @media (min-width: 1920px) {
 
     .packages-section {
@@ -296,31 +267,11 @@
         gap: 35px;
     }
 
-    .packages-header h1 {
-        font-size: 56px;
-    }
-
-    .packages-header p {
-        font-size: 18px;
-    }
-
     .package-image {
         height: 280px;
     }
-
-    .package-card h3 {
-        font-size: 32px;
-    }
-
-    .package-list-item p {
-        font-size: 16px;
-    }
 }
 
-
-/* ==========================================
-   2K / 4K (≥ 2560px)
-========================================== */
 @media (min-width: 2560px) {
 
     .packages-section {
@@ -332,28 +283,7 @@
         gap: 40px;
     }
 
-    .packages-header h1 {
-        font-size: 72px;
-    }
-
-    .packages-header p {
-        font-size: 24px;
-    }
-
     .package-image {
         height: 350px;
-    }
-
-    .package-card h3 {
-        font-size: 40px;
-    }
-
-    .package-list-item p {
-        font-size: 20px;
-    }
-
-    .enquire-now {
-        height: 60px;
-        font-size: 18px;
     }
 }

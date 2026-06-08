@@ -1,8 +1,9 @@
 .gallery-section {
-    background-color: #f9f7f5;
+    background-color: #f0f4f8;
     padding: 60px 20px;
 }
 
+/* HEADER */
 .gallery-header {
     text-align: center;
     padding-bottom: 40px;
@@ -21,16 +22,18 @@
     margin-top: 10px;
 }
 
-.underline::after{
+/* FIXED UNDERLINE (centered properly) */
+.underline::after {
     content: "";
     display: block;
     width: 100px;
     height: 2px;
     background: #00D4AA;
     border-radius: 10px;
-    margin-left: 750px;
+    margin: 8px auto 0;   /* FIX: replaces margin-left: 750px */
 }
 
+/* MAIN CONTAINER */
 .gallery-container {
     display: flex;
     align-items: center;
@@ -38,11 +41,15 @@
     gap: 20px;
 }
 
+/* SCROLL AREA */
 .gallery-item {
     display: flex;
     gap: 20px;
-    width: 1200px;
+
+    width: 100%;
+    max-width: 1200px;   /* FIX: instead of fixed width */
     overflow-x: auto;
+
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
@@ -51,6 +58,7 @@
     display: none;
 }
 
+/* IMAGES */
 .gallery-image {
     width: 280px;
     height: 180px;
@@ -64,6 +72,7 @@
     transform: scale(1.05);
 }
 
+/* BUTTONS */
 .button-gallery {
     width: 45px;
     height: 45px;
@@ -81,23 +90,16 @@
     transform: scale(1.1);
 }
 
-/* ============================================
-   TABLET ≤ 992px
-============================================ */
-
+/* ===================== TABLET ===================== */
 @media (max-width: 992px) {
 
-    .gallery-item {
-        width: 850px;
+    .gallery-header h1 {
+        font-size: 32px;
     }
 
     .gallery-image {
         width: 240px;
         height: 160px;
-    }
-
-    .gallery-header h1 {
-        font-size: 32px;
     }
 
     .button-gallery {
@@ -106,10 +108,7 @@
     }
 }
 
-/* ============================================
-   MOBILE ≤ 768px
-============================================ */
-
+/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
 
     .gallery-section {
@@ -121,7 +120,7 @@
     }
 
     .gallery-item {
-        width: 80vw;
+        max-width: 100%;
         gap: 15px;
     }
 
@@ -137,10 +136,7 @@
     }
 }
 
-/* ============================================
-   SMALL MOBILE ≤ 400px
-============================================ */
-
+/* ===================== SMALL MOBILE ===================== */
 @media (max-width: 400px) {
 
     .gallery-section {
@@ -155,11 +151,6 @@
         font-size: 12px;
     }
 
-    .gallery-item {
-        width: 75vw;
-        gap: 10px;
-    }
-
     .gallery-image {
         width: 180px;
         height: 120px;
@@ -172,31 +163,18 @@
     }
 }
 
-/* ============================================
-   LARGE LAPTOP ≥ 1440px
-============================================ */
-
+/* ===================== LARGE SCREENS ===================== */
 @media (min-width: 1440px) {
 
     .gallery-item {
-        width: 1300px;
+        max-width: 1300px;
     }
 
     .gallery-image {
         width: 300px;
         height: 200px;
     }
-
-    .button-gallery {
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
-    }
 }
-
-/* ============================================
-   FULL HD ≥ 1920px
-============================================ */
 
 @media (min-width: 1920px) {
 
@@ -205,7 +183,7 @@
     }
 
     .gallery-item {
-        width: 1600px;
+        max-width: 1600px;
     }
 
     .gallery-image {
@@ -216,21 +194,7 @@
     .gallery-header h1 {
         font-size: 48px;
     }
-
-    .gallery-header h6 {
-        font-size: 18px;
-    }
-
-    .button-gallery {
-        width: 60px;
-        height: 60px;
-        font-size: 22px;
-    }
 }
-
-/* ============================================
-   2K / 4K ≥ 2560px
-============================================ */
 
 @media (min-width: 2560px) {
 
@@ -239,25 +203,11 @@
     }
 
     .gallery-item {
-        width: 2000px;
+        max-width: 2000px;
     }
 
     .gallery-image {
         width: 450px;
         height: 300px;
-    }
-
-    .gallery-header h1 {
-        font-size: 64px;
-    }
-
-    .gallery-header h6 {
-        font-size: 24px;
-    }
-
-    .button-gallery {
-        width: 75px;
-        height: 75px;
-        font-size: 30px;
     }
 }

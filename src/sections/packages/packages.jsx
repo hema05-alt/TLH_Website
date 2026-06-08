@@ -71,7 +71,7 @@ function Packages() {
         <section className="packages-section" id="packages">
 
             <div className="packages-header">
-                <h6 className="pack-underline">Our Tour Packages</h6>
+                <h6 className="pack-underline">OUR TOUR PACKAGES</h6>
                 <h1>
                     Popular Tour <span>Packages</span>
                     <FaSuitcaseRolling className="package-logo" />

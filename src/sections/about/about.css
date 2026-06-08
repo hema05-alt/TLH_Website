@@ -6,7 +6,7 @@
 
 .about-section {
     padding: 60px 20px;
-    background: #f8f8f8;
+    background: #f0f4f8;
     font-family: poppins, sans-serif;
     overflow: hidden;
 }
@@ -90,7 +90,7 @@
 .heading::after {
     content: "";
     display: block;
-    width: 150px;
+    width: 140px;
     height: 2px;
     background: #00D4AA;
     border-radius: 10px;
@@ -359,7 +359,7 @@
     .picture3 { bottom: 51px; left: 50%; transform: translateX(-50%) rotate(3deg); }
 
     .about-content { width: 100%; }
-    .about-content h1 { font-size: 28px; }
+    .about-content h1 { font-size: 34px; }
 
     .vision { flex-direction: row; }
 
@@ -423,7 +423,7 @@
     .picture2 { top: 45px; right: 0px; transform: rotate(8deg);   }
     .picture3 { bottom: 38px; left: 50%; transform: translateX(-50%) rotate(3deg); }
 
-    .about-content h1 { font-size: 22px; }
+    .about-content h1 { font-size: 30px; }
     .about-content > p { font-size: 14px; }
 
     .vision {

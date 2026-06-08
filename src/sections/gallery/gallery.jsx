@@ -47,7 +47,8 @@ function Gallery() {
                     left: 0,
                     behavior: "auto"
                 });
-            } else {
+            } 
+            else {
                 gallery.scrollBy({
                     left: 320,
                     behavior: "smooth"
@@ -57,6 +58,8 @@ function Gallery() {
 
         return () => clearInterval(interval);
     }, []);
+
+    
     return (
         <section className="gallery-section">
 
