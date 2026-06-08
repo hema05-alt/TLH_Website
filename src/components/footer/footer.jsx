@@ -5,7 +5,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer" id='contact'>
 
             {/* Company Info */}
             <div className="footer-section">
