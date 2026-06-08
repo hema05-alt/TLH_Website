@@ -1,6 +1,4 @@
-/* =========================
-   NAVBAR
-========================= */
+/* Navbar */
 
 .custom-navbar {
   position: fixed;
@@ -9,7 +7,7 @@
   width: 100%;
   z-index: 999;
 
-  padding: 6px 0;
+  padding: 8px 0;
 
   background: rgba(4, 25, 42, 0.75);
   backdrop-filter: blur(14px);
@@ -18,9 +16,8 @@
   transition: all 0.3s ease;
 }
 
-/* =========================
-   LOGO
-========================= */
+
+/* Logo */
 
 .navbar-brand {
   display: flex;
@@ -30,61 +27,70 @@
 }
 
 .navbar-logo {
-  height: 36px;
-  width: 36px;
+  width: 42px;
+  height: 42px;
   object-fit: cover;
-  display: block;
+
   border-radius: 50%;
-  transition: transform 0.3s ease, filter 0.3s ease;
+
+  transition: all 0.3s ease;
 }
 
 .navbar-logo:hover {
-  transform: scale(1.06);
-  filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.5));
+  transform: scale(1.08);
+
+  filter: drop-shadow(
+    0 0 10px rgba(0, 212, 170, 0.5)
+  );
 }
 
-/* =========================
-   NAV LINKS
-========================= */
+
+/* Navigation Links */
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+
+  gap: 32px;
 }
 
 .nav-link {
   color: #ffffff !important;
-  font-size: 14px;
+
+  font-size: 15px;
   font-weight: 500;
-  cursor: pointer;
 
   position: relative;
   display: inline-block;
 
-  padding-bottom: 2px;
+  cursor: pointer;
 
   transition: all 0.3s ease;
 }
 
 .nav-link:hover {
   color: #00d4aa !important;
-  text-shadow: 0 0 10px rgba(0, 212, 170, 0.4);
+
+  text-shadow:
+    0 0 10px rgba(0, 212, 170, 0.4);
 }
 
-/* Full Word Underline */
+
+/* Underline Effect */
 
 .nav-link::after {
   content: "";
+
   position: absolute;
 
   left: 0;
-  bottom: -1px;
+  bottom: -2px;
 
   width: 100%;
   height: 2px;
 
   background: #00d4aa;
+
   border-radius: 20px;
 
   transform: scaleX(0);
@@ -97,9 +103,8 @@
   transform: scaleX(1);
 }
 
-/* =========================
-   BUTTON
-========================= */
+
+/* Button */
 
 .nav-btn {
   margin-left: 35px;
@@ -122,70 +127,83 @@
 
 .navbar-btn:hover {
   background: #00f0c0;
+
   transform: translateY(-2px);
 
-  box-shadow: 0 8px 25px rgba(0, 212, 170, 0.35);
+  box-shadow:
+    0 8px 25px rgba(0, 212, 170, 0.35);
 }
 
-/* =========================
-   CUSTOM HAMBURGER → X
-========================= */
+
+/* Hamburger Menu */
 
 .custom-toggler {
   background: transparent;
   border: none;
-  box-shadow: none !important;
-  outline: none;
-  cursor: pointer;
+
+  width: 36px;
+  height: 36px;
+
   padding: 6px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   gap: 5px;
-  width: 36px;
-  height: 36px;
+
+  cursor: pointer;
 }
 
 .custom-toggler:focus {
-  box-shadow: none !important;
   outline: none;
+  box-shadow: none !important;
 }
 
 .toggler-bar {
-  display: block;
   width: 24px;
   height: 2px;
+
   background: #ffffff;
-  border-radius: 4px;
-  transition: transform 0.35s ease, opacity 0.25s ease, width 0.3s ease;
-  transform-origin: center;
+
+  border-radius: 10px;
+
+  transition: all 0.35s ease;
 }
 
-/* Animate to X when open */
+
+/* Hamburger To X */
+
 .custom-toggler.is-open .bar1 {
-  transform: translateY(7px) rotate(45deg);
+  transform:
+    translateY(7px)
+    rotate(45deg);
 }
 
 .custom-toggler.is-open .bar2 {
   opacity: 0;
+
   transform: scaleX(0);
 }
 
 .custom-toggler.is-open .bar3 {
-  transform: translateY(-7px) rotate(-45deg);
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
 }
 
-/* =========================
-   MOBILE COLLAPSE
-========================= */
 
-/* Hide collapse wrapper on desktop (Bootstrap handles ≥992px) */
+/* Desktop View */
+
 @media (min-width: 992px) {
+
   .custom-collapse {
     display: flex !important;
+
     align-items: center;
-    flex-grow: 1;
     justify-content: flex-end;
+
+    flex-grow: 1;
   }
 
   .custom-toggler {
@@ -193,50 +211,94 @@
   }
 }
 
-/* =========================
-   MOBILE VIEW
-========================= */
+
+/* Large Screen */
+
+@media (min-width: 1200px) {
+
+  .custom-navbar {
+    padding: 10px 0;
+  }
+
+  .navbar-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .nav-links {
+    gap: 40px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .navbar-btn {
+    padding: 13px 32px;
+
+    font-size: 15px;
+  }
+}
+
+
+/* Extra Large Screen */
+
+@media (min-width: 1400px) {
+
+  .nav-links {
+    gap: 48px;
+  }
+
+  .nav-link {
+    font-size: 17px;
+  }
+
+  .navbar-btn {
+    padding: 14px 34px;
+  }
+}
+
+
+/* Mobile Menu */
 
 @media (max-width: 991px) {
 
   .custom-collapse {
     display: none;
+
     margin-top: 12px;
     padding: 20px;
 
-    background: rgba(4, 25, 42, 0.97);
+    background:
+      rgba(4, 25, 42, 0.97);
+
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
     border-radius: 16px;
-    border: 1px solid rgba(0, 212, 170, 0.12);
 
-    animation: menuSlideDown 0.28s ease;
+    border: 1px solid
+      rgba(0, 212, 170, 0.12);
+
+    animation:
+      menuSlideDown 0.3s ease;
   }
 
   .custom-collapse.show {
     display: block;
   }
 
-  @keyframes menuSlideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   .nav-links {
     flex-direction: column;
-    gap: 4px;
+
+    gap: 6px;
+
     text-align: center;
   }
 
   .nav-link {
     display: block;
+
     padding: 10px 0;
   }
 
@@ -246,6 +308,7 @@
 
   .nav-btn {
     margin-left: 0;
+
     margin-top: 15px;
 
     display: flex;
@@ -257,14 +320,59 @@
     max-width: 220px;
   }
 
-  /* Stack layout: logo left, toggler right */
   .container-fluid {
     flex-wrap: wrap !important;
   }
 
   .navbar-collapse,
   .custom-collapse {
-    flex-basis: 100%;
     width: 100%;
+    flex-basis: 100%;
   }
+}
+
+
+/* Small Mobile */
+
+@media (max-width: 576px) {
+
+  .custom-navbar {
+    padding: 6px 0;
+  }
+
+  .navbar-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .navbar-btn {
+    padding: 10px 22px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* Menu Animation */
+
+@keyframes menuSlideDown {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
 }

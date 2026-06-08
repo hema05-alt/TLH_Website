@@ -10,6 +10,8 @@ import testimonialsBg from "../../assets/images/testimonials-bg.webp";
 
 import VanillaTilt from "vanilla-tilt";
 
+import { supabase } from "../../supabase"; // path adjust பண்ணு if needed
+
 const routeNames = [
   "Chennai → Ooty",
   "Madurai → Kodaikanal",
@@ -20,30 +22,16 @@ const routeNames = [
 ];
 
 const Testimonials = () => {
-  const [reviews, setReviews] = useState([]);
+  const [userReviews, setUserReviews] = useState([]);
+  const [allReviews, setAllReviews] = useState([]);
   const [selectedReview, setSelectedReview] = useState(null);
   const [currentRoute, setCurrentRoute] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [newReviewId, setNewReviewId] = useState(null);
   const [hoverStar, setHoverStar] = useState(0);
   const swiperRef = useRef(null);
-
   const cardsRef = useRef([]);
-
-  /* 3D Tilt Effect */
-  useEffect(() => {
-    if (cardsRef.current) {
-      VanillaTilt.init(cardsRef.current, {
-        max: 18,
-        speed: 500,
-        glare: true,
-        "max-glare": 0.35,
-        scale: 1.04,
-        perspective: 1400,
-        gyroscope: true,
-      });
-    }
-  }, [reviews]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -53,14 +41,57 @@ const Testimonials = () => {
     rating: 5,
   });
 
-  /* Load Reviews */
+  /* ── Fetch user reviews from Supabase ── */
   useEffect(() => {
-    const storedReviews =
-      JSON.parse(localStorage.getItem("tlhReviews")) || [];
-    setReviews([...storedReviews, ...reviewsData]);
+    const fetchReviews = async () => {
+      const { data, error } = await supabase
+        .from("reviews")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Error fetching reviews:", error);
+        return;
+      }
+
+      const fetched = data.map((item) => ({
+        ...item,
+        date: new Date(item.created_at).toLocaleDateString("en-IN"),
+      }));
+
+      setUserReviews(fetched);
+    };
+
+    fetchReviews();
   }, []);
 
-  /* Route Animation */
+  /* ── Merge: user reviews + static JSON reviews ── */
+  useEffect(() => {
+    setAllReviews([...userReviews, ...reviewsData]);
+  }, [userReviews]);
+
+  /* ── 3D Tilt Effect ── */
+  useEffect(() => {
+    const validRefs = cardsRef.current.filter(Boolean);
+    if (validRefs.length > 0) {
+      VanillaTilt.init(validRefs, {
+        max: 18,
+        speed: 500,
+        glare: true,
+        "max-glare": 0.35,
+        scale: 1.04,
+        perspective: 1400,
+        gyroscope: true,
+      });
+    }
+    return () => {
+      validRefs.forEach((el) => {
+        if (el && el.vanillaTilt) el.vanillaTilt.destroy();
+      });
+    };
+  }, [allReviews]);
+
+  /* ── Route Animation ── */
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRoute((prev) =>
@@ -70,39 +101,57 @@ const Testimonials = () => {
     return () => clearInterval(interval);
   }, []);
 
-  /* Form Change */
+  /* ── Form Change ── */
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  /* Submit Review */
-  const handleSubmit = (e) => {
+  /* ── Submit Review to Supabase ── */
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
+
+    const { data, error } = await supabase
+      .from("reviews")
+      .insert([
+        {
+          name: formData.name,
+          location: formData.location,
+          trip: formData.trip,
+          review: formData.review,
+          rating: Number(formData.rating),
+        },
+      ])
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Error submitting review:", error);
+      alert("Something went wrong. Please try again.");
+      setSubmitting(false);
+      return;
+    }
 
     const newReview = {
-      id: Date.now(),
-      ...formData,
-      date: new Date().toLocaleDateString(),
+      ...data,
+      date: new Date(data.created_at).toLocaleDateString("en-IN"),
     };
 
-    const updatedReviews = [newReview, ...reviews];
-    setReviews(updatedReviews);
-    setNewReviewId(newReview.id);
-
-    const customReviews = updatedReviews.filter(
-      (item) => !reviewsData.some((d) => d.id === item.id)
-    );
-    localStorage.setItem("tlhReviews", JSON.stringify(customReviews));
+    setUserReviews((prev) => [newReview, ...prev]);
+    setNewReviewId(data.id);
 
     setFormData({ name: "", location: "", trip: "", review: "", rating: 5 });
     setSubmitted(true);
+    setSubmitting(false);
 
-    /* Jump Swiper to new slide */
-    if (swiperRef.current) {
-      swiperRef.current.slideTo(0);
-    }
+    setTimeout(() => {
+      if (swiperRef.current) swiperRef.current.slideTo(0);
+    }, 100);
 
-    setTimeout(() => setSubmitted(false), 3500);
+    setTimeout(() => {
+      setSubmitted(false);
+      setNewReviewId(null);
+    }, 3500);
   };
 
   return (
@@ -113,7 +162,8 @@ const Testimonials = () => {
         <span className="sub-title">THOUSAND LIGHT HOLIDAYS - REVIEWS</span>
         <h2>
           <span className="pin-icon pin-before">📍</span>Journey Stories From
-          <span> Happy Travellers</span><span className="pin-icon pin-after">📍</span>
+          <span> Happy Travellers</span>
+          <span className="pin-icon pin-after">📍</span>
         </h2>
         <p>Real memories shared by our customers across South India.</p>
       </div>
@@ -142,7 +192,7 @@ const Testimonials = () => {
         </div>
       </div>
 
-      {/* ── Two-Column: Form LEFT | Reviews RIGHT ── */}
+      {/* Two-Column Layout */}
       <div className="testimonials-two-col">
 
         {/* LEFT — Share Journey Form */}
@@ -178,7 +228,6 @@ const Testimonials = () => {
               required
             />
 
-            {/* Inline star rating row */}
             <div className="star-rating-inline">
               <span className="star-rating-label">Your Rating</span>
               <div className="stars-input">
@@ -189,9 +238,7 @@ const Testimonials = () => {
                     className={`star-btn${
                       star <= (hoverStar || formData.rating) ? " active" : ""
                     }`}
-                    onClick={() =>
-                      setFormData({ ...formData, rating: star })
-                    }
+                    onClick={() => setFormData({ ...formData, rating: star })}
                     onMouseEnter={() => setHoverStar(star)}
                     onMouseLeave={() => setHoverStar(0)}
                     aria-label={`${star} star${star > 1 ? "s" : ""}`}
@@ -211,7 +258,9 @@ const Testimonials = () => {
               required
             />
 
-            <button type="submit">Submit Review</button>
+            <button type="submit" disabled={submitting}>
+              {submitting ? "Submitting..." : "Submit Review"}
+            </button>
 
             {submitted && (
               <div className="submit-success" role="status">
@@ -235,7 +284,7 @@ const Testimonials = () => {
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={16}
-            loop={reviews.length > 1}
+            loop={allReviews.length > 1}
             autoplay={{ delay: 3500, disableOnInteraction: false }}
             navigation={{ prevEl: ".review-prev", nextEl: ".review-next" }}
             onSwiper={(swiper) => { swiperRef.current = swiper; }}
@@ -245,15 +294,14 @@ const Testimonials = () => {
               900: { slidesPerView: 2 },
             }}
           >
-            {reviews.map((item, index) => (
+            {allReviews.map((item, index) => (
               <SwiperSlide key={item.id}>
                 <div
                   ref={(el) => (cardsRef.current[index] = el)}
-                  className={`review-window-card ${
-                  item.id === newReviewId ? " new-review-highlight" : ""
+                  className={`review-window-card${
+                    item.id === newReviewId ? " new-review-highlight" : ""
                   }`}
                 >
-
                   <div className="window-glow"></div>
 
                   <div className="review-top">
@@ -285,9 +333,8 @@ const Testimonials = () => {
           </Swiper>
 
           <div className="testimonial-bg-image">
-            <img src={testimonialsBg} alt="Munnar College Trip"/>
+            <img src={testimonialsBg} alt="Munnar College Trip" />
           </div>
-
         </div>
       </div>
 

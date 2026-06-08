@@ -1,4 +1,4 @@
-/* ===== COMMON BUTTON ===== */
+/* COMMON BUTTON */
 
 .custom-btn {
   border: none;
@@ -47,9 +47,7 @@
   transform: translateY(-2px);
 }
 
-/* ===================================
-   LARGE LAPTOP (1440px+)
-=================================== */
+/* LARGE LAPTOP (1440px+) */
 @media (min-width: 1440px) {
 
   .custom-btn {
@@ -64,9 +62,7 @@
   }
 }
 
-/* ===================================
-   FULL HD (1920px+)
-=================================== */
+/* FULL HD (1920px+) */
 @media (min-width: 1920px) {
 
   .custom-btn {
@@ -81,9 +77,7 @@
   }
 }
 
-/* ===================================
-   2K / 4K MONITORS (2560px+)
-=================================== */
+/* 2K / 4K MONITORS (2560px+) */
 @media (min-width: 2560px) {
 
   .custom-btn {
