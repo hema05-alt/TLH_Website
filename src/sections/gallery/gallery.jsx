@@ -34,26 +34,29 @@ function Gallery() {
     };
 
     useEffect(() => {
+        const gallery = galleryRef.current;
+
+        if (!gallery) return;
+
         const interval = setInterval(() => {
-            const gallery = galleryRef.current;
+            const maxScroll =
+                gallery.scrollWidth - gallery.clientWidth;
 
-            if (!gallery) return;
-
-            const singleSetWidth = gallery.scrollWidth / 2;
-
-            if (gallery.scrollLeft >= singleSetWidth) {
-                gallery.scrollLeft = 0;
+            if (gallery.scrollLeft >= maxScroll - 5) {
+                gallery.scrollTo({
+                    left: 0,
+                    behavior: "auto"
+                });
+            } else {
+                gallery.scrollBy({
+                    left: 320,
+                    behavior: "smooth"
+                });
             }
-
-            gallery.scrollBy({
-                left: 320,
-                behavior: "smooth",
-            });
         }, 3000);
 
         return () => clearInterval(interval);
     }, []);
-
     return (
         <section className="gallery-section">
 
