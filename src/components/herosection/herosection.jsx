@@ -13,7 +13,7 @@ import hero4 from "../../assets/images/hero-image4.webp";
 const heroImages = [hero2, hero3, hero4];
 
 const stats = [
-  { icon: <FaBus />,     value: "150+",       label: "Customized Tours" },
+  { icon: <FaBus />,     value: "200+",       label: "Customized Tours" },
   { icon: <FaUsers />,   value: "100%",       label: "Family Friendly"  },
   { icon: <FaHeadset />, value: "24/7",       label: "Support"          },
   { icon: <FaWallet />,  value: "Affordable", label: "Packages"         },
@@ -163,11 +163,6 @@ const HeroSection = () => {
 
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      {/* <div className="scroll-indicator" aria-hidden="true">
-        <span className="scroll-dot" />
-      </div> */}
 
     </section>
   );
