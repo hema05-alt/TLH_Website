@@ -49,7 +49,7 @@
 }
 
 
-/* Brand text — single line, typing animation isolated here */
+/* Brand text */
 
 .navbar-logo-text {
   font-family: 'Cinzel', serif;
@@ -58,15 +58,13 @@
   color: #00D4AA;
   letter-spacing: 0.04em;
 
-  /* Single line — no wrapping */
   white-space: nowrap;
 
-  /* Fixed width prevents layout shift during typing */
   min-width: 145px;
   display: inline-block;
 
   user-select: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, font-size 0.3s ease;
 }
 
 .navbar-brand:hover .navbar-logo-text {
@@ -222,9 +220,9 @@
 }
 
 
-/* Desktop View */
+/* Desktop — strictly min-width: 993px to avoid 991px overlap */
 
-@media (min-width: 992px) {
+@media (min-width: 993px) {
 
   .custom-collapse {
     display: flex !important;
@@ -236,12 +234,16 @@
   }
 
   .custom-toggler {
-    display: none;
+    display: none !important;
+  }
+
+  .custom-collapse.show {
+    display: flex !important;
   }
 }
 
 
-/* Large Screen */
+/* Large Screen — font size increase */
 
 @media (min-width: 1200px) {
 
@@ -255,8 +257,8 @@
   }
 
   .navbar-logo-text {
-    font-size: 14px;
-    min-width: 155px;
+    font-size: 15px;
+    min-width: 170px;
   }
 
   .nav-links {
@@ -280,8 +282,8 @@
 @media (min-width: 1400px) {
 
   .navbar-logo-text {
-    font-size: 15px;
-    min-width: 165px;
+    font-size: 17px;
+    min-width: 190px;
   }
 
   .nav-links {
@@ -298,9 +300,24 @@
 }
 
 
-/* Mobile Menu */
+/* 2XL Screen */
 
-@media (max-width: 991px) {
+@media (min-width: 1600px) {
+
+  .navbar-logo-text {
+    font-size: 19px;
+    min-width: 215px;
+  }
+}
+
+
+/* Mobile — strictly max-width: 992px */
+
+@media (max-width: 992px) {
+
+  .custom-toggler {
+    display: flex !important;
+  }
 
   .custom-collapse {
     display: none;
@@ -323,7 +340,7 @@
   }
 
   .custom-collapse.show {
-    display: block;
+    display: block !important;
   }
 
   .nav-links {
