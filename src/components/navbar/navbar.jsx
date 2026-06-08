@@ -13,7 +13,7 @@ const Navbar = ({ openBookingForm }) => {
     const el = logoTextRef.current;
     if (!el) return;
 
-    const fullText = "1000 Light Holidays";
+    const fullText = "Thousand Light Holidays";
     let i = 0;
     let deleting = false;
     let timer;
