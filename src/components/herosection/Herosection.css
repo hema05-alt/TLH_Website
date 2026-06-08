@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-/* =========================
-   BASE SECTION
-========================= */
+/* Hero section */
 
 .hero-section {
   position: relative;
@@ -16,13 +14,6 @@
   padding-top: var(--navbar-height, 70px);
   box-sizing: border-box;
 }
-
-/* =========================
-   BACKGROUND LAYERS
-   Each image = its own div
-   No background-image: inherit
-   Crossfade via opacity only
-========================= */
 
 .hero-bg-container {
   position: absolute;
@@ -52,9 +43,7 @@
   transition: opacity 1.2s ease-in-out;
 }
 
-/* =========================
-   OVERLAYS
-========================= */
+/* Overlays */
 
 .overlay {
   position: absolute;
@@ -87,9 +76,7 @@
   pointer-events: none;
 }
 
-/* =========================
-   FLOATING PARTICLES
-========================= */
+/* Floating particles */
 
 .particles {
   position: absolute;
@@ -123,10 +110,6 @@
   100% { transform: translateY(-110vh) translateX(35px); opacity: 0; }
 }
 
-/* =========================
-   HERO CONTENT WRAPPER
-========================= */
-
 .hero-content {
   position: relative;
   z-index: 3;
@@ -142,11 +125,7 @@
   width: 100%;
 }
 
-/* =========================
-   EYEBROW LINE
-========================= */
-
-.hero-eyebrow {
+.hero-tagline {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,11 +142,11 @@
   animation: none;
 }
 
-.hero-loaded .hero-eyebrow {
+.hero-loaded .hero-tagline {
   animation: fadeUp 0.75s 0.1s ease forwards;
 }
 
-.eyebrow-line {
+.tagline-line {
   display: block;
   width: 36px;
   height: 1px;
@@ -175,9 +154,7 @@
   flex-shrink: 0;
 }
 
-/* =========================
-   COMPANY NAME
-========================= */
+/* Company Name */
 
 .company-name {
   font-family: 'Great Vibes', cursive;
@@ -198,9 +175,7 @@
   animation: fadeUp 0.85s 0.35s ease forwards;
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
+/* Description */
 
 .hero-description {
   color: rgba(220, 220, 220, 0.92);
@@ -218,9 +193,7 @@
   animation: fadeUp 0.8s 0.6s ease forwards;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* Buttons */
 
 .hero-buttons {
   display: flex;
@@ -238,9 +211,7 @@
   animation: fadeUp 0.8s 0.85s ease forwards;
 }
 
-/* =========================
-   SLIDE DOTS
-========================= */
+/* slide dots*/
 
 .slide-dots {
   display: flex;
@@ -279,9 +250,7 @@
   transform: scale(1.1);
 }
 
-/* =========================
-   STATS ROW
-========================= */
+/* Stats row */
 
 .hero-stats {
   display: grid;
@@ -364,40 +333,7 @@
   margin: 1px 0 0;
 }
 
-/* =========================
-   SCROLL INDICATOR
-========================= */
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  width: 26px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  border-radius: 14px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 6px;
-
-  opacity: 0;
-  animation: fadeIn 1s 2s ease forwards;
-}
-
-.scroll-dot {
-  width: 4px;
-  height: 8px;
-  border-radius: 3px;
-  background: #00D4AA;
-  animation: scrollBounce 1.8s ease-in-out infinite;
-}
-
-/* =========================
-   KEYFRAME ANIMATIONS
-========================= */
+/* Animations */
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -418,9 +354,7 @@
   50%       { transform: translateY(8px); opacity: 0.4; }
 }
 
-/* =========================
-   TABLET  ≤ 991px
-========================= */
+/* TABLET  ≤ 991px */
 
 @media (max-width: 991px) {
   .company-name {
@@ -437,13 +371,10 @@
   }
 }
 
-/* =========================
-   MOBILE  ≤ 767px
-========================= */
+/*  MOBILE  ≤ 767px */
 
 @media (max-width: 767px) {
 
-  /* Disable parallax — static scale only */
   .hero-bg-layer {
     transform: scale(1.04) !important;
     transition: opacity 1.2s ease-in-out !important;
@@ -472,14 +403,14 @@
     width: 100%;
   }
 
-  .hero-eyebrow {
+  .hero-tagline {
     font-size: 10px;
     gap: 8px;
     letter-spacing: 0.1em;
     margin-bottom: 8px;
   }
 
-  .eyebrow-line {
+  .tagline-line {
     width: 20px;
   }
 
@@ -512,7 +443,6 @@
     width: 20px;
   }
 
-  /* Stats — single row on mobile */
   .hero-stats {
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
@@ -561,16 +491,14 @@
   }
 }
 
-/* =========================
-   SMALL MOBILE  ≤ 400px
-========================= */
+/* SMALL MOBILE  ≤ 400px */
 
 @media (max-width: 400px) {
   .company-name {
     font-size: 34px;
   }
 
-  .hero-eyebrow {
+  .hero-tagline {
     font-size: 9px;
   }
 
@@ -587,16 +515,14 @@
   }
 }
 
-/* =========================
-   LARGE LAPTOP  ≥ 1440px
-========================= */
+/* LARGE LAPTOP  ≥ 1440px */
 
 @media (min-width: 1440px) {
   .hero-inner {
     max-width: 1100px;
   }
 
-  .hero-eyebrow {
+  .hero-tagline {
     font-size: 17px;
   }
 
@@ -630,9 +556,7 @@
   }
 }
 
-/* =========================
-   FULL HD  ≥ 1920px
-========================= */
+/* FULL HD  ≥ 1920px */
 
 @media (min-width: 1920px) {
   .hero-inner {
@@ -643,7 +567,7 @@
     font-size: 130px;
   }
 
-  .hero-eyebrow {
+  .hero-tagline {
     font-size: 20px;
   }
 
@@ -672,9 +596,7 @@
   }
 }
 
-/* =========================
-   2K / 4K  ≥ 2560px
-========================= */
+/*  2K / 4K  ≥ 2560px */
 
 @media (min-width: 2560px) {
   .hero-inner {
@@ -685,7 +607,7 @@
     font-size: 170px;
   }
 
-  .hero-eyebrow {
+  .hero-tagline {
     font-size: 26px;
   }
 
@@ -713,15 +635,13 @@
   }
 }
 
-/* =========================
-   REDUCED MOTION
-========================= */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-layer,
   .particle,
   .company-name,
-  .hero-eyebrow,
+  .hero-tagline,
   .hero-description,
   .hero-buttons,
   .hero-stats,
@@ -731,7 +651,7 @@
     transition: opacity 0.3s ease !important;
   }
 
-  .hero-loaded .hero-eyebrow,
+  .hero-loaded .hero-tagline,
   .hero-loaded .company-name,
   .hero-loaded .hero-description,
   .hero-loaded .hero-buttons,

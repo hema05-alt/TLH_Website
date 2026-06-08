@@ -1,4 +1,4 @@
-/* ===== Section ===== */
+/* Testimonials Section */
 .testimonials-section {
   background-color: #f0f4f8;
   padding: 50px 24px;
@@ -7,7 +7,7 @@
   overflow-x: hidden;
 }
 
-/* ===== Header ===== */
+/* Header */
 .testimonial-header {
   text-align: center;
   margin-bottom: 28px;
@@ -55,7 +55,7 @@
   margin: 0;
 }
 
-/* ===== Pin Icons ===== */
+/* Pin Icons */
 .pin-icon {
   display: inline-block;
   font-style: normal;
@@ -83,7 +83,7 @@
   60%       { transform: translateY(-3px); }
 }
 
-/* ===== Route Board ===== */
+/* Route Board */
 .route-board {
   background: #0B1F3B;
   color: #fff;
@@ -108,7 +108,7 @@
   letter-spacing: 0.5px;
 }
 
-/* ===== Road + Bus ===== */
+/* Road + Bus */
 .road-area {
   position: relative;
   height: 70px;
@@ -215,7 +215,7 @@
   }
 }
 
-/* ===== Layout ===== */
+/* Layout */
 .testimonials-two-col {
   display: grid;
   grid-template-columns: 340px 1fr;
@@ -225,7 +225,7 @@
   margin: 0 auto;
 }
 
-/* ===== LEFT — Share Journey Form ===== */
+/* LEFT — Share Journey Form */
 
 .share-journey-panel {
   background: #fff;
@@ -250,7 +250,7 @@
   margin: 0 0 18px;
 }
 
-/* ===== Form Fields ===== */
+/* Form Fields */
 
 .review-form input,
 .review-form textarea {
@@ -286,7 +286,7 @@
   min-height: 90px;
 }
 
-/* ===== Star Rating — Inline Row (matches other input boxes) ===== */
+/* Star Rating */
 
 .star-rating-inline {
   width: 100%;
@@ -339,7 +339,7 @@
   transform: scale(1.15);
 }
 
-/* ===== Submit Button ===== */
+/* Submit Button */
 
 .review-form button[type="submit"] {
   width: 100%;
@@ -363,7 +363,7 @@
   transform: scale(0.98);
 }
 
-/* ===== Success Message ===== */
+/* Success Message */
 
 .submit-success {
   display: flex;
@@ -385,7 +385,7 @@
   color: #00D4AA;
 }
 
-/* ===== Right Section Header ===== */
+/* Right Section Header */
 
 .reviews-carousel-wrapper {
   min-width: 0;
@@ -405,7 +405,7 @@
   margin: 0;
 }
 
-/* ===== Navigation Buttons ===== */
+/* Navigation Buttons */
 
 .custom-nav {
   display: flex;
@@ -435,7 +435,7 @@
   border-color: #00D4AA;
 }
 
-/* ===== Review Card ===== */
+/* Review Card */
 
 .review-window-card {
   background: #fff;
@@ -555,7 +555,7 @@
   opacity: 0.8;
 }
 
-/* ===== Swiper ===== */
+/* Swiper */
 
 .swiper {
   width: 100%;
@@ -575,7 +575,7 @@
   width: 100%;
 }
 
-/* ===== Modal ===== */
+/* Modal */
 
 .review-modal-overlay {
   position: fixed;
@@ -680,7 +680,7 @@
   color: #8fa5bb;
 }
 
-/* ===== Animation ===== */
+/* Animations */
 
 @keyframes fadeInUp {
   from {
@@ -694,7 +694,7 @@
   }
 }
 
-/* ===== Tablet ===== */
+/* Tablet */
 
 @media (max-width: 960px) {
   .testimonials-two-col {
@@ -707,7 +707,7 @@
   }
 }
 
-/* ===== Mobile ===== */
+/* Mobile */
 
 @media (max-width: 600px) {
 
@@ -812,10 +812,6 @@
   }
 }
 
-/* =========================
-   TESTIMONIAL BOTTOM IMAGE
-========================= */
-
 .testimonial-bg-image {
   width: 100%;
   margin-top: 20px;
@@ -865,9 +861,7 @@
   transform: scale(1.08);
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
+/* Animations */
 
 @keyframes slideUpImage {
   0% {
@@ -905,9 +899,7 @@
   }
 }
 
-/* =========================
-   TABLET
-========================= */
+/* Tablet */
 
 @media (max-width: 992px) {
   .testimonial-bg-image {
@@ -920,9 +912,7 @@
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* Mobile */
 
 @media (max-width: 768px) {
   .testimonial-bg-image {
@@ -936,9 +926,7 @@
   }
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* Small Mobile */
 
 @media (max-width: 480px) {
   .testimonial-bg-image {
@@ -952,9 +940,7 @@
   }
 }
 
-/* ===================================
-   LARGE LAPTOP (1440px+)
-=================================== */
+/* LARGE LAPTOP (1440px+) */
 @media (min-width: 1440px) {
 
   .testimonials-section {
@@ -998,9 +984,8 @@
   }
 }
 
-/* ===================================
-   FULL HD (1920px+)
-=================================== */
+/* FULL HD (1920px+) */
+
 @media (min-width: 1920px) {
 
   .testimonials-section {
@@ -1094,9 +1079,7 @@
   }
 }
 
-/* ===================================
-   2K / 4K MONITORS (2560px+)
-=================================== */
+/* 2K / 4K MONITORS (2560px+) */
 @media (min-width: 2560px) {
 
   .testimonials-section {
