@@ -22,7 +22,6 @@
     margin-top: 10px;
 }
 
-/* FIXED UNDERLINE (centered properly) */
 .underline::after {
     content: "";
     display: block;
@@ -30,7 +29,7 @@
     height: 2px;
     background: #00D4AA;
     border-radius: 10px;
-    margin: 8px auto 0;   /* FIX: replaces margin-left: 750px */
+    margin: 8px auto 0;   
 }
 
 /* MAIN CONTAINER */
@@ -41,15 +40,12 @@
     gap: 20px;
 }
 
-/* SCROLL AREA */
 .gallery-item {
     display: flex;
     gap: 20px;
-
     width: 100%;
-    max-width: 1200px;   /* FIX: instead of fixed width */
+    max-width: 1200px;   
     overflow-x: auto;
-
     scroll-behavior: smooth;
     scrollbar-width: none;
 }

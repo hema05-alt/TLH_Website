@@ -16,7 +16,7 @@
     margin: auto;
 }
 
-/* ── TOP SECTION ── */
+/* TOP SECTION */
 .about-top {
     display: flex;
     gap: 40px;
@@ -45,7 +45,7 @@
 
 
 .picture1 {
-    top: 150px;
+    top: 120px;
     left: -40px;
     transform: rotate(-10deg);
     z-index: 1;
@@ -65,7 +65,7 @@
     z-index: 3;
 }
 
-/* ── RIGHT CONTENT ── */
+/* RIGHT CONTENT */
 .about-content {
     flex: 1;
     min-width: 280px;
@@ -97,7 +97,7 @@
     margin: 10px 0 20px 0;
 }
 
-/* ── VISION / MISSION CARDS ── */
+/* VISION / MISSION CARDS */
 .vision {
     display: flex;
     gap: 16px;
@@ -134,7 +134,7 @@
     color: #00D4AA;
 }
 
-/* ── BOTTOM FEATURES BAR ── */
+/* BOTTOM FEATURES BAR */
 .about-bottom {
     box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
@@ -149,7 +149,7 @@
     transform: translateY(-6px);
 }
 
-/* Desktop — all 5 items in one row */
+/* Feature */
 .features {
     display: flex;
     justify-content: space-between;
@@ -181,10 +181,7 @@
     line-height: 1.4;
 }
 
-/* ==========================================
-   VISION & MISSION GLOW EFFECT
-========================================== */
-/* Icon Glow Only */
+/* VISION & MISSION GLOW EFFECT */
 
 .info-card:hover,
 .info-card1:hover {
@@ -209,9 +206,7 @@
 }
 
 
-/* ==========================================
-   FEATURE SECTION FLOAT EFFECT
-========================================== */
+/* FEATURE SECTION FLOAT EFFECT */
 
 .feature-item {
     transition: all 0.4s ease;
@@ -259,7 +254,7 @@
 
 .feature-item:hover {
     transform: translateY(-12px);
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Icon Hover */
@@ -284,9 +279,7 @@
 }
 
 
-/* ==========================================
-   FEATURE BAR GLOW SHADOW
-========================================== */
+/* FEATURE BAR GLOW SHADOW */
 
 .about-bottom {
     box-shadow:
@@ -305,11 +298,8 @@
     transform: translateY(-6px);
 }
 
-/* ════════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-════════════════════════════════════════ */
+/* RESPONSIVE */
 
-/* ── LAPTOP  992px – 1199px ── */
 @media (max-width: 1199px) {
 
     .about-image {
@@ -322,15 +312,34 @@
         height: 185px;
     }
 
-    .picture1 { top: 79px; left: -35px; transform: rotate(-10deg); }
-    .picture2 { top: 53px; right: 0px;  transform: rotate(8deg);   }
-    .picture3 { bottom: 62px; left: 50%; transform: translateX(-50%) rotate(3deg); }
+    .picture1 {
+        top: 79px;
+        left: -35px;
+        transform: rotate(-10deg);
+    }
 
-    .about-content h1 { font-size: 30px; }
-    .about-bottom { width: 95%; }
+    .picture2 {
+        top: 53px;
+        right: 0px;
+        transform: rotate(8deg);
+    }
+
+    .picture3 {
+        bottom: 62px;
+        left: 50%;
+        transform: translateX(-50%) rotate(3deg);
+    }
+
+    .about-content h1 {
+        font-size: 30px;
+    }
+
+    .about-bottom {
+        width: 95%;
+    }
 }
 
-/* ── TABLET  600px – 991px ── */
+
 @media (max-width: 991px) {
 
     .about-top {
@@ -354,17 +363,36 @@
         border: 6px solid #fff;
     }
 
-    .picture1 { top: 66px; left: -10px; transform: rotate(-10deg); }
-    .picture2 { top: 44px; right: 0px;  transform: rotate(8deg);   }
-    .picture3 { bottom: 51px; left: 50%; transform: translateX(-50%) rotate(3deg); }
+    .picture1 {
+        top: 66px;
+        left: -10px;
+        transform: rotate(-10deg);
+    }
 
-    .about-content { width: 100%; }
-    .about-content h1 { font-size: 34px; }
+    .picture2 {
+        top: 44px;
+        right: 0px;
+        transform: rotate(8deg);
+    }
 
-    .vision { flex-direction: row; }
+    .picture3 {
+        bottom: 51px;
+        left: 50%;
+        transform: translateX(-50%) rotate(3deg);
+    }
 
-    /* ── TABLET features: 3 columns × 2 rows
-       icon on top, text below each item     ── */
+    .about-content {
+        width: 100%;
+    }
+
+    .about-content h1 {
+        font-size: 34px;
+    }
+
+    .vision {
+        flex-direction: row;
+    }
+
     .about-bottom {
         width: 100%;
         padding: 24px 20px;
@@ -396,10 +424,12 @@
     }
 }
 
-/* ── MOBILE  0 – 599px ── */
+
 @media (max-width: 599px) {
 
-    .about-section { padding: 36px 16px; }
+    .about-section {
+        padding: 36px 16px;
+    }
 
     .about-top {
         gap: 16px;
@@ -419,12 +449,31 @@
         border: 5px solid #fff;
     }
 
-    .picture1 { top: 49px; left: 0px;  transform: rotate(-10deg); }
-    .picture2 { top: 45px; right: 0px; transform: rotate(8deg);   }
-    .picture3 { bottom: 38px; left: 50%; transform: translateX(-50%) rotate(3deg); }
+    .picture1 {
+        top: 49px;
+        left: 0px;
+        transform: rotate(-10deg);
+    }
 
-    .about-content h1 { font-size: 30px; }
-    .about-content p { font-size: 14px; }
+    .picture2 {
+        top: 45px;
+        right: 0px;
+        transform: rotate(8deg);
+    }
+
+    .picture3 {
+        bottom: 38px;
+        left: 50%;
+        transform: translateX(-50%) rotate(3deg);
+    }
+
+    .about-content h1 {
+        font-size: 30px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+    }
 
     .vision {
         flex-direction: column;
@@ -438,20 +487,24 @@
     }
 
     .info-card h3,
-    .info-card1 h3 { font-size: 18px; }
+    .info-card1 h3 {
+        font-size: 18px;
+    }
 
     .info-card .icon1,
-    .info-card1 .icon2 { font-size: 26px; }
+    .info-card1 .icon2 {
+        font-size: 26px;
+    }
 
-    /* ── MOBILE features: 2 columns × 3 rows
-       icon on top, text below each item     ── */
     .about-bottom {
         width: 75%;
         padding: 20px 16px;
         border-radius: 14px;
     }
 
-    .about-bottom:hover { transform: none; }
+    .about-bottom:hover {
+        transform: none;
+    }
 
     .features {
         display: flex;
@@ -470,6 +523,11 @@
         width: 100%;
     }
 
-    .feature-item span { font-size: 24px; }
-    .feature-item p    { font-size: 12px; }
+    .feature-item span {
+        font-size: 24px;
+    }
+
+    .feature-item p {
+        font-size: 12px;
+    }
 }

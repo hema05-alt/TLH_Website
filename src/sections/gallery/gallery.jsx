@@ -61,7 +61,7 @@ function Gallery() {
 
     
     return (
-        <section className="gallery-section">
+        <section className="gallery-section" id="gallery">
 
             <div className="gallery-header">
                 <h6 className="underline">Our Gallery</h6>

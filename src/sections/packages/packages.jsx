@@ -24,6 +24,7 @@ function Packages() {
 
     const [showBookingForm, setShowBookingForm] = useState(false);
 
+    // Insert json packages inside the jsx file.
     const packages = [
         {
             title: "VAGAMON",
@@ -85,12 +86,7 @@ function Packages() {
             <div className="packages-container">
 
                 {packages.map((item, index) => (
-                    <div
-                        key={index}
-                        className="package-card"
-                        data-aos="fade-up"
-                        data-aos-delay={100 * (index + 1)}
-                    >
+                    <div key={index} className="package-card" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
 
                         <img
                             src={item.image}

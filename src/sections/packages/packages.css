@@ -36,7 +36,6 @@
     color: #123A2F;
 }
 
-/* FIXED UNDERLINE (centered properly) */
 .pack-underline::after {
     content: "";
     display: block;
@@ -47,7 +46,6 @@
     margin: 10px auto 0;   /* FIXED */
 }
 
-/* LOGO ANIMATION */
 .package-logo {
     margin-left: 12px;
     color: #0f273b;
@@ -60,11 +58,9 @@
     100% { transform: translateY(0); }
 }
 
-/* GRID CONTAINER */
 .packages-container {
     max-width: 1200px;
     margin: auto;
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;

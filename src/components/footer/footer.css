@@ -101,9 +101,7 @@
     color: #e5e5e5;
 }
 
-/* ============================================
-   FOOTER SECTION FADE-UP ANIMATION
-============================================ */
+/* ========= ANIMATION ========= */
 
 .footer-section {
     opacity: 0;
@@ -139,10 +137,6 @@
     }
 }
 
-/* ============================================
-   FOOTER SECTION HOVER EFFECT
-============================================ */
-
 .footer-section {
     transition: transform 0.3s ease;
 }
@@ -150,10 +144,6 @@
 .footer-section:hover {
     transform: translateY(-5px);
 }
-
-/* ============================================
-   LOGO FLOAT ANIMATION
-============================================ */
 
 .logo {
     animation: logoFloat 3s ease-in-out infinite;
@@ -172,10 +162,6 @@
         transform: translateY(0);
     }
 }
-
-/* ============================================
-   FOOTER HEADING UNDERLINE ANIMATION
-============================================ */
 
 .footer-section h3 {
     position: relative;
@@ -197,10 +183,6 @@
     width: 100%;
 }
 
-/* ============================================
-   QUICK LINKS ANIMATION
-============================================ */
-
 .footer-section ul li {
     transition: all 0.3s ease;
 }
@@ -209,10 +191,6 @@
     color: #00D4AA;
     transform: translateX(6px);
 }
-
-/* ============================================
-   CONTACT ICON ANIMATION
-============================================ */
 
 .contact-info svg {
     transition: all 0.3s ease;
@@ -223,10 +201,6 @@
     transform: scale(1.2);
 }
 
-/* ============================================
-   COMPANY NAME GLOW EFFECT
-============================================ */
-
 .company-info h2 {
     transition: all 0.3s ease;
 }
@@ -234,10 +208,6 @@
 .company-info h2:hover {
     text-shadow: 0 0 10px rgba(0, 212, 170, 0.6);
 }
-
-/* ============================================
-   TRAVEL • EXPLORE • EXPERIENCE
-============================================ */
 
 .company-info p {
     animation: fadeText 3s ease-in-out infinite;
@@ -257,10 +227,6 @@
     }
 }
 
-/* ============================================
-   FOOTER BOTTOM FADE-IN
-============================================ */
-
 .footer-bottom {
     opacity: 0;
     animation: footerBottomFade 1s ease forwards;
@@ -277,9 +243,7 @@
     }
 }
 
-/* =========================
-   Tablet ≤ 992px
-========================= */
+/* ======== Tablet ≤ 992px =========== */
 
 @media (max-width: 992px) {
 
@@ -294,9 +258,7 @@
     }
 }
 
-/* =========================
-   Mobile ≤ 768px
-========================= */
+/* =========Mobile ≤ 768px ========== */
 
 @media (max-width: 768px) {
 
@@ -328,9 +290,7 @@
     }
 }
 
-/* =========================
-   Small Mobile ≤ 400px
-========================= */
+/* ========== Small Mobile ≤ 400px ========== */
 
 @media (max-width: 400px) {
 
@@ -352,9 +312,7 @@
     }
 }
 
-/* =========================
-   Large Laptop ≥ 1440px
-========================= */
+/* ========= Large Laptop ≥ 1440px ========== */
 
 @media (min-width: 1440px) {
 
@@ -367,9 +325,7 @@
     }
 }
 
-/* =========================
-   Full HD ≥ 1920px
-========================= */
+/* ============ Full HD ≥ 1920px ============= */
 
 @media (min-width: 1920px) {
 
@@ -387,33 +343,5 @@
 
     .footer-section h3 {
         font-size: 26px;
-    }
-}
-
-/* =========================
-   2K / 4K ≥ 2560px
-========================= */
-
-@media (min-width: 2560px) {
-
-    .footer {
-        padding: 100px 180px;
-    }
-
-    .company-info h2 {
-        font-size: 56px;
-    }
-
-    .company-info p {
-        font-size: 22px;
-    }
-
-    .footer-section h3 {
-        font-size: 32px;
-    }
-
-    .footer-section ul li,
-    .contact-info span {
-        font-size: 20px;
     }
 }
