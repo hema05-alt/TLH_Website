@@ -22,6 +22,8 @@
 .packages-header h1 {
     font-size: 40px;
     margin-top: 10px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .packages-header h1 span {
@@ -33,14 +35,16 @@
     color: #123A2F;
 }
 
-.pack-underline::after{
+.pack-underline::after {
     content: "";
     display: block;
     width: 150px;
     height: 2px;
-    background: #00D4AA;
+    background: linear-gradient(90deg, #00D4AA, #00ffe0, #00D4AA);
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
     border-radius: 10px;
-    margin-left: 725px;
+    margin: 8px auto 0;
 }
 
 .package-logo {
@@ -50,19 +54,17 @@
 }
 
 @keyframes floatLogo {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
 }
 
 /* Cards Container */
-
 .packages-container {
     max-width: 1200px;
     margin: auto;
@@ -72,7 +74,6 @@
 }
 
 /* Card */
-
 .package-card {
     background: #f3f1ef;
     border-radius: 15px;
@@ -147,120 +148,100 @@
     margin-right: 8px;
     font-size: 25px;
 }
-/* ==========================================
-   TABLET (≤ 992px)
-========================================== */
+
+/* TABLET (≤ 992px)*/
 @media (max-width: 992px) {
 
-    .packages-section {
-        padding: 50px 20px;
-    }
+    .packages-section { padding: 50px 20px; }
 
     .packages-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
-    .packages-header h1 {
-        font-size: 34px;
-    }
+    .packages-header h1 { font-size: 34px; }
 
-    .pack-underline::after {
-        margin: 10px auto 0;
-    }
+    .pack-underline::after { margin: 8px auto 0; }
 }
 
-
-/* ==========================================
-   MOBILE (≤ 768px)
-========================================== */
+/* MOBILE (≤ 768px) */
 @media (max-width: 768px) {
 
-    .packages-section {
-        padding: 40px 15px;
-    }
+    .packages-section { padding: 40px 15px; }
 
-    .packages-header {
-        margin-bottom: 35px;
-    }
+    .packages-header { margin-bottom: 35px; }
 
-    .packages-header h1 {
-        font-size: 28px;
-    }
+    .packages-header h1 { font-size: 28px; }
 
     .packages-header p {
         font-size: 14px;
         line-height: 1.6;
     }
 
+    /* 2 cards per row — top 2, bottom 2 */
     .packages-container {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+        gap: 15px;
     }
 
-    .package-card h3 {
-        font-size: 22px;
+    .package-card h3 { font-size: 18px; }
+
+    .package-image { height: 150px; }
+
+    .package-card > p { font-size: 12px; }
+
+    .package-list-item p {
+        font-size: 12px;
+        margin: 8px 0;
+        gap: 7px;
     }
 
-    .package-image {
-        height: 220px;
+    .package-card h3    { margin: 10px; }
+    .package-card > p   { margin: 0 10px 10px; }
+    .package-list-item  { padding: 0 10px; }
+    .package-footer     { padding: 10px; }
+
+    .enquire-now {
+        height: 42px;
+        font-size: 13px;
     }
+
+    .whatsapp { font-size: 18px; }
 
     .pack-underline::after {
         width: 120px;
-        margin: 10px auto 0;
+        margin: 8px auto 0;
     }
 }
 
-
-/* ==========================================
-   SMALL MOBILE (≤ 400px)
-========================================== */
+/* SMALL MOBILE (≤ 400px) */
 @media (max-width: 400px) {
 
-    .packages-header h1 {
-        font-size: 24px;
-    }
+    .packages-container { gap: 10px; }
 
-    .packages-header h6 {
-        font-size: 13px;
-    }
+    .packages-header h1 { font-size: 22px; }
+    .packages-header h6 { font-size: 13px; }
+    .packages-header p  { font-size: 13px; }
 
-    .packages-header p {
-        font-size: 13px;
-    }
+    .package-card h3  { font-size: 15px; margin: 8px; }
+    .package-card > p { font-size: 11px; margin: 0 8px 8px; }
 
-    .package-card h3 {
-        font-size: 20px;
-    }
+    .package-list-item   { padding: 0 8px; }
+    .package-list-item p { font-size: 11px; gap: 5px; margin: 6px 0; }
 
-    .package-card > p {
-        font-size: 14px;
-    }
-
-    .package-list-item p {
-        font-size: 13px;
-    }
-
-    .package-image {
-        height: 180px;
-    }
+    .package-image { height: 130px; }
 
     .enquire-now {
-        height: 45px;
-        font-size: 14px;
+        height: 38px;
+        font-size: 12px;
     }
 
-    .package-logo {
-        font-size: 26px;
-    }
+    .whatsapp    { font-size: 16px; margin-right: 5px; }
+    .package-logo { font-size: 22px; }
 }
 
-
-/* ==========================================
-   LARGE LAPTOP (≥ 1440px)
-========================================== */
+/* LARGE LAPTOP (≥ 1440px) */
 @media (min-width: 1440px) {
 
     .packages-container {
@@ -268,89 +249,48 @@
         gap: 30px;
     }
 
-    .packages-header h1 {
-        font-size: 48px;
-    }
+    .packages-header h1 { font-size: 48px; }
 
-    .package-image {
-        height: 240px;
-    }
-
-    .package-card h3 {
-        font-size: 28px;
-    }
+    .package-image  { height: 240px; }
+    .package-card h3 { font-size: 28px; }
 }
 
-
-/* ==========================================
-   FULL HD (≥ 1920px)
-========================================== */
+/* FULL HD (≥ 1920px) */
 @media (min-width: 1920px) {
 
-    .packages-section {
-        padding: 80px 5%;
-    }
+    .packages-section { padding: 80px 5%; }
 
     .packages-container {
         max-width: 1800px;
         gap: 35px;
     }
 
-    .packages-header h1 {
-        font-size: 56px;
-    }
+    .packages-header h1 { font-size: 56px; }
+    .packages-header p  { font-size: 18px; }
 
-    .packages-header p {
-        font-size: 18px;
-    }
+    .package-image   { height: 280px; }
+    .package-card h3 { font-size: 32px; }
 
-    .package-image {
-        height: 280px;
-    }
-
-    .package-card h3 {
-        font-size: 32px;
-    }
-
-    .package-list-item p {
-        font-size: 16px;
-    }
+    .package-list-item p { font-size: 16px; }
 }
 
-
-/* ==========================================
-   2K / 4K (≥ 2560px)
-========================================== */
+/*  2K / 4K (≥ 2560px) */
 @media (min-width: 2560px) {
 
-    .packages-section {
-        padding: 120px 8%;
-    }
+    .packages-section { padding: 120px 8%; }
 
     .packages-container {
         max-width: 2200px;
         gap: 40px;
     }
 
-    .packages-header h1 {
-        font-size: 72px;
-    }
+    .packages-header h1 { font-size: 72px; }
+    .packages-header p  { font-size: 24px; }
 
-    .packages-header p {
-        font-size: 24px;
-    }
+    .package-image   { height: 350px; }
+    .package-card h3 { font-size: 40px; }
 
-    .package-image {
-        height: 350px;
-    }
-
-    .package-card h3 {
-        font-size: 40px;
-    }
-
-    .package-list-item p {
-        font-size: 20px;
-    }
+    .package-list-item p { font-size: 20px; }
 
     .enquire-now {
         height: 60px;

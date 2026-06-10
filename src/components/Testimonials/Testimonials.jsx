@@ -10,7 +10,7 @@ import testimonialsBg from "../../assets/images/testimonials-bg.webp";
 
 import VanillaTilt from "vanilla-tilt";
 
-import { supabase } from "../../supabase"; // path adjust பண்ணு if needed
+import { supabase } from "../../supabase";
 
 const routeNames = [
   "Chennai → Ooty",
@@ -21,24 +21,32 @@ const routeNames = [
   "Trichy → Wayanad",
 ];
 
+/* Give static JSON reviews a stable unique prefix so they
+   never clash with Supabase uuid-based ids               */
+const staticReviews = reviewsData.map((r, i) => ({
+  ...r,
+  id: r.id ?? `static-${i}`,
+}));
+
 const Testimonials = () => {
-  const [userReviews, setUserReviews] = useState([]);
-  const [allReviews, setAllReviews] = useState([]);
+  const [userReviews, setUserReviews]       = useState([]);
+  const [allReviews, setAllReviews]         = useState([]);
   const [selectedReview, setSelectedReview] = useState(null);
-  const [currentRoute, setCurrentRoute] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [newReviewId, setNewReviewId] = useState(null);
-  const [hoverStar, setHoverStar] = useState(0);
-  const swiperRef = useRef(null);
-  const cardsRef = useRef([]);
+  const [currentRoute, setCurrentRoute]     = useState(0);
+  const [submitted, setSubmitted]           = useState(false);
+  const [submitting, setSubmitting]         = useState(false);
+  const [newReviewId, setNewReviewId]       = useState(null);
+  const [hoverStar, setHoverStar]           = useState(0);
+
+  const swiperRef   = useRef(null);
+  const cardsRef    = useRef([]);
+  const sectionRef  = useRef(null);
+  const headerRef   = useRef(null);
+  const routeRef    = useRef(null);
+  const roadRef     = useRef(null);
 
   const [formData, setFormData] = useState({
-    name: "",
-    location: "",
-    trip: "",
-    review: "",
-    rating: 5,
+    name: "", location: "", trip: "", review: "", rating: 5,
   });
 
   /* ── Fetch user reviews from Supabase ── */
@@ -49,39 +57,31 @@ const Testimonials = () => {
         .select("*")
         .order("created_at", { ascending: false });
 
-      if (error) {
-        console.error("Error fetching reviews:", error);
-        return;
-      }
+      if (error) { console.error("Error fetching reviews:", error); return; }
 
       const fetched = data.map((item) => ({
         ...item,
+        id: `supabase-${item.id}`,
         date: new Date(item.created_at).toLocaleDateString("en-IN"),
       }));
-
       setUserReviews(fetched);
     };
-
     fetchReviews();
   }, []);
 
-  /* ── Merge: user reviews + static JSON reviews ── */
+  /* ── Merge reviews ── */
   useEffect(() => {
-    setAllReviews([...userReviews, ...reviewsData]);
+    setAllReviews([...userReviews, ...staticReviews]);
   }, [userReviews]);
 
-  /* ── 3D Tilt Effect ── */
+  /* ── VanillaTilt ── */
   useEffect(() => {
     const validRefs = cardsRef.current.filter(Boolean);
     if (validRefs.length > 0) {
       VanillaTilt.init(validRefs, {
-        max: 18,
-        speed: 500,
-        glare: true,
-        "max-glare": 0.35,
-        scale: 1.04,
-        perspective: 1400,
-        gyroscope: true,
+        max: 18, speed: 500, glare: true,
+        "max-glare": 0.35, scale: 1.04,
+        perspective: 1400, gyroscope: true,
       });
     }
     return () => {
@@ -101,27 +101,104 @@ const Testimonials = () => {
     return () => clearInterval(interval);
   }, []);
 
-  /* ── Form Change ── */
+  /* ── IntersectionObserver: header + route board + road ── */
+  useEffect(() => {
+    const blocks = [
+      {
+        el: headerRef.current,
+        hidden: { opacity: "0", transform: "translateY(-24px)" },
+        shown:  { opacity: "1", transform: "translateY(0)",
+                  transition: "opacity 0.7s ease, transform 0.7s ease" },
+      },
+      {
+        el: routeRef.current,
+        hidden: { opacity: "0", transform: "scale(0.9)" },
+        shown:  { opacity: "1", transform: "scale(1)",
+                  transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s" },
+      },
+      {
+        el: roadRef.current,
+        hidden: { opacity: "0" },
+        shown:  { opacity: "1", transition: "opacity 0.5s ease 0.2s" },
+      },
+    ];
+
+    blocks.forEach(({ el, hidden }) => {
+      if (el) Object.assign(el.style, hidden);
+    });
+
+    const observers = blocks.map(({ el, hidden, shown }) => {
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            Object.assign(el.style, shown);
+          } else {
+            el.style.transition = "none";
+            Object.assign(el.style, hidden);
+          }
+        },
+        { threshold: 0.15 }
+      );
+      obs.observe(el);
+      return obs;
+    });
+
+    return () => observers.forEach((obs) => obs && obs.disconnect());
+  }, []);
+
+  /* ── IntersectionObserver: review cards ── */
+  useEffect(() => {
+    if (!allReviews.length) return;
+    const observers = [];
+
+    cardsRef.current.forEach((card, i) => {
+      if (!card) return;
+
+      card.style.opacity   = "0";
+      card.style.transform = "translateY(36px)";
+
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            card.style.transition = `opacity 0.55s ease ${i * 0.08}s,
+                                     transform 0.55s ease ${i * 0.08}s`;
+            card.style.opacity   = "1";
+            card.style.transform = "translateY(0)";
+          } else {
+            card.style.transition = "none";
+            card.style.opacity    = "0";
+            card.style.transform  = "translateY(36px)";
+          }
+        },
+        { threshold: 0.12 }
+      );
+
+      obs.observe(card);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, [allReviews]);
+
+  /* ── Form handlers ── */
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  /* ── Submit Review to Supabase ── */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
     const { data, error } = await supabase
       .from("reviews")
-      .insert([
-        {
-          name: formData.name,
-          location: formData.location,
-          trip: formData.trip,
-          review: formData.review,
-          rating: Number(formData.rating),
-        },
-      ])
+      .insert([{
+        name:     formData.name,
+        location: formData.location,
+        trip:     formData.trip,
+        review:   formData.review,
+        rating:   Number(formData.rating),
+      }])
       .select()
       .single();
 
@@ -134,12 +211,12 @@ const Testimonials = () => {
 
     const newReview = {
       ...data,
+      id: `supabase-${data.id}`,
       date: new Date(data.created_at).toLocaleDateString("en-IN"),
     };
 
     setUserReviews((prev) => [newReview, ...prev]);
-    setNewReviewId(data.id);
-
+    setNewReviewId(`supabase-${data.id}`);
     setFormData({ name: "", location: "", trip: "", review: "", rating: 5 });
     setSubmitted(true);
     setSubmitting(false);
@@ -155,10 +232,10 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="testimonials-section" id="testimonials">
+    <section className="testimonials-section" id="testimonials" ref={sectionRef}>
 
       {/* Heading */}
-      <div className="testimonial-header">
+      <div className="testimonial-header" ref={headerRef}>
         <span className="sub-title">THOUSAND LIGHT HOLIDAYS - REVIEWS</span>
         <h2>
           <span className="pin-icon pin-before">📍</span>Journey Stories From
@@ -169,13 +246,13 @@ const Testimonials = () => {
       </div>
 
       {/* Route Board */}
-      <div className="route-board">
+      <div className="route-board" ref={routeRef}>
         <div className="route-label">CURRENT TOUR ROUTE</div>
         <div className="route-name">{routeNames[currentRoute]}</div>
       </div>
 
       {/* Road + Bus */}
-      <div className="road-area">
+      <div className="road-area" ref={roadRef}>
         <div className="road"></div>
         <div className="bus-wrapper">
           <div className="bus">
@@ -204,28 +281,16 @@ const Testimonials = () => {
 
           <form className="review-form" onSubmit={handleSubmit}>
             <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
+              type="text" name="name" placeholder="Your Name"
+              value={formData.name} onChange={handleChange} required
             />
             <input
-              type="text"
-              name="location"
-              placeholder="Your City"
-              value={formData.location}
-              onChange={handleChange}
-              required
+              type="text" name="location" placeholder="Your City"
+              value={formData.location} onChange={handleChange} required
             />
             <input
-              type="text"
-              name="trip"
-              placeholder="Tour Package"
-              value={formData.trip}
-              onChange={handleChange}
-              required
+              type="text" name="trip" placeholder="Tour Package"
+              value={formData.trip} onChange={handleChange} required
             />
 
             <div className="star-rating-inline">
@@ -233,29 +298,21 @@ const Testimonials = () => {
               <div className="stars-input">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
-                    key={star}
+                    key={`star-${star}`}
                     type="button"
-                    className={`star-btn${
-                      star <= (hoverStar || formData.rating) ? " active" : ""
-                    }`}
+                    className={`star-btn${star <= (hoverStar || formData.rating) ? " active" : ""}`}
                     onClick={() => setFormData({ ...formData, rating: star })}
                     onMouseEnter={() => setHoverStar(star)}
                     onMouseLeave={() => setHoverStar(0)}
                     aria-label={`${star} star${star > 1 ? "s" : ""}`}
-                  >
-                    ★
-                  </button>
+                  >★</button>
                 ))}
               </div>
             </div>
 
             <textarea
-              rows="5"
-              name="review"
-              placeholder="Share your experience..."
-              value={formData.review}
-              onChange={handleChange}
-              required
+              rows="5" name="review" placeholder="Share your experience..."
+              value={formData.review} onChange={handleChange} required
             />
 
             <button type="submit" disabled={submitting}>
@@ -344,21 +401,11 @@ const Testimonials = () => {
           className="review-modal-overlay"
           onClick={() => setSelectedReview(null)}
         >
-          <div
-            className="review-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="close-modal"
-              onClick={() => setSelectedReview(null)}
-            >
-              ✕
-            </button>
+          <div className="review-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={() => setSelectedReview(null)}>✕</button>
 
             <div className="modal-header">
-              <div className="modal-avatar">
-                {selectedReview.name.charAt(0)}
-              </div>
+              <div className="modal-avatar">{selectedReview.name.charAt(0)}</div>
               <div>
                 <h3>{selectedReview.name}</h3>
                 <span>{selectedReview.location}</span>
