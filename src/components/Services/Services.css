@@ -364,7 +364,6 @@
   border-radius: 18px;
   padding: 18px 14px;
 
-  /* Fix: equal columns, no gap bloat */
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr;
   align-items: center;
@@ -440,13 +439,11 @@
     padding: 50px 20px;
   }
 
-  /* Stack: left → right (blue card below) */
   .services-wrapper {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  /* Left side — full width, no clip */
   .services-left {
     width: 100%;
   }
@@ -465,7 +462,6 @@
     border-radius: 16px;
   }
 
-  /* Mini cards — 3 columns like desktop */
   .service-cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -506,13 +502,11 @@
     line-height: 1.45;
   }
 
-  /* Right card — same full-width alignment */
   .travel-card {
     width: 100%;
     box-sizing: border-box;
     padding: 24px;
     border-radius: 22px;
-    /* disable 3D tilt on mobile */
     transform: none !important;
     animation: pulseGlow 5s ease-in-out infinite;
   }
@@ -526,7 +520,6 @@
     font-size: 11px;
   }
 
-  /* Grid — 2 columns on mobile */
   .travel-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -537,7 +530,6 @@
     gap: 8px;
   }
 
-  /* Stats — horizontal, equal spacing */
   .stat-card {
     grid-template-columns: 1fr auto 1fr auto 1fr;
     padding: 14px 10px;

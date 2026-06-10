@@ -16,18 +16,50 @@ import {
 
 import "./Services.css";
 
+const miniCards = [
+  {
+    id: "tour-packages",
+    icon: <FaBus />,
+    title: "Tour Packages",
+    desc: <>Domestic Tours &<br />Customized Planning</>,
+  },
+  {
+    id: "special-trips",
+    icon: <FaUsers />,
+    title: "Special Trips",
+    desc: <>Honeymoon, Family<br />& Group Tours</>,
+  },
+  {
+    id: "seasonal-offers",
+    icon: <FaGift />,
+    title: "Seasonal Offers",
+    desc: <>Festival Packages &<br />Weekend Getaways</>,
+  },
+];
+
+const travelGridItems = [
+  { id: "pickup-drop",      label: "Pickup & Drop" },
+  { id: "hotel-stay",       label: "Hotel Stay" },
+  { id: "food",             label: "Food Arrangements" },
+  { id: "sightseeing",      label: "Sightseeing" },
+  { id: "activities",       label: "Activities & Games" },
+  { id: "tour-guides",      label: "Tour Guides" },
+  { id: "transportation",   label: "Transportation" },
+  { id: "trip-scheduling",  label: "Trip Scheduling" },
+];
+
 const Services = () => {
-  const statsRef = useRef(null);
-  const countedRef = useRef(false);
-  const cardsRef = useRef([]);
-  const sectionRef = useRef(null);
-  const leftRef = useRef(null);
-  const rightRef = useRef(null);
-  const headingRef = useRef(null);
-  const tagRef = useRef(null);
-  const descRef = useRef(null);
-  const imageRef = useRef(null);
-  const gridItemsRef = useRef([]);
+  const statsRef      = useRef(null);
+  const countedRef    = useRef(false);
+  const cardsRef      = useRef([]);
+  const sectionRef    = useRef(null);
+  const leftRef       = useRef(null);
+  const rightRef      = useRef(null);
+  const headingRef    = useRef(null);
+  const tagRef        = useRef(null);
+  const descRef       = useRef(null);
+  const imageRef      = useRef(null);
+  const gridItemsRef  = useRef([]);
 
   /* ---- Blob parallax ---- */
   useEffect(() => {
@@ -46,73 +78,94 @@ const Services = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
 
-      /* Tag */
       gsap.fromTo(tagRef.current,
         { opacity: 0, y: 20, letterSpacing: "1px" },
         {
           opacity: 1, y: 0, letterSpacing: "3px",
           duration: 0.8, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play reverse play reverse",
+          },
         }
       );
 
-      /* Heading */
       gsap.fromTo(headingRef.current,
         { opacity: 0, y: 40, skewY: 3 },
         {
           opacity: 1, y: 0, skewY: 0,
           duration: 0.9, delay: 0.1, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 78%" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 78%",
+            toggleActions: "play reverse play reverse",
+          },
         }
       );
 
-      /* Description */
       gsap.fromTo(descRef.current,
         { opacity: 0, y: 24 },
         {
           opacity: 1, y: 0,
           duration: 0.75, delay: 0.2, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 76%" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 76%",
+            toggleActions: "play reverse play reverse",
+          },
         }
       );
 
-      /* Image reveal */
       gsap.fromTo(imageRef.current,
         { clipPath: "inset(0 100% 0 0)", opacity: 0 },
         {
           clipPath: "inset(0 0% 0 0)", opacity: 1,
           duration: 1, delay: 0.3, ease: "power3.inOut",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 74%" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 74%",
+            toggleActions: "play reverse play reverse",
+          },
         }
       );
 
-      /* Mini cards stagger */
       gsap.fromTo(cardsRef.current,
         { opacity: 0, y: 36, scale: 0.92 },
         {
           opacity: 1, y: 0, scale: 1,
           duration: 0.6, stagger: 0.15, delay: 0.4, ease: "back.out(1.4)",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 72%" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 72%",
+            toggleActions: "play reverse play reverse",
+          },
         }
       );
 
-      /* Right card slide in */
       gsap.fromTo(rightRef.current,
         { opacity: 0, x: 60 },
         {
           opacity: 1, x: 0,
           duration: 1, delay: 0.2, ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 78%" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 78%",
+            toggleActions: "play reverse play reverse",
+          },
         }
       );
 
-      /* Travel grid items stagger */
       gsap.fromTo(gridItemsRef.current,
         { opacity: 0, x: -18 },
         {
           opacity: 1, x: 0,
           duration: 0.45, stagger: 0.08, delay: 0.5, ease: "power2.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 72%" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 72%",
+            toggleActions: "play reverse play reverse",
+          },
         }
       );
 
@@ -121,7 +174,7 @@ const Services = () => {
     return () => ctx.revert();
   }, []);
 
-  /* ---- VanillaTilt on mini-cards ---- */
+  /* ---- VanillaTilt ---- */
   useEffect(() => {
     const validCards = cardsRef.current.filter(Boolean);
     if (validCards.length) {
@@ -140,10 +193,11 @@ const Services = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          if (entry.isIntersecting) countedRef.current = false;
           if (entry.isIntersecting && !countedRef.current) {
             countedRef.current = true;
             animateCounter("stat-tours", 0, 200, "+", 1400);
-            animateCounter("stat-years", 0, 2, "+", 900);
+            animateCounter("stat-years", 0, 2,   "+", 900);
           }
         });
       },
@@ -156,13 +210,15 @@ const Services = () => {
   const animateCounter = (id, from, to, suffix, duration) => {
     const el = document.getElementById(id);
     if (!el) return;
+    el.classList.remove("counter-pop");
+    void el.offsetWidth;
     el.classList.add("counter-pop");
     const startTime = performance.now();
     const update = (currentTime) => {
-      const elapsed = currentTime - startTime;
+      const elapsed  = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(from + (to - from) * eased);
+      const eased    = 1 - Math.pow(1 - progress, 3);
+      const current  = Math.floor(from + (to - from) * eased);
       el.textContent = current + suffix;
       if (progress < 1) requestAnimationFrame(update);
       else el.textContent = to + suffix;
@@ -173,17 +229,14 @@ const Services = () => {
   return (
     <section ref={sectionRef} className="services" id="services">
 
-      {/* Background blobs */}
       <div className="blob-mid" aria-hidden="true" />
 
       <div className="services-wrapper">
 
-        {/* ===== LEFT SIDE ===== */}
+        {/* ===== LEFT ===== */}
         <div className="services-left" ref={leftRef}>
 
-          <span className="service-tag" ref={tagRef}>
-            OUR SERVICES
-          </span>
+          <span className="service-tag" ref={tagRef}>OUR SERVICES</span>
 
           <h2 ref={headingRef}>
             Crafting Meaningful
@@ -205,25 +258,9 @@ const Services = () => {
           </div>
 
           <div className="service-cards">
-            {[
-              {
-                icon: <FaBus />,
-                title: "Tour Packages",
-                desc: <>Domestic Tours &<br />Customized Planning</>,
-              },
-              {
-                icon: <FaUsers />,
-                title: "Special Trips",
-                desc: <>Honeymoon, Family<br />& Group Tours</>,
-              },
-              {
-                icon: <FaGift />,
-                title: "Seasonal Offers",
-                desc: <>Festival Packages &<br />Weekend Getaways</>,
-              },
-            ].map((card, i) => (
+            {miniCards.map((card, i) => (
               <div
-                key={i}
+                key={card.id}
                 className="mini-card"
                 ref={(el) => (cardsRef.current[i] = el)}
               >
@@ -237,7 +274,7 @@ const Services = () => {
           </div>
         </div>
 
-        {/* ===== RIGHT SIDE ===== */}
+        {/* ===== RIGHT ===== */}
         <div className="travel-card" ref={rightRef}>
           <div>
             <span className="travel-label">COMPLETE A-Z ARRANGEMENTS</span>
@@ -249,22 +286,13 @@ const Services = () => {
             </h3>
 
             <div className="travel-grid">
-              {[
-                "Pickup & Drop",
-                "Hotel Stay",
-                "Food Arrangements",
-                "Sightseeing",
-                "Activities & Games",
-                "Tour Guides",
-                "Transportation",
-                "Trip Scheduling",
-              ].map((item, i) => (
+              {travelGridItems.map((item, i) => (
                 <p
-                  key={i}
+                  key={item.id}
                   ref={(el) => (gridItemsRef.current[i] = el)}
                 >
                   <FaCheckCircle className="check-icon" />
-                  {item}
+                  {item.label}
                 </p>
               ))}
             </div>

@@ -1,59 +1,162 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./about.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import picture3 from "../../assets/images/picture3.png";
 import picture1 from "../../assets/images/picture1.png";
 import picture2 from "../../assets/images/picture2.png";
-import {FaMapMarkedAlt, FaUserTie, FaBus, FaPhoneAlt, FaHotel, FaGlobe, FaEye, FaBullseye}from "react-icons/fa";
+import {
+    FaMapMarkedAlt,
+    FaUserTie,
+    FaBus,
+    FaPhoneAlt,
+    FaHotel,
+    FaEye,
+    FaBullseye,
+} from "react-icons/fa";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function About() {
 
-    // animation when i scroll the page
-     useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
+    const sectionRef   = useRef(null);
+    const imageRef     = useRef(null);
+    const headingRef   = useRef(null);
+    const para1Ref     = useRef(null);
+    const para2Ref     = useRef(null);
+    const card1Ref     = useRef(null);
+    const card2Ref     = useRef(null);
+    const bottomRef    = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+
+            const trigger = {
+                trigger: sectionRef.current,
+                start: "top 80%",
+                toggleActions: "play reverse play reverse",
+            };
+
+            /* Image — zoom in from left */
+            gsap.fromTo(imageRef.current,
+                { opacity: 0, x: -60, scale: 0.92 },
+                {
+                    opacity: 1, x: 0, scale: 1,
+                    duration: 1, ease: "power3.out",
+                    scrollTrigger: { ...trigger, start: "top 78%" },
+                }
+            );
+
+            /* Heading — fade up + skew */
+            gsap.fromTo(headingRef.current,
+                { opacity: 0, y: 40, skewY: 3 },
+                {
+                    opacity: 1, y: 0, skewY: 0,
+                    duration: 0.9, ease: "power3.out",
+                    scrollTrigger: { ...trigger, start: "top 76%" },
+                }
+            );
+
+            /* Para 1 */
+            gsap.fromTo(para1Ref.current,
+                { opacity: 0, y: 24 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.75, delay: 0.1, ease: "power2.out",
+                    scrollTrigger: { ...trigger, start: "top 74%" },
+                }
+            );
+
+            /* Para 2 */
+            gsap.fromTo(para2Ref.current,
+                { opacity: 0, y: 24 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.75, delay: 0.2, ease: "power2.out",
+                    scrollTrigger: { ...trigger, start: "top 72%" },
+                }
+            );
+
+            /* Vision card */
+            gsap.fromTo(card1Ref.current,
+                { opacity: 0, y: 36, scale: 0.93 },
+                {
+                    opacity: 1, y: 0, scale: 1,
+                    duration: 0.65, delay: 0.25, ease: "back.out(1.4)",
+                    scrollTrigger: { ...trigger, start: "top 72%" },
+                }
+            );
+
+            /* Mission card */
+            gsap.fromTo(card2Ref.current,
+                { opacity: 0, y: 36, scale: 0.93 },
+                {
+                    opacity: 1, y: 0, scale: 1,
+                    duration: 0.65, delay: 0.4, ease: "back.out(1.4)",
+                    scrollTrigger: { ...trigger, start: "top 72%" },
+                }
+            );
+
+            /* Bottom bar — slide up */
+            gsap.fromTo(bottomRef.current,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.9, ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: bottomRef.current,
+                        start: "top 88%",
+                        toggleActions: "play reverse play reverse",
+                    },
+                }
+            );
+
+        }, sectionRef);
+
+        return () => ctx.revert();
     }, []);
 
-
     return (
-        <section className="about-section" id="about">
+        <section className="about-section" id="about" ref={sectionRef}>
             <div className="about-container">
 
                 {/* Top content */}
                 <div className="about-top">
 
-                    {/* Left image */}
-                    <div className="about-image" data-aos="zoom-in">
+                    {/* Left — images */}
+                    <div className="about-image about-image-gsap" ref={imageRef}>
                         <img src={picture3} alt="About Us" className="picture picture1" />
                         <img src={picture1} alt="About Us" className="picture picture2" />
                         <img src={picture2} alt="About Us" className="picture picture3" />
                     </div>
 
-                    {/* Right content */}
-                    <div className="about-content" data-aos="fade-left">
-                        <h1 className="heading">About Us</h1>
-                        <p>
+                    {/* Right — content */}
+                    <div className="about-content">
+
+                        <h1 className="heading about-heading-gsap" ref={headingRef}>
+                            About Us
+                        </h1>
+
+                        <p className="about-para1-gsap" ref={para1Ref}>
                             Thousand Light Holidays is a passionate travel company dedicated
                             to creating memorable journeys across South India. We believe
                             every trip should be comfortable, safe, and full of beautiful
                             memories.
                         </p>
-                        <p>
+
+                        <p className="about-para2-gsap" ref={para2Ref}>
                             From family vacations to honeymoon getaways, group tours to
                             corporate outings - we handle every detail with care and
                             professionalism.
                         </p>
 
-                        {/* Vision */}
-                        <div className="vision" >
-                            <div className="info-card" data-aos="fade-up" data-aos-delay="100">
+                        {/* Vision & Mission */}
+                        <div className="vision">
+                            <div className="info-card about-card1-gsap" ref={card1Ref}>
                                 <div className="icon1">
                                     <span><FaEye /></span>
                                 </div>
-
                                 <div>
                                     <h3>Our Vision</h3>
                                     <p>
@@ -63,31 +166,28 @@ function About() {
                                 </div>
                             </div>
 
-                            {/* Mission */}
-                            <div className="info-card1" data-aos="fade-up" data-aos-delay="200">
+                            <div className="info-card1 about-card2-gsap" ref={card2Ref}>
                                 <div className="icon2">
                                     <span><FaBullseye /></span>
                                 </div>
-
                                 <div>
                                     <h3>Our Mission</h3>
                                     <p>
                                         To deliver safe, affordable, and joyful
-                                        travel experiences forevery customer.
+                                        travel experiences for every customer.
                                     </p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-
-            {/* Bottom Cards */}
-            <div className="about-bottom" data-aos="fade-up">
-
-                {/* Features */}
+            {/* Bottom feature bar */}
+            <div className="about-bottom about-bottom-gsap" ref={bottomRef}>
                 <div className="features">
+
                     <div className="feature-item">
                         <span><FaMapMarkedAlt /></span>
                         <p>Personalized Tour Planning</p>
@@ -115,9 +215,9 @@ function About() {
 
                 </div>
             </div>
+
         </section>
     );
-};
+}
 
 export default About;
-
